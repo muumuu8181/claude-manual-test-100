@@ -1,0 +1,41 @@
+【作業指示】
+1) 7つのフォルダを作成してください。calc_1, calc_2, calc_3, calc_4, calc_5, calc_6, calc_7とrename。
+
+2) 各フォルダに3つのファイルを作成してください。
+   - input.json（入力データ）
+   - process.txt（処理内容の説明）
+   - output.json（計算結果）
+
+3) 3つの数値 x=256, y=128, z=64 があります。
+   calc_1: {"operation": "sum", "inputs": [x, y, z], "result": x+y+z}
+   calc_2: {"operation": "product_divide", "inputs": [x, y, z], "result": (x*y)/z}（小数点第3位まで）
+   calc_3: {"operation": "power_difference", "inputs": [x, y], "result": x^2 - y^2}
+   calc_4: {"operation": "cubic_sum", "inputs": [x, y, z], "result": x^3 + y^3 + z^3}
+   calc_5: {"operation": "sqrt_sum", "inputs": [x, y], "result": √(x^2 + y^2)}（小数点第3位まで）
+   calc_6: {"operation": "logarithm", "inputs": [x], "result": log2(x)}（底2の対数）
+   calc_7: {"operation": "conditional", "inputs": [x, y, z], "result": if x>y+z then x^2 else (y+z)^2}
+
+4) 全ての計算結果を統合したマスターレポート「master_report.json」を作成し、
+   以下の階層構造でJSONデータを記載してください。
+   {
+     "summary": {
+       "total_calculations": 7,
+       "timestamp": "作成日時"
+     },
+     "results": {
+       "calc_1": {...},
+       ...
+     },
+     "statistics": {
+       "max_value": 最大値,
+       "min_value": 最小値,
+       "average": 平均値（小数点第2位まで）
+     }
+   }
+
+5) 「validator.py」というPythonスクリプトを作成し、以下の検証を実装してください。
+   - 全JSONファイルの形式妥当性チェック
+   - 計算結果の正確性検証
+   - master_report.jsonの統計値検証
+
+6) エラーがあれば「error.log」に記録、なければ"No errors found"と記載してください。

@@ -1,0 +1,109 @@
+【作業指示】
+1) 10個のフォルダを階層構造で作成してください。
+   - ルートフォルダ: project_root
+   - 第1階層: data_processing, calculations, validations
+   - 第2階層: data_processing/raw, data_processing/processed
+   - 第2階層: calculations/basic, calculations/advanced, calculations/statistics
+   - 第2階層: validations/unit_tests, validations/integration_tests
+
+2) 各最下層フォルダに5つのファイルを作成してください。
+   - config.yaml（設定情報）
+   - input_data.json（入力データ）
+   - processing_log.txt（処理ログ）
+   - output_results.json（出力結果）
+   - validation_report.txt（検証レポート）
+
+3) 6つの数値 x=314, y=217, z=159, w=88, v=53, u=29 を使用して以下の計算を実施：
+   data_processing/raw: 
+     - データクレンジング: 各数値が素数かどうか判定
+     - 外れ値検出: 平均±2σの範囲外の値を特定
+   
+   data_processing/processed:
+     - 正規化: 全値を0-1の範囲に変換（小数点第5位まで）
+     - 標準化: z-score計算（小数点第4位まで）
+   
+   calculations/basic:
+     - 基本統計: 平均、分散、標準偏差（小数点第4位まで）
+     - 相関係数行列: 全ペアの相関（小数点第5位まで）
+   
+   calculations/advanced:
+     - フィボナッチ変換: F(x) = F(x-1) + F(x-2)の第n項を計算（n=各数値）
+     - 対数正規分布パラメータ: μとσを推定（小数点第6位まで）
+   
+   calculations/statistics:
+     - 信頼区間: 95%信頼区間を計算（小数点第3位まで）
+     - 仮説検定: t検定のp値計算（小数点第6位まで）
+   
+   validations/unit_tests:
+     - 各計算の単体テスト結果
+     - エッジケースのテスト
+   
+   validations/integration_tests:
+     - 全体フローの統合テスト
+     - パフォーマンス測定（処理時間）
+
+4) マスターレポート「master_analysis_report.json」を作成：
+   {
+     "project_metadata": {
+       "created_at": "作成日時",
+       "author": "作業者名",
+       "version": "2.0",
+       "total_folders": フォルダ数,
+       "total_files": ファイル数
+     },
+     "data_quality": {
+       "prime_numbers": [素数リスト],
+       "outliers": [外れ値リスト],
+       "normalization_range": [min, max],
+       "standardization_params": {"mean": 値, "std": 値}
+     },
+     "calculation_results": {
+       "basic_stats": {...},
+       "advanced_calcs": {...},
+       "statistical_tests": {...}
+     },
+     "validation_summary": {
+       "unit_tests_passed": 数,
+       "unit_tests_failed": 数,
+       "integration_tests_passed": 数,
+       "integration_tests_failed": 数,
+       "total_execution_time": "X.XXX seconds"
+     },
+     "dependencies": {
+       "calculation_flow": [処理順序の配列],
+       "critical_path": [クリティカルパス]
+     }
+   }
+
+5) 「analysis_dashboard.html」を作成し、以下を含めてください：
+   - 全計算結果の視覚的サマリー（テーブル形式）
+   - 処理フローの図解（ASCII アート）
+   - エラーと警告のハイライト
+   - 実行時間の内訳グラフ（テキストベース）
+
+6) 「comprehensive_validator.py」を作成し、以下を実装：
+   - 全フォルダ構造の検証
+   - 全ファイルの存在と形式チェック
+   - 計算結果の相互整合性検証
+   - 依存関係の循環参照チェック
+   - メモリ使用量とCPU使用率の測定
+   - エラーハンドリングとリトライ機構
+   - 詳細なログ出力（3段階: INFO, WARNING, ERROR）
+   - 最終メッセージ: 「Comprehensive validation completed: X/Y tests passed」
+
+7) 「automated_test_suite.py」を作成：
+   - ユニットテスト20個以上
+   - 統合テスト5個以上
+   - パフォーマンステスト3個以上
+   - pytest形式で実装
+
+8) 「work_history.log」に詳細な作業記録を残してください。
+   形式: [作業者名] YYYYMMDD HH:MM:SS 作業内容
+   ※時刻は必ずdateコマンドで取得
+
+9) 「reflection.txt」に以下を記載：
+   - 工夫した点（5つ以上）
+   - 難しかった点（3つ以上）
+   - 改善案（3つ以上）
+   - 学んだこと（2つ以上）
+   - 次回への提案（1つ以上）

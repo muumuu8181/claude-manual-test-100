@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "created_at": "2025-08-13 08:49:42",
+    "author": "テストAI4",
+    "version": "1.0"
+  },
+  "calculations": {
+    "analysis_1": {
+      "formula": "(a+b)*(c-d) + e^2",
+      "result": 19006,
+      "verification_status": "passed"
+    },
+    "analysis_2": {
+      "formula": "a^2 - b^2 + c^2 - d^2",
+      "result": 38528,
+      "verification_status": "passed"
+    },
+    "analysis_3": {
+      "formula": "(a*b*c) / (d*e)",
+      "result": 3597.3478,
+      "verification_status": "passed"
+    },
+    "analysis_4": {
+      "formula": "√(a^2 + b^2) - √(c^2 + d^2)",
+      "result": 181.365,
+      "verification_status": "passed"
+    },
+    "analysis_5": {
+      "formula": "(c^3 - d^3) / (a-b) + e",
+      "result": 8749.6543,
+      "verification_status": "passed"
+    },
+    "analysis_6": {
+      "formula": "log10(a*b) + log10(c*d) - log10(e)",
+      "result": 6.8815,
+      "verification_status": "passed"
+    },
+    "analysis_7": {
+      "formula": "sin(a/180*π) + cos(b/180*π)",
+      "result": -1.76855,
+      "verification_status": "passed"
+    },
+    "analysis_8": {
+      "formula": "(a!/(a-5)!) / (b!/(b-3)!)",
+      "result": 192825,
+      "verification_status": "passed"
+    }
+  },
+  "statistics": {
+    "max": 192825,
+    "min": -1.76855,
+    "average": 32610.062,
+    "median": 3892.058,
+    "std_dev": 66593.0406
+  },
+  "summary": {
+    "total_calculations": 8,
+    "passed_verifications": 8,
+    "failed_verifications": 0
+  }
+}

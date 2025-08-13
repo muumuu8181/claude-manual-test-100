@@ -1,0 +1,9 @@
+フォルダ名,計算式,結果,検証状態
+analysis_1,(a+b)*(c-d) + e^2,19006,passed
+analysis_2,a^2 - b^2 + c^2 - d^2,38528,passed
+analysis_3,(a*b*c) / (d*e),3597.3478,passed
+analysis_4,√(a^2 + b^2) - √(c^2 + d^2),181.365,passed
+analysis_5,(c^3 - d^3) / (a-b) + e,8749.6543,passed
+analysis_6,log10(a*b) + log10(c*d) - log10(e),6.8815,passed
+analysis_7,sin(a/180*π) + cos(b/180*π),-1.76855,passed
+analysis_8,(a!/(a-5)!) / (b!/(b-3)!),192825,passed

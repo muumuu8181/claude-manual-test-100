@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-08-12 09:30:00",
+  "calculations": {
+    "calc_1": { "formula": "(p+q)*r - s", "result": 10007 },
+    "calc_2": { "formula": "p^2 + q^2 - r^2", "result": 35828 },
+    "calc_3": { "formula": "(p*q) / (r+s)", "result": 260.909 },
+    "calc_4": { "formula": "√(p^2 - q^2) + r", "result": 193.60 },
+    "calc_5": { "formula": "(r^3 + s^3) / (p-q)", "result": 681.882 },
+    "calc_6": { "formula": "log10(p*q) - log10(r*s)", "result": 1.3617 }
+  },
+  "statistics": {
+    "max": 35828,
+    "min": 1.3617,
+    "average": 7828.79
+  }
+}

@@ -1,0 +1,39 @@
+【作業指示】
+1) 7つのフォルダを作成してください。それぞれ、project_A, project_B, project_C, project_D, project_E, project_F, project_Gとrename。
+
+2) 各フォルダに3つのテキストファイルを作成してください。
+   - config.txt（設定値記載用）
+   - process.txt（処理内容記載用）
+   - output.txt（出力結果用）
+
+3) 4つの数値 x=256, y=128, z=64, w=32 があります。
+   project_Aには: config.txtに「mode=addition」、process.txtに「x+y+z+w」、output.txtに計算結果
+   project_Bには: config.txtに「mode=multiplication」、process.txtに「x*y/z」、output.txtに計算結果（小数点第3位まで）
+   project_Cには: config.txtに「mode=power」、process.txtに「x^2 / y」、output.txtに計算結果
+   project_Dには: config.txtに「mode=complex」、process.txtに「(x-y)^2 + (z-w)^2」、output.txtに計算結果
+   project_Eには: config.txtに「mode=logarithm」、process.txtに「log2(x) + log2(y)」、output.txtに計算結果（整数）
+   project_Fには: config.txtに「mode=modulo」、process.txtに「x % y + z % w」、output.txtに計算結果
+   project_Gには: config.txtに「mode=average」、process.txtに「(x+y+z+w)/4」、output.txtに計算結果（小数点第1位まで）
+
+4) 各フォルダに「status.json」を作成し、以下の形式でJSONを記載：
+   {
+     "folder": "フォルダ名",
+     "completed": true,
+     "timestamp": "作成時刻（YYYYMMDD HH:MM:SS形式）",
+     "files": ["config.txt", "process.txt", "output.txt"]
+   }
+
+5) ルートフォルダに「project_summary.json」を作成し、全プロジェクトの情報を統合：
+   {
+     "total_projects": 7,
+     "projects": [各プロジェクトのstatus.jsonの内容],
+     "verification_required": true
+   }
+
+6) 「validate_all.py」というPythonスクリプトを作成し、以下の検証を実装：
+   - 全フォルダが存在するか
+   - 各フォルダに必要なファイルが全て存在するか
+   - 計算結果が正しいか
+   - JSONファイルの形式が正しいか
+
+7) 最後に「next_prompt.txt」を作成し、今回より更に難易度の高い次の課題を考えて記載してください。

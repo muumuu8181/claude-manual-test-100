@@ -1,0 +1,46 @@
+【作業指示】
+1) 6つのフォルダを作成してください。それぞれ、calc_1, calc_2, calc_3, calc_4, calc_5, calc_6とrename。
+
+2) それぞれのフォルダに3つのファイルを作成してください。
+   - input.txt（入力値を記載）
+   - process.txt（計算過程を記載）
+   - output.txt（最終結果を記載）
+
+3) 4つの数値 p=175, q=82, r=39, s=16 があります。
+   calc_1には: (p+q)*r - s の計算
+   calc_2には: p^2 + q^2 - r^2 の計算
+   calc_3には: (p*q) / (r+s) の計算（小数点第3位まで）
+   calc_4には: √(p^2 - q^2) + r の計算（小数点第2位まで）
+   calc_5には: (r^3 + s^3) / (p-q) の計算（小数点第3位まで）
+   calc_6には: log10(p*q) - log10(r*s) の計算（小数点第4位まで）
+   
+   各フォルダのinput.txtには使用する変数値、process.txtには計算過程、output.txtには最終結果を記載してください。
+
+4) 全ての計算結果を統合した「results_summary.json」をJSON形式で作成し、
+   以下の構造で記載してください：
+   {
+     "timestamp": "作成日時",
+     "calculations": {
+       "calc_1": { "formula": "計算式", "result": 結果値 },
+       ...（全6つ）
+     },
+     "statistics": {
+       "max": 最大値,
+       "min": 最小値,
+       "average": 平均値（小数点第2位まで）
+     }
+   }
+
+5) 「validation.py」というPythonスクリプトを作成し、以下を実装してください：
+   - 全計算結果の正確性検証
+   - JSONファイルの形式妥当性チェック
+   - 統計値の正しさ確認
+   - エラーがあれば詳細を出力、なければ「All validations passed!」と表示
+
+6) 「work_history.log」に作業の詳細な記録を残してください。
+   形式: [作業者名] YYYYMMDD HH:MM:SS 作業内容
+
+7) 「reflection.txt」に作業の振り返りを記載してください。
+   - 工夫した点
+   - 難しかった点
+   - 改善案（もしあれば）
