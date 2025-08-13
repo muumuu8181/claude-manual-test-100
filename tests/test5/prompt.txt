@@ -1,0 +1,113 @@
+【作業指示】
+1) 10個のフォルダを階層的に作成してください。
+   メインフォルダ: project_data/
+   サブフォルダ: 
+   - project_data/statistics/ (統計処理用)
+   - project_data/simulation/ (シミュレーション用)
+   - project_data/analysis/ (分析結果用)
+   - project_data/reports/ (レポート用)
+   - project_data/logs/ (ログ用)
+   個別処理フォルダ:
+   - experiment_1, experiment_2, experiment_3, experiment_4, experiment_5
+
+2) 各experiment_*フォルダには以下の5つのファイルを作成してください：
+   - config.yaml（設定ファイル、YAML形式）
+   - input_data.json（入力データ、JSON形式）
+   - processing.py（処理スクリプト、実行可能なPythonコード）
+   - output_result.json（出力結果、JSON形式）
+   - validation_check.txt（検証結果）
+
+3) 以下の複雑な計算を各experimentで実施してください。
+   基本パラメータ: x=312, y=189, z=147, w=78, v=33
+   
+   experiment_1: 
+   - 計算: (x^3 + y^3) / (z^2 - w^2) + log2(v) の計算（小数点第5位まで）
+   - 条件: 結果が1000を超える場合は「HIGH」、100-1000は「MEDIUM」、100未満は「LOW」として分類
+   
+   experiment_2:
+   - 計算: Σ(i=1 to 10) [(x*i + y)/(z-w*i)] の総和（小数点第4位まで）
+   - 条件: 各項が負になる場合は0として扱う
+   
+   experiment_3:
+   - 計算: exp(x/100) * sin(y*π/180) * cos(z*π/180) / tan(w*π/180)（小数点第6位まで）
+   - 条件: tan(w*π/180)が0に近い場合（±0.001以内）はエラー処理
+   
+   experiment_4:
+   - 計算: 再帰的フィボナッチ数列でF(30)を計算し、それをx*y*z*w*vで除した値（小数点第8位まで）
+   - 条件: メモ化を使用して効率化すること
+   
+   experiment_5:
+   - 計算: モンテカルロ法でπを10000回の試行で推定し、その値を使って(x+y+z)*(π推定値)を計算（小数点第5位まで）
+   - 条件: πの推定誤差も記録すること
+
+4) project_data/statistics/フォルダに以下のファイルを作成：
+   - descriptive_stats.json（全実験の記述統計：平均、分散、歪度、尖度）
+   - correlation_matrix.csv（実験間の相関行列）
+   - outlier_detection.txt（外れ値の検出結果）
+
+5) project_data/simulation/フォルダに以下のファイルを作成：
+   - monte_carlo_results.json（1000回のシミュレーション結果）
+   - distribution_analysis.txt（結果の分布分析）
+   - confidence_intervals.csv（95%信頼区間）
+
+6) project_data/analysis/フォルダに統合分析ファイルを作成：
+   - integrated_analysis.yaml（YAML形式での総合分析）
+   - performance_metrics.json（各実験のパフォーマンス指標）
+   - comparative_study.md（Markdown形式での比較研究レポート）
+
+7) project_data/reports/フォルダに最終レポートを作成：
+   - executive_summary.txt（エグゼクティブサマリー）
+   - technical_report.md（技術レポート、Markdown形式）
+   - visualization_data.json（可視化用データ）
+
+8) project_data/logs/フォルダにログファイルを作成：
+   - execution_log.txt（実行ログ、タイムスタンプ付き）
+   - error_log.txt（エラーログ、エラーがなければ「No errors」と記載）
+   - performance_log.csv（パフォーマンスログ、各処理の実行時間）
+
+9) 「master_validation.py」という統合検証スクリプトを作成し、以下を実装：
+   - 全フォルダとファイルの存在確認
+   - 各experimentの計算結果の正確性検証
+   - 統計計算の妥当性チェック
+   - ファイル形式（JSON, YAML, CSV, Markdown）の検証
+   - 相互参照の整合性確認
+   - テストケースの自動実行（最低10個のテストケース）
+   - 結果をHTMLレポートとして「validation_report.html」に出力
+   - 実行時間とメモリ使用量を測定
+
+10) 「work_history.log」に作業の詳細な記録を残してください。
+    形式: [作業者名] YYYYMMDD HH:MM:SS 作業内容
+    ※時刻は必ずdateコマンドで取得してください
+    ※最低20行以上の詳細な記録を残すこと
+
+11) 「reflection.txt」に以下の項目を含む詳細な振り返りを記載：
+    【発生したエラー】
+    - エラーの有無と詳細（なければ「エラーなし」と明記）
+    - 解決方法と試行回数
+    
+    【指示について】
+    - 明確だった点（2つ以上）
+    - 不明確だった点（あれば具体的に）
+    
+    【困難だった作業】
+    - 技術的に難しかった部分（3つ以上）
+    - 時間がかかった作業（2つ以上）
+    
+    【工夫した点】
+    - 効率化の工夫（3つ以上）
+    - 品質向上の取り組み（2つ以上）
+    
+    【改善案】
+    - プロセス改善案（2つ以上）
+    - システム改善案（2つ以上）
+    
+    【学んだこと】
+    - 新しく学んだ技術や手法（2つ以上）
+    - 今後活用できそうな知見（1つ以上）
+
+注意事項：
+- 全ての数値計算は正確に行うこと
+- ファイル形式は厳密に守ること（JSON, YAML, CSV, Markdown）
+- エラーハンドリングを適切に実装すること
+- コードは実行可能で、エラーが出ないようにすること
+- 作業は体系的かつ効率的に進めること

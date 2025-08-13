@@ -1,0 +1,13 @@
+experiment:
+  name: "experiment_3"
+  description: "Trigonometric calculation: exp(x/100) * sin(y*π/180) * cos(z*π/180) / tan(w*π/180)"
+  parameters:
+    x: 312
+    y: 189
+    z: 147
+    w: 78
+    v: 33
+  output_precision: 6
+  error_handling:
+    tan_tolerance: 0.001
+    condition: "Error if tan(w*π/180) is within ±0.001 of zero"

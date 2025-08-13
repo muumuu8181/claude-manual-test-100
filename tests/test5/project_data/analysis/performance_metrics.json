@@ -1,0 +1,95 @@
+{
+  "performance_analysis": {
+    "timestamp": "2025-08-13T10:03:30Z",
+    "evaluation_criteria": ["accuracy", "efficiency", "complexity", "optimization"]
+  },
+  
+  "experiment_metrics": {
+    "experiment_1": {
+      "execution_time_estimate": 0.001,
+      "memory_usage": "低",
+      "accuracy_score": 10.0,
+      "complexity_score": 8.0,
+      "optimization_score": 6.0,
+      "overall_score": 8.0,
+      "strengths": ["高精度計算", "明確な分類ロジック"],
+      "weaknesses": ["特になし"]
+    },
+    
+    "experiment_2": {
+      "execution_time_estimate": 0.002,
+      "memory_usage": "低",
+      "accuracy_score": 9.0,
+      "complexity_score": 7.0,
+      "optimization_score": 8.0,
+      "overall_score": 8.0,
+      "strengths": ["条件処理が適切", "効率的なループ処理"],
+      "weaknesses": ["負の値処理により結果が0になった"]
+    },
+    
+    "experiment_3": {
+      "execution_time_estimate": 0.003,
+      "memory_usage": "低",
+      "accuracy_score": 9.0,
+      "complexity_score": 9.0,
+      "optimization_score": 7.0,
+      "overall_score": 8.3,
+      "strengths": ["エラーハンドリング実装", "三角関数の正確な使用"],
+      "weaknesses": ["tan関数の特殊条件処理が複雑"]
+    },
+    
+    "experiment_4": {
+      "execution_time_estimate": 0.001,
+      "memory_usage": "中",
+      "accuracy_score": 10.0,
+      "complexity_score": 8.0,
+      "optimization_score": 10.0,
+      "overall_score": 9.3,
+      "strengths": ["メモ化による高効率化", "大きな数値の正確な処理"],
+      "weaknesses": ["メモリ使用量がやや多い"]
+    },
+    
+    "experiment_5": {
+      "execution_time_estimate": 0.05,
+      "memory_usage": "中",
+      "accuracy_score": 8.0,
+      "complexity_score": 9.0,
+      "optimization_score": 8.0,
+      "overall_score": 8.3,
+      "strengths": ["統計的手法の実装", "誤差の適切な記録"],
+      "weaknesses": ["実行時間が長い", "推定値のため精度限界あり"]
+    }
+  },
+  
+  "ranking": {
+    "by_overall_score": [
+      {"experiment": "experiment_4", "score": 9.3},
+      {"experiment": "experiment_3", "score": 8.3},
+      {"experiment": "experiment_5", "score": 8.3},
+      {"experiment": "experiment_1", "score": 8.0},
+      {"experiment": "experiment_2", "score": 8.0}
+    ],
+    
+    "by_efficiency": [
+      {"experiment": "experiment_1", "time": 0.001},
+      {"experiment": "experiment_4", "time": 0.001},
+      {"experiment": "experiment_2", "time": 0.002},
+      {"experiment": "experiment_3", "time": 0.003},
+      {"experiment": "experiment_5", "time": 0.05}
+    ]
+  },
+  
+  "recommendations": {
+    "best_practices": [
+      "experiment_4のメモ化手法を他の再帰計算に適用",
+      "experiment_3のエラーハンドリングパターンを標準化",
+      "experiment_2の条件処理ロジックを汎用化"
+    ],
+    
+    "optimization_opportunities": [
+      "experiment_5の試行回数調整による精度向上",
+      "全実験での実行時間計測の標準化",
+      "メモリ使用量の最適化検討"
+    ]
+  }
+}

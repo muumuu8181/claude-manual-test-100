@@ -1,0 +1,12 @@
+experiment:
+  name: "experiment_4"
+  description: "Fibonacci calculation: F(30) divided by x*y*z*w*v"
+  parameters:
+    x: 312
+    y: 189
+    z: 147
+    w: 78
+    v: 33
+  output_precision: 8
+  fibonacci_n: 30
+  optimization: "Memoization enabled"

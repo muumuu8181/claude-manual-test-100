@@ -1,0 +1,69 @@
+analysis:
+  title: "統合実験分析レポート"
+  timestamp: "2025-08-13T10:03:00Z"
+  
+experiments:
+  experiment_1:
+    name: "複雑計算実験"
+    formula: "(x^3 + y^3) / (z^2 - w^2) + log2(v)"
+    result: 2396.19396
+    classification: "HIGH"
+    complexity_level: "高"
+    computational_difficulty: "中"
+    
+  experiment_2:
+    name: "総和計算実験" 
+    formula: "Σ(i=1 to 10) [(x*i + y)/(z-w*i)]"
+    result: 0.0  # 負の項が0として処理された結果
+    classification: "LOW"
+    complexity_level: "中"
+    computational_difficulty: "低"
+    
+  experiment_3:
+    name: "三角関数実験"
+    formula: "exp(x/100) * sin(y*π/180) * cos(z*π/180) / tan(w*π/180)"
+    result: 0.631535
+    classification: "LOW"
+    complexity_level: "高"
+    computational_difficulty: "中"
+    
+  experiment_4:
+    name: "フィボナッチ実験"
+    formula: "F(30) / (x*y*z*w*v)"
+    result: 3.729e-05
+    classification: "LOW"
+    complexity_level: "中"
+    computational_difficulty: "高"  # メモ化により最適化
+    
+  experiment_5:
+    name: "モンテカルロ実験"
+    formula: "(x+y+z) * π_estimated"
+    result: 2028.24
+    classification: "HIGH"
+    complexity_level: "高"
+    computational_difficulty: "高"
+
+statistical_summary:
+  mean_result: 885.21718
+  result_range: [3.729e-05, 2396.19396]
+  high_performers: ["experiment_1", "experiment_5"]
+  low_performers: ["experiment_2", "experiment_3", "experiment_4"]
+  
+performance_metrics:
+  accuracy:
+    experiment_1: "正確"
+    experiment_2: "条件処理により正確"
+    experiment_3: "正確"
+    experiment_4: "メモ化により効率的"
+    experiment_5: "推定誤差あり（モンテカルロ法）"
+    
+  execution_efficiency:
+    fastest: "experiment_2"
+    slowest: "experiment_5"
+    optimization_used: ["experiment_4"]
+
+recommendations:
+  - "experiment_1とexperiment_5は高い結果値を示しており、さらなる分析が推奨される"
+  - "experiment_2の条件処理ロジックを他の実験にも適用可能"
+  - "experiment_4のメモ化技術は他の再帰計算にも活用可能"
+  - "experiment_5のモンテカルロ法は試行回数を増やすことで精度向上可能"

@@ -1,0 +1,20 @@
+{
+  "experiment_results": {
+    "experiment_1": 2396.19396,
+    "experiment_2": 0,
+    "experiment_3": 0.631535,
+    "experiment_4": 3.729e-05,
+    "experiment_5": 2028.24
+  },
+  "descriptive_statistics": {
+    "mean": 885.013106458,
+    "variance": 1187852.4794729487,
+    "skewness": 0.44292750016686366,
+    "kurtosis": -1.758040195572217,
+    "std_deviation": 1089.8864525595998,
+    "min": 0.0,
+    "max": 2396.19396,
+    "median": 0.631535
+  },
+  "analysis_timestamp": "2025-08-13T10:00:00Z"
+}

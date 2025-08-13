@@ -1,0 +1,14 @@
+{
+  "parameters": {
+    "x": 312,
+    "y": 189,
+    "z": 147,
+    "w": 78,
+    "v": 33
+  },
+  "calculation_formula": "(x+y+z) * π_estimated",
+  "monte_carlo_iterations": 10000,
+  "precision_requirement": 5,
+  "error_tracking": "π estimation error recorded",
+  "timestamp": "2025-08-13T10:01:00Z"
+}

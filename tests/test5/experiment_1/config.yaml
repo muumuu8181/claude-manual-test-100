@@ -1,0 +1,15 @@
+experiment:
+  name: "experiment_1"
+  description: "Complex calculation: (x^3 + y^3) / (z^2 - w^2) + log2(v)"
+  parameters:
+    x: 312
+    y: 189
+    z: 147
+    w: 78
+    v: 33
+  output_precision: 5
+  classification_thresholds:
+    high: 1000
+    medium_min: 100
+    medium_max: 1000
+    low: 100

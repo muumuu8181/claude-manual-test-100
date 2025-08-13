@@ -1,0 +1,77 @@
+{
+  "calculation_details": [
+    {
+      "i": 1,
+      "numerator": 501,
+      "denominator": 69,
+      "term_value": 7.260869565217392,
+      "note": "Normal calculation"
+    },
+    {
+      "i": 2,
+      "numerator": 813,
+      "denominator": -9,
+      "term_value": 0,
+      "note": "Negative value -90.333333 treated as 0"
+    },
+    {
+      "i": 3,
+      "numerator": 1125,
+      "denominator": -87,
+      "term_value": 0,
+      "note": "Negative value -12.931034 treated as 0"
+    },
+    {
+      "i": 4,
+      "numerator": 1437,
+      "denominator": -165,
+      "term_value": 0,
+      "note": "Negative value -8.709091 treated as 0"
+    },
+    {
+      "i": 5,
+      "numerator": 1749,
+      "denominator": -243,
+      "term_value": 0,
+      "note": "Negative value -7.197531 treated as 0"
+    },
+    {
+      "i": 6,
+      "numerator": 2061,
+      "denominator": -321,
+      "term_value": 0,
+      "note": "Negative value -6.420561 treated as 0"
+    },
+    {
+      "i": 7,
+      "numerator": 2373,
+      "denominator": -399,
+      "term_value": 0,
+      "note": "Negative value -5.947368 treated as 0"
+    },
+    {
+      "i": 8,
+      "numerator": 2685,
+      "denominator": -477,
+      "term_value": 0,
+      "note": "Negative value -5.628931 treated as 0"
+    },
+    {
+      "i": 9,
+      "numerator": 2997,
+      "denominator": -555,
+      "term_value": 0,
+      "note": "Negative value -5.400000 treated as 0"
+    },
+    {
+      "i": 10,
+      "numerator": 3309,
+      "denominator": -633,
+      "term_value": 0,
+      "note": "Negative value -5.227488 treated as 0"
+    }
+  ],
+  "total_sum": 7.2609,
+  "execution_time_seconds": 0.0,
+  "timestamp": "2025-08-13T00:58:17Z"
+}

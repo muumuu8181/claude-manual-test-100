@@ -1,0 +1,13 @@
+{
+  "calculation_details": {
+    "monte_carlo_iterations": 10000,
+    "pi_estimated": 3.13,
+    "pi_actual": 3.141592653589793,
+    "pi_error": 0.011592653589793223,
+    "pi_error_percentage": 0.3690056244735193,
+    "sum_xyz": 648
+  },
+  "result": 2028.24,
+  "execution_time_seconds": 0.0029659271240234375,
+  "timestamp": "2025-08-13T00:59:51Z"
+}

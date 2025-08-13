@@ -1,0 +1,14 @@
+experiment:
+  name: "experiment_5"
+  description: "Monte Carlo π estimation and calculation: (x+y+z)*(π estimated)"
+  parameters:
+    x: 312
+    y: 189
+    z: 147
+    w: 78
+    v: 33
+  output_precision: 5
+  monte_carlo:
+    iterations: 10000
+    method: "Random points in unit circle"
+  pi_calculation: "(x+y+z) * π_estimated"

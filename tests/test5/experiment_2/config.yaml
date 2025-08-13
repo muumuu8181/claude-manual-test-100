@@ -1,0 +1,14 @@
+experiment:
+  name: "experiment_2"
+  description: "Summation calculation: Σ(i=1 to 10) [(x*i + y)/(z-w*i)]"
+  parameters:
+    x: 312
+    y: 189
+    z: 147
+    w: 78
+    v: 33
+  output_precision: 4
+  summation_range:
+    start: 1
+    end: 10
+  condition: "Negative terms treated as 0"

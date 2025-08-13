@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>統合検証レポート</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .header { background-color: #f0f0f0; padding: 20px; border-radius: 5px; }
+        .summary { margin: 20px 0; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 3px; }
+        .pass { background-color: #d4edda; border-left: 4px solid #28a745; }
+        .fail { background-color: #f8d7da; border-left: 4px solid #dc3545; }
+        .details { font-style: italic; color: #666; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>実験プロジェクト 統合検証レポート</h1>
+        <p>実行日時: 2025年08月13日 10:07:20</p>
+        <p>実行時間: 0.13秒</p>
+        <p>メモリ使用量: 29.54MB</p>
+    </div>
+    
+    <div class="summary">
+        <h2>検証サマリー</h2>
+        <table>
+            <tr><th>項目</th><th>値</th></tr>
+            <tr><td>総テスト数</td><td>52</td></tr>
+            <tr><td>成功</td><td style="color: green;">49</td></tr>
+            <tr><td>失敗</td><td style="color: red;">3</td></tr>
+            <tr><td>成功率</td><td>94.2%</td></tr>
+        </table>
+    </div>
+    
+    <div class="test-results">
+        <h2>詳細テスト結果</h2>
+
+        <div class="test-result pass">
+            <strong>Test 1: フォルダ存在確認: project_data</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 2: フォルダ存在確認: project_data/statistics</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 3: フォルダ存在確認: project_data/simulation</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 4: フォルダ存在確認: project_data/analysis</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 5: フォルダ存在確認: project_data/reports</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 6: フォルダ存在確認: project_data/logs</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 7: フォルダ存在確認: experiment_1</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 8: フォルダ存在確認: experiment_2</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 9: フォルダ存在確認: experiment_3</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 10: フォルダ存在確認: experiment_4</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 11: フォルダ存在確認: experiment_5</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 12: ファイル存在確認: experiment_1/config.yaml</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 13: ファイル存在確認: experiment_1/input_data.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 14: ファイル存在確認: experiment_1/processing.py</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 15: ファイル存在確認: experiment_1/output_result.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 16: ファイル存在確認: experiment_1/validation_check.txt</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 17: ファイル存在確認: experiment_2/config.yaml</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 18: ファイル存在確認: experiment_2/input_data.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 19: ファイル存在確認: experiment_2/processing.py</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 20: ファイル存在確認: experiment_2/output_result.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 21: ファイル存在確認: experiment_2/validation_check.txt</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 22: ファイル存在確認: experiment_3/config.yaml</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 23: ファイル存在確認: experiment_3/input_data.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 24: ファイル存在確認: experiment_3/processing.py</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 25: ファイル存在確認: experiment_3/output_result.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 26: ファイル存在確認: experiment_3/validation_check.txt</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 27: ファイル存在確認: experiment_4/config.yaml</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 28: ファイル存在確認: experiment_4/input_data.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 29: ファイル存在確認: experiment_4/processing.py</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 30: ファイル存在確認: experiment_4/output_result.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 31: ファイル存在確認: experiment_4/validation_check.txt</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 32: ファイル存在確認: experiment_5/config.yaml</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 33: ファイル存在確認: experiment_5/input_data.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 34: ファイル存在確認: experiment_5/processing.py</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 35: ファイル存在確認: experiment_5/output_result.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 36: ファイル存在確認: experiment_5/validation_check.txt</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 37: 計算精度検証: Experiment 1</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            <div class="details">期待値: 2396.19396, 実際値: 2396.19396</div>
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 38: 計算精度検証: Experiment 3</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            <div class="details">期待値: 0.631535, 実際値: 0.631535</div>
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 39: 計算精度検証: Experiment 4</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            <div class="details">期待値: 3.729e-05, 実際値: 3.729e-05</div>
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 40: JSON形式検証: experiment_1/input_data.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 41: JSON形式検証: experiment_1/output_result.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 42: JSON形式検証: project_data/statistics/descriptive_stats.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 43: JSON形式検証: project_data/simulation/monte_carlo_results.json</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result fail">
+            <strong>Test 44: JSON形式検証: project_data/analysis/performance_metrics.json</strong> - FAIL 
+            <span style="float: right;">10:07:20</span>
+            <div class="details">'cp932' codec can't decode byte 0x8e in position 276: illegal multibyte sequence</div>
+        </div>
+
+        <div class="test-result fail">
+            <strong>Test 45: JSON形式検証: project_data/reports/visualization_data.json</strong> - FAIL 
+            <span style="float: right;">10:07:20</span>
+            <div class="details">'cp932' codec can't decode byte 0x83 in position 189: illegal multibyte sequence</div>
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 46: YAML形式検証: experiment_1/config.yaml</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 47: YAML形式検証: project_data/analysis/integrated_analysis.yaml</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 48: CSV形式検証: project_data/statistics/correlation_matrix.csv</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 49: CSV形式検証: project_data/simulation/confidence_intervals.csv</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 50: CSV形式検証: project_data/logs/performance_log.csv</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            
+        </div>
+
+        <div class="test-result pass">
+            <strong>Test 51: 相互参照検証: 統計データ</strong> - PASS 
+            <span style="float: right;">10:07:20</span>
+            <div class="details">5つの実験結果が含まれています</div>
+        </div>
+
+        <div class="test-result fail">
+            <strong>Test 52: パフォーマンス指標検証</strong> - FAIL 
+            <span style="float: right;">10:07:20</span>
+            <div class="details">'cp932' codec can't decode byte 0x8e in position 276: illegal multibyte sequence</div>
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <h2>検証完了</h2>
+        <p>本レポートは master_validation.py により自動生成されました。</p>
+        <p>作成者: テストAI5</p>
+    </div>
+</body>
+</html>

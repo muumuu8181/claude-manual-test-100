@@ -1,0 +1,135 @@
+{
+  "visualization_data": {
+    "timestamp": "2025-08-13T10:06:30Z",
+    "data_sets": {
+      
+      "experiment_results": {
+        "type": "bar_chart",
+        "title": "実験結果比較",
+        "data": [
+          {"experiment": "Experiment 1", "value": 2396.19396, "category": "HIGH"},
+          {"experiment": "Experiment 2", "value": 0.0, "category": "LOW"},
+          {"experiment": "Experiment 3", "value": 0.631535, "category": "LOW"},
+          {"experiment": "Experiment 4", "value": 0.00003729, "category": "LOW"},
+          {"experiment": "Experiment 5", "value": 2028.24, "category": "HIGH"}
+        ],
+        "y_axis": "計算結果",
+        "colors": {
+          "HIGH": "#FF6B6B",
+          "LOW": "#4ECDC4"
+        }
+      },
+      
+      "execution_time": {
+        "type": "line_chart",
+        "title": "実行時間比較",
+        "data": [
+          {"experiment": "Experiment 1", "time": 0.001},
+          {"experiment": "Experiment 2", "time": 0.002},
+          {"experiment": "Experiment 3", "time": 0.003},
+          {"experiment": "Experiment 4", "time": 0.001},
+          {"experiment": "Experiment 5", "time": 0.05}
+        ],
+        "y_axis": "実行時間（秒）"
+      },
+      
+      "complexity_scores": {
+        "type": "radar_chart",
+        "title": "複雑度スコア比較",
+        "data": [
+          {
+            "experiment": "Experiment 1",
+            "accuracy": 10.0,
+            "complexity": 8.0,
+            "optimization": 6.0,
+            "efficiency": 9.0
+          },
+          {
+            "experiment": "Experiment 2", 
+            "accuracy": 9.0,
+            "complexity": 7.0,
+            "optimization": 8.0,
+            "efficiency": 8.0
+          },
+          {
+            "experiment": "Experiment 3",
+            "accuracy": 9.0,
+            "complexity": 9.0,
+            "optimization": 7.0,
+            "efficiency": 7.0
+          },
+          {
+            "experiment": "Experiment 4",
+            "accuracy": 10.0,
+            "complexity": 8.0,
+            "optimization": 10.0,
+            "efficiency": 9.0
+          },
+          {
+            "experiment": "Experiment 5",
+            "accuracy": 8.0,
+            "complexity": 9.0,
+            "optimization": 8.0,
+            "efficiency": 6.0
+          }
+        ],
+        "max_score": 10
+      },
+      
+      "result_distribution": {
+        "type": "histogram",
+        "title": "結果値の分布",
+        "data": {
+          "bins": [
+            {"range": "0-1", "count": 3, "experiments": ["Exp2", "Exp3", "Exp4"]},
+            {"range": "1-100", "count": 0, "experiments": []},
+            {"range": "100-1000", "count": 0, "experiments": []},
+            {"range": "1000-3000", "count": 2, "experiments": ["Exp1", "Exp5"]}
+          ]
+        }
+      },
+      
+      "correlation_matrix": {
+        "type": "heatmap",
+        "title": "実験間相関",
+        "data": [
+          [1.000000, 0.000000, 0.999736, 0.999984, 0.154902],
+          [0.000000, 1.000000, 0.000000, 0.000000, 0.000000],
+          [0.999736, 0.000000, 1.000000, 0.999926, 0.154640],
+          [0.999984, 0.000000, 0.999926, 1.000000, 0.154884],
+          [0.154902, 0.000000, 0.154640, 0.154884, 1.000000]
+        ],
+        "labels": ["Exp1", "Exp2", "Exp3", "Exp4", "Exp5"]
+      },
+      
+      "performance_summary": {
+        "type": "table",
+        "title": "パフォーマンス総括",
+        "headers": ["実験", "結果", "分類", "実行時間", "最適化", "評価"],
+        "data": [
+          ["Experiment 1", "2396.19396", "HIGH", "0.001s", "なし", "優秀"],
+          ["Experiment 2", "0.0000", "LOW", "0.002s", "条件処理", "良好"],
+          ["Experiment 3", "0.631535", "LOW", "0.003s", "エラー処理", "良好"],
+          ["Experiment 4", "3.729e-05", "LOW", "0.001s", "メモ化", "最優秀"],
+          ["Experiment 5", "2028.24", "HIGH", "0.050s", "統計手法", "良好"]
+        ]
+      }
+    },
+    
+    "chart_configurations": {
+      "color_palette": ["#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4", "#FFEAA7"],
+      "font_family": "Arial, sans-serif",
+      "background_color": "#FFFFFF",
+      "grid_color": "#E0E0E0"
+    },
+    
+    "export_formats": ["PNG", "SVG", "PDF", "HTML"],
+    
+    "interactive_features": [
+      "hover_details",
+      "zoom_functionality",
+      "data_filtering",
+      "export_options"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "parameters": {
+    "x": 312,
+    "y": 189,
+    "z": 147,
+    "w": 78,
+    "v": 33
+  },
+  "calculation_formula": "exp(x/100) * sin(y*π/180) * cos(z*π/180) / tan(w*π/180)",
+  "precision_requirement": 6,
+  "error_condition": "tan(w*π/180) within ±0.001 of zero",
+  "timestamp": "2025-08-13T09:59:00Z"
+}

@@ -1,0 +1,12 @@
+{
+  "parameters": {
+    "x": 312,
+    "y": 189,
+    "z": 147,
+    "w": 78,
+    "v": 33
+  },
+  "calculation_formula": "(x^3 + y^3) / (z^2 - w^2) + log2(v)",
+  "precision_requirement": 5,
+  "timestamp": "2025-08-13T09:57:00Z"
+}

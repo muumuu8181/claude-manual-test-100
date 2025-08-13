@@ -1,0 +1,19 @@
+{
+  "calculation_details": {
+    "exp_x_over_100": 22.646379643175397,
+    "sin_y_radians": -0.15643446504023073,
+    "cos_z_radians": -0.8386705679454242,
+    "tan_w_radians": 4.704630109478451,
+    "y_degrees": 189,
+    "z_degrees": 147,
+    "w_degrees": 78,
+    "y_radians": 3.2986722862692828,
+    "z_radians": 2.5656340004316647,
+    "w_radians": 1.361356816555577
+  },
+  "result": 0.631535,
+  "status": "SUCCESS",
+  "error_message": null,
+  "execution_time_seconds": 0.0,
+  "timestamp": "2025-08-13T00:58:48Z"
+}

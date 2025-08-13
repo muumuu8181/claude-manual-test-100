@@ -1,0 +1,170 @@
+【作業指示】
+1) 12個のフォルダを多層階層構造で作成してください。
+   ルートフォルダ: research_project/
+   第1層（3つ）:
+   - research_project/data_processing/ （データ処理系）
+   - research_project/machine_learning/ （機械学習系）
+   - research_project/visualization/ （可視化系）
+   
+   第2層（各第1層フォルダに3つずつ、計9個）:
+   data_processing配下:
+   - raw_data/ （生データ保管）
+   - preprocessed/ （前処理済みデータ）
+   - pipeline/ （処理パイプライン）
+   
+   machine_learning配下:
+   - models/ （モデル定義）
+   - training/ （学習結果）
+   - evaluation/ （評価結果）
+   
+   visualization配下:
+   - static/ （静的グラフ）
+   - interactive/ （インタラクティブ）
+   - reports/ （レポート用）
+
+2) 7つの独立した実験フォルダ（trial_1〜trial_7）を作成し、各フォルダに以下の6ファイルを作成:
+   - configuration.json（JSON形式の設定ファイル、最低10個のパラメータ）
+   - dataset.csv（CSV形式のデータセット、最低5列×10行）
+   - algorithm.py（実行可能なPythonアルゴリズム、最低3つの関数）
+   - results.json（JSON形式の結果、階層構造を持つ）
+   - metrics.yaml（YAML形式の評価指標）
+   - logs.txt（処理ログ、タイムスタンプ付き）
+
+3) 複雑な数値処理を各trialで実施（基本値: a=456, b=287, c=193, d=124, e=67, f=31）
+   
+   trial_1: 行列演算
+   - 3×3行列 A = [[a,b,c],[d,e,f],[b,c,d]] と B = [[e,f,a],[c,d,b],[f,a,e]] の積
+   - 固有値計算（全3つ、小数第6位まで）
+   - 行列式の値
+   
+   trial_2: 時系列分析
+   - 自己回帰モデルAR(3)で次の10点を予測
+   - 移動平均（窓サイズ5）を計算
+   - トレンド成分とノイズ成分を分離
+   
+   trial_3: 最適化問題
+   - 目的関数 f(x,y) = (x-a)²+(y-b)²+sin(x/10)+cos(y/10) の最小値探索
+   - 勾配降下法で100イテレーション実行
+   - 収束履歴を記録
+   
+   trial_4: 確率統計処理
+   - 二項分布B(n=100, p=0.3)から1000サンプル生成
+   - カイ二乗検定で正規性を検証（p値を小数第8位まで）
+   - ベイズ推定で事後分布を計算
+   
+   trial_5: 信号処理
+   - 離散フーリエ変換（DFT）で周波数成分分析
+   - バンドパスフィルタ（10-50Hz）適用
+   - 信号対雑音比（SNR）を計算（dB単位、小数第4位まで）
+   
+   trial_6: グラフアルゴリズム
+   - 10ノードの重み付きグラフでダイクストラ法実行
+   - 最小全域木をクラスカル法で構築
+   - ページランク値を計算（収束誤差10⁻⁸以下）
+   
+   trial_7: 暗号学的処理
+   - RSA暗号の鍵生成（512ビット）
+   - ハッシュ関数SHA-256で各データをハッシュ化
+   - デジタル署名の生成と検証
+
+4) research_project/data_processing/に統合データファイルを作成:
+   - master_dataset.parquet（Parquet形式、全trial結果を統合）
+   - data_dictionary.json（データ辞書、全カラムの説明）
+   - quality_report.html（データ品質レポート、HTMLテーブル形式）
+
+5) research_project/machine_learning/に機械学習関連ファイルを作成:
+   - model_architecture.json（モデル構造定義）
+   - training_history.csv（学習履歴、エポック毎の損失値）
+   - hyperparameters.yaml（ハイパーパラメータ設定）
+   - cross_validation_results.json（交差検証結果、5-fold）
+
+6) research_project/visualization/に可視化関連ファイルを作成:
+   - dashboard_config.json（ダッシュボード設定）
+   - chart_specifications.yaml（グラフ仕様定義）
+   - export_settings.json（エクスポート設定）
+
+7) 「comprehensive_test_suite.py」という包括的テストスイートを作成:
+   - 単体テスト（unittest使用、最低20個）
+   - 統合テスト（全モジュール間の連携確認）
+   - パフォーマンステスト（実行時間、メモリ使用量測定）
+   - 回帰テスト（以前の結果との比較）
+   - ストレステスト（大量データでの動作確認）
+   - セキュリティテスト（入力検証、SQLインジェクション対策等）
+   - カバレッジ測定（80%以上を目標）
+   - テスト結果をXML形式で「test_results.xml」に出力
+
+8) 「automated_pipeline.py」という自動化パイプラインを作成:
+   - 全trialの順次実行
+   - エラー時の自動リトライ（最大3回）
+   - 並列処理オプション（multiprocessing使用）
+   - プログレスバー表示
+   - 実行結果のSlack/Email通知機能（モック実装）
+   - ログローテーション機能
+   - 設定ファイルからのパラメータ読み込み
+
+9) 「deployment_package/」フォルダを作成し、デプロイメント関連ファイルを配置:
+   - requirements.txt（依存パッケージリスト）
+   - Dockerfile（コンテナ化設定）
+   - docker-compose.yml（マルチコンテナ設定）
+   - kubernetes_deployment.yaml（K8sデプロイメント定義）
+   - CI_CD_pipeline.yml（GitHub Actions/GitLab CI設定）
+   - setup.py（パッケージ化設定）
+   - README.md（詳細なドキュメント、最低1000文字）
+
+10) 「monitoring/」フォルダを作成し、監視関連ファイルを配置:
+    - metrics_collector.py（メトリクス収集スクリプト）
+    - alert_rules.yaml（アラートルール定義）
+    - dashboard.json（Grafana/Prometheus設定）
+    - health_check.py（ヘルスチェックエンドポイント）
+
+11) 「work_history.log」に作業の詳細な記録を残してください。
+    形式: [作業者名] YYYYMMDD HH:MM:SS 作業内容
+    ※時刻は必ずdateコマンドで取得
+    ※最低30行以上の詳細な記録を残すこと
+    ※各試行の開始・終了時刻、エラー発生と解決、重要な判断を記録
+
+12) 「reflection.txt」に以下の項目を含む包括的な振り返りを記載:
+    【発生したエラー】
+    - 全エラーのリストと分類（構文/実行時/論理）
+    - 各エラーの原因分析と解決方法
+    - エラー防止のための予防策
+    
+    【指示について】
+    - 理解しやすかった部分（3つ以上）
+    - 解釈に迷った部分（具体的に）
+    - 改善提案（より明確な指示の書き方）
+    
+    【困難だった作業】
+    - 技術的チャレンジ（5つ以上、難易度順）
+    - 概念的な理解が必要だった部分
+    - 実装に最も時間がかかった機能
+    
+    【工夫した点】
+    - アーキテクチャ設計の工夫
+    - コード最適化の手法
+    - テスト戦略の工夫
+    - ドキュメント化の工夫
+    
+    【パフォーマンス分析】
+    - 実行時間のボトルネック
+    - メモリ使用量の最適化
+    - I/O効率の改善点
+    
+    【学習成果】
+    - 新規習得した技術（5つ以上）
+    - 深めた既存知識（3つ以上）
+    - 今後の応用可能性
+    
+    【プロジェクト管理】
+    - 時間配分の反省
+    - 優先順位付けの判断
+    - リスク管理の実践
+
+注意事項：
+- 全ての数値計算は科学的精度を保つこと
+- ファイル形式は厳格に守ること（JSON, YAML, CSV, Parquet, HTML, XML, Markdown）
+- エラーハンドリングは包括的に実装すること
+- コードはPEP8準拠で、型ヒント付きで記述すること
+- ドキュメントは英語でも日本語でも可だが、一貫性を保つこと
+- セキュリティベストプラクティスを遵守すること
+- 再現可能性を確保するため、乱数シードを固定すること
