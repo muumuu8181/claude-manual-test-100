@@ -22,13 +22,19 @@ claude-manual-test-100/
 ├── evaluator/            # 評価者専用作業フォルダ
 │   ├── work_history.log
 │   └── logs/
+├── audit-reports/        # 第三者監査レポート（管理者用）
+│   ├── README.md         # 監査ガイド
+│   └── [年]/[月]/        # 年月別レポート
 └── tests/               # テストケース
     ├── test1/
     ├── test2/
     ├── test2-v2/
     ├── test2-v3/
     ├── test3/
-    └── test4/
+    ├── test4/
+    ├── test5/
+    ├── test6/
+    └── _old/             # 過去バージョン
 ```
 
 ## 主な機能
@@ -73,6 +79,16 @@ cat /mnt/c/Users/user/Desktop/work/90_cc/20250812/claude-manual-test-100/evaluat
 5. feedbackフォルダに評価レポート作成
 
 ## バージョン履歴
+
+### v0.2 (2025-08-13)
+- **評価基準の根本的改訂**
+  - 動作検証を最重要項目に変更（配点40%）
+  - test6の再評価により判明した問題を修正
+  - 必須評価チェックリスト（evaluation_checklist_mandatory.md）を新規作成
+  - チェックリスト確認のwork_history.logへの記録を必須化
+- **ドキュメント整備**
+  - audit-reportsフォルダの追加
+  - フォルダ構成図の更新（test5, test6, _old追加）
 
 ### v0.1 (2025-08-13)
 - 初版リリース

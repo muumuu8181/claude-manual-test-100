@@ -1,0 +1,10 @@
+# Lab Environment 3 - Nonlinear Optimization
+# 非線形最適化問題の実装
+configuration:
+  method: multi_method_optimization
+  algorithms: [gradient_descent, newton_method, quasi_newton]
+  convergence_tolerance: 1e-8
+computation:
+  objective_function: α*x^4 + β*y^3 + γ*z^2 - δ*x*y*z + ε*log(x+y+z+1)
+  constraints: x+y+z <= 100, x,y,z >= 0
+  parameters: {α: 427, β: 256, γ: 198, δ: 87, ε: 64}

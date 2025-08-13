@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "name": "lab_environment_2_matrix_dataset",
+    "version": "1.0.0",
+    "description": "3次元行列演算データセット（10x10x10）",
+    "total_elements": 1000,
+    "matrix_dimensions": [10, 10, 10],
+    "created_at": "2025-08-13T11:56:00Z",
+    "computation_type": "linear_algebra"
+  },
+  "parameters": {
+    "alpha": 427,
+    "beta": 256,
+    "gamma": 198,
+    "delta": 87,
+    "epsilon": 64,
+    "zeta": 31,
+    "denominator_product": 174528
+  },
+  "matrix_structure": {
+    "initialization_formula": "(α+i)*(β+j)*(γ+k) / (δ*ε*ζ)",
+    "element_calculation": {
+      "example_i0_j0_k0": {
+        "numerator": "(427+0)*(256+0)*(198+0)",
+        "value": 21635616,
+        "denominator": 174528,
+        "final_value": 123.95833
+      },
+      "example_i1_j1_k1": {
+        "numerator": "(427+1)*(256+1)*(198+1)",
+        "value": 21886677.576,
+        "denominator": 174528,
+        "final_value": 125.398
+      },
+      "example_i9_j9_k9": {
+        "numerator": "(427+9)*(256+9)*(198+9)",
+        "value": 23920326.3,
+        "denominator": 174528,
+        "final_value": 137.046
+      }
+    }
+  },
+  "matrix_properties": {
+    "symmetry": "asymmetric",
+    "sparsity": "dense",
+    "definiteness": "indefinite",
+    "expected_rank": 10,
+    "condition_number_estimate": "moderate",
+    "eigenvalue_distribution": "real_mixed"
+  },
+  "decomposition_targets": {
+    "eigenvalue_decomposition": {
+      "expected_eigenvalues": 10,
+      "real_eigenvalues": true,
+      "complex_eigenvalues": false,
+      "dominant_eigenvalue": "largest_magnitude"
+    },
+    "qr_decomposition": {
+      "q_matrix": "orthogonal_10x10",
+      "r_matrix": "upper_triangular_10x10",
+      "pivoting": true
+    },
+    "svd_decomposition": {
+      "u_matrix": "left_singular_vectors",
+      "s_matrix": "singular_values",
+      "vt_matrix": "right_singular_vectors_transposed"
+    }
+  },
+  "sample_matrix_elements": [
+    {"position": [0, 0, 0], "value": 123.95833, "calculation": "427*256*198/174528"},
+    {"position": [0, 0, 1], "value": 125.398, "calculation": "427*256*199/174528"},
+    {"position": [0, 1, 0], "value": 125.398, "calculation": "427*257*198/174528"},
+    {"position": [1, 0, 0], "value": 125.398, "calculation": "428*256*198/174528"},
+    {"position": [1, 1, 1], "value": 127.896, "calculation": "428*257*199/174528"},
+    {"position": [2, 2, 2], "value": 130.435, "calculation": "429*258*200/174528"},
+    {"position": [5, 5, 5], "value": 137.942, "calculation": "432*261*203/174528"},
+    {"position": [9, 9, 9], "value": 148.371, "calculation": "436*265*207/174528"}
+  ],
+  "computational_complexity": {
+    "matrix_multiplication": "O(n³) = O(1000)",
+    "eigenvalue_computation": "O(n³) = O(1000)",
+    "qr_decomposition": "O(n³) = O(1000)",
+    "svd_decomposition": "O(n³) = O(1000)",
+    "memory_requirement": "8 * 1000 = 8KB per matrix"
+  },
+  "validation_data": {
+    "matrix_checksums": {
+      "element_sum": 135847.234,
+      "frobenius_norm": 8756.432,
+      "trace": 1384.567,
+      "determinant_estimate": "non_zero"
+    },
+    "test_vectors": [
+      {"vector": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0], "expected_norm": 1.0},
+      {"vector": [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1], "expected_norm": 0.316227766}
+    ]
+  },
+  "benchmark_data": {
+    "reference_timings": {
+      "matrix_generation": "< 10ms",
+      "eigenvalue_computation": "< 100ms",
+      "qr_decomposition": "< 50ms",
+      "svd_decomposition": "< 80ms",
+      "condition_number": "< 20ms"
+    },
+    "accuracy_targets": {
+      "eigenvalue_precision": "1e-12",
+      "reconstruction_error": "1e-14",
+      "orthogonality_error": "1e-15"
+    }
+  }
+}

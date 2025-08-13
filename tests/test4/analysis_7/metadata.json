@@ -1,0 +1,14 @@
+{
+  "folder": "analysis_7",
+  "created_at": "2025-08-13 10:52:36",
+  "formula": "(a mod b) * (c mod d) + (d mod e)",
+  "variables_used": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e"
+  ],
+  "execution_time_ms": 5,
+  "complexity": "Low"
+}

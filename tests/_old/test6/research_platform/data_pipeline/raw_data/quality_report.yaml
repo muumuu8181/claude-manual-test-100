@@ -1,0 +1,44 @@
+accuracy:
+  outlier_detection:
+    corruption_detected: 360
+    domain_outliers: 89
+    statistical_outliers: 156
+  score: 88.5
+completeness:
+  missing_values:
+    sensor_id: 0
+    sensor_values: 220
+    timestamp: 0
+  score: 97.8
+consistency:
+  duplicate_records: 23
+  score: 82.1
+  sensor_id_format_violations: 0
+  timestamp_inconsistencies: 7
+data_quality_assessment:
+  assessment_date: '2025-08-13T11:35:22.220172'
+  overall_score: 85.2
+  total_records_analyzed: 10000
+issues_by_sensor:
+  SENSOR_001:
+    corruption_rate: 0.018
+    outliers: 12
+  SENSOR_015:
+    corruption_rate: 0.032
+    outliers: 28
+  SENSOR_023:
+    corruption_rate: 0.041
+    outliers: 35
+  SENSOR_037:
+    corruption_rate: 0.025
+    outliers: 19
+recommendations:
+- Implement real-time outlier detection for sensors with high corruption rates
+- Review calibration for SENSOR_023 due to excessive outliers
+- Investigate timestamp synchronization issues
+- Establish data validation pipeline for incoming sensor readings
+validity:
+  format_violations: 12
+  range_violations: 234
+  schema_violations: 0
+  score: 91.3

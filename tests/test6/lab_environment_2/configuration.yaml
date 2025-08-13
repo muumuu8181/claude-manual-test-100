@@ -1,0 +1,107 @@
+# Lab Environment 2 Configuration
+# 3次元行列演算と固有値分解環境
+
+system:
+  environment:
+    name: "lab_environment_2"
+    version: "1.0.0"
+    description: "3次元行列演算・固有値分解・線形代数計算環境"
+    
+  computation:
+    parameters:
+      alpha: 427
+      beta: 256
+      gamma: 198
+      delta: 87
+      epsilon: 64
+      zeta: 31
+      
+    matrix_operations:
+      dimensions:
+        x_size: 10
+        y_size: 10
+        z_size: 10
+        total_elements: 1000
+        
+      initialization:
+        formula: "(α+i)*(β+j)*(γ+k) / (δ*ε*ζ)"
+        element_range:
+          min_value: 1.0
+          max_value: 100000.0
+          
+      decomposition_methods:
+        eigenvalue:
+          method: "numpy.linalg.eig"
+          precision: "float64"
+          tolerance: 1.0e-12
+          
+        qr_decomposition:
+          method: "householder_reflections"
+          pivoting: true
+          tolerance: 1.0e-14
+          
+        svd_decomposition:
+          method: "divide_and_conquer"
+          full_matrices: false
+          compute_uv: true
+          
+    analysis:
+      condition_number:
+        calculation: "max_eigenvalue / min_eigenvalue"
+        stability_threshold: 1000.0
+        
+      comparison_metrics:
+        qr_vs_svd:
+          tolerance: 1.0e-10
+          reconstruction_error: true
+          
+  hardware:
+    requirements:
+      cpu:
+        cores: 8
+        frequency_min: "2.5GHz"
+        cache_l3: "8MB"
+        
+      memory:
+        ram_min: "16GB"
+        matrix_storage: "800MB"
+        working_memory: "2GB"
+        
+      numerical_libraries:
+        blas: "OpenBLAS"
+        lapack: "LAPACK 3.9+"
+        numpy_version: "1.21+"
+        
+  performance:
+    optimization:
+      parallel_computation: true
+      vectorization: "AVX2"
+      memory_alignment: 64
+      
+    benchmarking:
+      iterations: 100
+      timing_precision: "nanoseconds"
+      memory_profiling: true
+      
+  logging:
+    level: "INFO"
+    matrix_logging:
+      log_matrices: false
+      log_eigenvalues: true
+      log_decompositions: true
+      
+    performance_logging:
+      execution_times: true
+      memory_usage: true
+      convergence_info: true
+      
+  validation:
+    numerical_checks:
+      matrix_reconstruction: true
+      orthogonality_check: true
+      eigenvalue_verification: true
+      
+    tolerances:
+      reconstruction_error: 1.0e-12
+      orthogonality_error: 1.0e-14
+      eigenvalue_error: 1.0e-10

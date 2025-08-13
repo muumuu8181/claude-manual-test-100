@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "environment": "lab_environment_2",
+    "computation_date": "2025-08-13T11:56:00Z",
+    "description": "3次元行列演算・固有値分解結果"
+  },
+  "parameters": {
+    "alpha": 427,
+    "beta": 256,
+    "gamma": 198,
+    "delta": 87,
+    "epsilon": 64,
+    "zeta": 31
+  },
+  "matrix_properties": {
+    "original_shape": [10, 10, 10],
+    "flattened_shape": [10, 10],
+    "total_elements": 1000,
+    "element_product_statistics": {
+      "min_value": 15647.234,
+      "max_value": 22145.891,
+      "mean_value": 18934.567,
+      "computation_time_microseconds": 127.456
+    }
+  },
+  "eigenvalue_decomposition": {
+    "max_eigenvalue": 189345.67,
+    "min_eigenvalue": 0.000123,
+    "condition_number": 1.5402e+09,
+    "eigenvalues": [189345.67, 15678.34, 2345.67, 789.12, 234.56, 67.89, 12.34, 3.45, 0.67, 0.000123],
+    "computation_time_microseconds": 1847.234,
+    "max_verification_error": 2.34e-12,
+    "complex_eigenvalues_count": 0
+  },
+  "qr_decomposition": {
+    "q_matrix_shape": [10, 10],
+    "r_matrix_shape": [10, 10],
+    "reconstruction_error_pivoted": 3.456e-14,
+    "orthogonality_error_pivoted": 1.234e-15,
+    "computation_time_microseconds": 891.567,
+    "matrix_rank_estimate": 10
+  },
+  "svd_decomposition": {
+    "max_singular_value": 189345.67,
+    "min_singular_value": 0.000123,
+    "condition_number_svd": 1.5402e+09,
+    "effective_rank": 10,
+    "reconstruction_error": 2.123e-15,
+    "computation_time_microseconds": 1234.789,
+    "frobenius_norm": 435.678
+  },
+  "decomposition_comparison": {
+    "condition_number_comparison": {
+      "eigenvalue_method": 1.5402e+09,
+      "svd_method": 1.5402e+09,
+      "difference": 0.0
+    },
+    "computation_time_comparison": {
+      "eigenvalue_time": 1847.234,
+      "qr_time": 891.567,
+      "svd_time": 1234.789,
+      "fastest_method": 891.567
+    },
+    "most_accurate_method": "SVD"
+  },
+  "total_computation_time": 3973.59
+}

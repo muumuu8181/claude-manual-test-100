@@ -1,0 +1,12 @@
+{
+  "folder": "analysis_3",
+  "created_at": "2025-08-13 10:52:36",
+  "formula": "√(a^2 + b^2) * sin(c°)",
+  "variables_used": [
+    "a",
+    "b",
+    "c"
+  ],
+  "execution_time_ms": 25,
+  "complexity": "Medium"
+}

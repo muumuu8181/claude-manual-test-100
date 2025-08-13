@@ -1,0 +1,9 @@
+{
+  "test": "simple_validation",
+  "results": {
+    "calc1": 330.6236531163492,
+    "calc2": 7.675177884218812,
+    "calc3": 0.898794046299167
+  },
+  "status": "success"
+}

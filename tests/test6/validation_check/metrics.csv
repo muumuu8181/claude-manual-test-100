@@ -1,0 +1,6 @@
+metric_name,value,unit,timestamp
+series_sum,389247637011.58734,numeric,1755055251.0456717
+integration_result,0.0125178,numeric,1755055251.0456717
+total_time,19426.5,microseconds,1755055251.0456717
+precision_digits,0,digits,1755055251.0456717
+convergence,False,boolean,1755055251.0456717

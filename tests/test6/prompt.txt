@@ -1,0 +1,172 @@
+【作業指示】
+1) 12個のフォルダを階層的に作成してください。
+   メインフォルダ: enterprise_system/
+   コアモジュール:
+   - enterprise_system/core/ (コアシステム)
+   - enterprise_system/data_processing/ (データ処理)
+   - enterprise_system/ml_models/ (機械学習モデル)
+   - enterprise_system/api_gateway/ (APIゲートウェイ)
+   - enterprise_system/monitoring/ (監視システム)
+   - enterprise_system/security/ (セキュリティ)
+   
+   実験環境フォルダ:
+   - lab_environment_1, lab_environment_2, lab_environment_3
+   - production_test_1, production_test_2, production_test_3
+
+2) 各lab_environment_*とproduction_test_*フォルダには以下の6つのファイルを作成：
+   - configuration.yaml（詳細設定、YAML形式、最低5つのネストレベル）
+   - dataset.json（データセット、JSON形式、1000レコード相当のダミーデータ構造）
+   - processor.py（データ処理スクリプト、実行可能なPythonコード）
+   - ml_model.py（機械学習モデル、実行可能なPythonコード）
+   - results.json（実行結果、JSON形式）
+   - metrics.csv（メトリクス、CSV形式）
+
+3) 以下の高度な計算を各環境で実施してください。
+   基本パラメータ: α=427, β=256, γ=198, δ=87, ε=64, ζ=31
+   
+   lab_environment_1:
+   - 計算: Σ(n=1 to 50) [α^n / (n! * β^(n/2))] + ∫(0 to π) sin(γx) * cos(δx) dx の数値積分
+   - 結果を小数点第7位まで記録
+   - 計算時間をマイクロ秒単位で測定
+   - 収束判定（誤差10^-8以下）を実装
+   
+   lab_environment_2:
+   - 計算: 3次元行列演算 A[10x10x10] * B[10x10x10] の要素ごとの積と、その固有値分解
+   - 各要素は (α+i)*(β+j)*(γ+k) / (δ*ε*ζ) で初期化
+   - 最大固有値と最小固有値の比を計算（条件数）
+   - QR分解とSVD分解の両方を実装し、結果を比較
+   
+   lab_environment_3:
+   - 計算: 非線形最適化問題 minimize f(x,y,z) = α*x^4 + β*y^3 + γ*z^2 - δ*x*y*z + ε*log(x+y+z+1)
+   - 制約条件: x+y+z <= 100, x,y,z >= 0
+   - 勾配降下法、ニュートン法、準ニュートン法の3手法で解く
+   - 各手法の収束回数と最終誤差を記録
+   
+   production_test_1:
+   - 計算: 時系列予測モデル（ARIMA）でα,β,γ,δ,ε,ζから生成した100点のデータを予測
+   - データ生成式: y(t) = α*sin(t/10) + β*cos(t/15) + γ*exp(-t/50) + ノイズ
+   - 予測精度（RMSE, MAE, MAPE）を計算
+   - 季節性分解とトレンド分析を実施
+   
+   production_test_2:
+   - 計算: モンテカルロシミュレーション（100,000回）で複雑な金融オプション価格を計算
+   - オプション価格: max(0, S*exp((r-σ^2/2)*T + σ*√T*Z) - K)
+   - S=α, K=β, r=0.05, σ=γ/1000, T=δ/365
+   - 信頼区間（95%, 99%）とVaR（Value at Risk）を計算
+   
+   production_test_3:
+   - 計算: グラフアルゴリズム - 50ノードの完全グラフで最短経路問題を解く
+   - エッジの重み: |α*i - β*j| / (γ + δ*|i-j|)
+   - ダイクストラ法、ベルマンフォード法、フロイドワーシャル法で実装
+   - 各アルゴリズムの計算複雑度を実測値で検証
+
+4) enterprise_system/core/フォルダに以下のファイルを作成：
+   - system_architecture.yaml（システム全体のアーキテクチャ定義）
+   - dependency_graph.json（モジュール間の依存関係グラフ）
+   - performance_baseline.csv（パフォーマンスベースライン）
+   - error_handling.py（統一エラーハンドリングモジュール）
+
+5) enterprise_system/data_processing/フォルダに以下のファイルを作成：
+   - etl_pipeline.py（ETLパイプライン実装）
+   - data_validation.json（データ検証ルール）
+   - transformation_rules.yaml（変換ルール定義）
+   - batch_processor.py（バッチ処理実装）
+
+6) enterprise_system/ml_models/フォルダに以下のファイルを作成：
+   - model_registry.json（モデルレジストリ）
+   - training_pipeline.py（学習パイプライン）
+   - hyperparameters.yaml（ハイパーパラメータ設定）
+   - model_evaluation.csv（モデル評価結果）
+   - feature_importance.json（特徴量重要度）
+
+7) enterprise_system/api_gateway/フォルダに以下のファイルを作成：
+   - api_specification.yaml（OpenAPI仕様）
+   - rate_limiting.json（レート制限設定）
+   - authentication.py（認証モジュール）
+   - request_router.py（リクエストルーティング）
+
+8) enterprise_system/monitoring/フォルダに以下のファイルを作成：
+   - metrics_collector.py（メトリクス収集）
+   - alert_rules.yaml（アラートルール）
+   - dashboard_config.json（ダッシュボード設定）
+   - health_check.py（ヘルスチェック実装）
+   - performance_report.html（パフォーマンスレポート、HTML形式）
+
+9) enterprise_system/security/フォルダに以下のファイルを作成：
+   - security_policy.yaml（セキュリティポリシー）
+   - encryption_keys.json（暗号化キー管理、ダミーデータ）
+   - audit_log.csv（監査ログ）
+   - vulnerability_scan.py（脆弱性スキャン）
+
+10) 「comprehensive_validation.py」という高度な検証スクリプトを作成し、以下を実装：
+    - 全70ファイル以上の存在確認とフォーマット検証
+    - 各計算結果の数値精度検証（誤差許容範囲: 10^-10）
+    - 相互依存関係の整合性チェック
+    - パフォーマンステスト（実行時間、メモリ使用量、CPU使用率）
+    - セキュリティチェック（権限、暗号化、インジェクション対策）
+    - 回帰テスト（最低30個のテストケース）
+    - 負荷テスト（並行処理、大量データ処理）
+    - カバレッジ測定（コードカバレッジ80%以上を目標）
+    - 結果を以下の3形式で出力：
+      * validation_report.html（詳細HTMLレポート、グラフ付き）
+      * validation_summary.json（JSON形式サマリー）
+      * validation_metrics.csv（CSV形式メトリクス）
+
+11) 「performance_benchmark.py」というベンチマークスクリプトを作成：
+    - 各処理の実行時間を100回測定し統計分析
+    - メモリプロファイリング実装
+    - CPUプロファイリング実装
+    - I/Oプロファイリング実装
+    - ボトルネック分析
+    - 最適化提案の自動生成
+
+12) 「work_history.log」に作業の詳細な記録を残してください。
+    形式: [作業者名] YYYYMMDD HH:MM:SS 作業内容
+    ※時刻は必ずdateコマンドで取得してください
+    ※最低30行以上の詳細な記録を残すこと
+    ※各フェーズ（設計、実装、テスト、検証）を明確に記録
+
+13) 「reflection.txt」に以下の項目を含む包括的な振り返りを記載：
+    【発生したエラー】
+    - 全エラーのリストと解決方法（エラーがない場合は「エラーなし」と明記）
+    - エラーパターンの分析
+    - 予防策の提案
+    
+    【指示について】
+    - 明確だった点（3つ以上）
+    - 不明確/曖昧だった点（具体的に）
+    - 解釈に迷った部分とその判断根拠
+    
+    【困難だった作業】
+    - 技術的課題トップ5とその理由
+    - 時間を要した作業トップ3
+    - 複数回の試行が必要だった部分
+    
+    【工夫した点】
+    - アーキテクチャ設計の工夫（3つ以上）
+    - 実装上の工夫（5つ以上）
+    - テスト戦略の工夫（2つ以上）
+    
+    【パフォーマンス分析】
+    - ボトルネックの特定
+    - 最適化の余地
+    - スケーラビリティの考察
+    
+    【改善案】
+    - プロセス改善案（3つ以上）
+    - システム改善案（3つ以上）
+    - ツール/自動化の提案（2つ以上）
+    
+    【学習と成長】
+    - 新たに習得した技術/概念（3つ以上）
+    - 今後の課題と学習計画
+    - チーム展開時の推奨事項
+
+注意事項：
+- 全ての数値計算は高精度で行うこと（必要に応じてdecimalモジュール使用）
+- ファイル形式は厳密に守ること（JSON, YAML, CSV, HTML, Markdown）
+- 非同期処理とマルチスレッディングを適切に活用すること
+- エラーハンドリングは包括的に実装すること
+- ログは構造化ログフォーマットを使用すること
+- コードは保守性と拡張性を考慮して実装すること
+- ドキュメントは自己文書化を心がけること

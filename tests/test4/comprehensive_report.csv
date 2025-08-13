@@ -1,0 +1,9 @@
+Folder,Formula,Result,Complexity,ExecutionTime
+analysis_1,"((a+b)*c - d*e) / (a-b)",117.6034,Low,12
+analysis_2,"a^3 - b^2 + c^2 - d^2 + e^3",9656760,Medium,8
+analysis_3,"√(a^2 + b^2) * sin(c°)",165.49622,Medium,25
+analysis_4,"log(a*b) + ln(c*d) - log2(e)",7.994587,High,35
+analysis_5,"Σ(i=1 to e) [a/(b+i*c)]",7.725,High,42
+analysis_6,"F(d) + e!",40234611,High,156
+analysis_7,"(a mod b) * (c mod d) + (d mod e)",329,Low,5
+analysis_8,"Monte Carlo π estimation",3.126000,High,890

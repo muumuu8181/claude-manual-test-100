@@ -1,0 +1,122 @@
+{
+  "environment": "lab_environment_1",
+  "parameters": {
+    "alpha": 427,
+    "beta": 256,
+    "gamma": 198,
+    "delta": 87,
+    "epsilon": 64,
+    "zeta": 31
+  },
+  "series_calculation": {
+    "final_sum": 389247637011.58734,
+    "precision_digits": 7,
+    "computation_time_microseconds": 10234.6,
+    "convergence_achieved": false,
+    "convergence_iteration": 0,
+    "total_terms": 50,
+    "terms_data": [
+      {
+        "n": 1,
+        "term_value": 26.6875,
+        "partial_sum": 26.6875,
+        "alpha_power": 427.0,
+        "factorial": 1.0,
+        "beta_power": 16.0
+      },
+      {
+        "n": 2,
+        "term_value": 356.111328125,
+        "partial_sum": 382.798828125,
+        "alpha_power": 182329.0,
+        "factorial": 2.0,
+        "beta_power": 256.0
+      },
+      {
+        "n": 3,
+        "term_value": 3167.907023111979,
+        "partial_sum": 3550.705851236979,
+        "alpha_power": 77854483.0,
+        "factorial": 6.0,
+        "beta_power": 4096.0
+      },
+      {
+        "n": 4,
+        "term_value": 21135.879669825237,
+        "partial_sum": 24686.585521062214,
+        "alpha_power": 33243864241.0,
+        "factorial": 24.0,
+        "beta_power": 65536.0
+      },
+      {
+        "n": 5,
+        "term_value": 112812.7577376922,
+        "partial_sum": 137499.3432587544,
+        "alpha_power": 14195130030907.0,
+        "factorial": 120.0,
+        "beta_power": 1048576.0
+      },
+      {
+        "n": 6,
+        "term_value": 501781.7453541101,
+        "partial_sum": 639281.0886128645,
+        "alpha_power": 6061320523197289.0,
+        "factorial": 720.0,
+        "beta_power": 16777216.0
+      },
+      {
+        "n": 7,
+        "term_value": 1913042.9041625448,
+        "partial_sum": 2552323.992775409,
+        "alpha_power": 2.5881838634052424e+18,
+        "factorial": 5040.0,
+        "beta_power": 268435456.0
+      },
+      {
+        "n": 8,
+        "term_value": 6381791.563104739,
+        "partial_sum": 8934115.555880148,
+        "alpha_power": 1.1051545096740386e+21,
+        "factorial": 40320.0,
+        "beta_power": 4294967296.0
+      },
+      {
+        "n": 9,
+        "term_value": 18923784.70448419,
+        "partial_sum": 27857900.26036434,
+        "alpha_power": 4.7190097563081446e+23,
+        "factorial": 362880.0,
+        "beta_power": 68719476736.0
+      },
+      {
+        "n": 10,
+        "term_value": 50502850.430092186,
+        "partial_sum": 78360750.69045652,
+        "alpha_power": 2.0150171659435778e+26,
+        "factorial": 3628800.0,
+        "beta_power": 1099511627776.0
+      }
+    ],
+    "error_estimate": 0.0
+  },
+  "numerical_integration": {
+    "adaptive_quadrature": 0.0125178,
+    "trapezoidal_rule": 0.0125145,
+    "simpson_rule": 0.0125178,
+    "analytical_solution": 0.0,
+    "error_estimate": 0.1541357057035191,
+    "computation_time_microseconds": 9191.9,
+    "integration_bounds": [
+      0.0,
+      3.141592653589793
+    ],
+    "function_parameters": {
+      "gamma": 198,
+      "delta": 87
+    },
+    "numerical_points": 10000,
+    "precision_achieved": false
+  },
+  "total_computation_time": 19426.5,
+  "overall_precision": 0
+}

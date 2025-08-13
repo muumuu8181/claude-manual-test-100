@@ -1,0 +1,48 @@
+# Trial Alpha Configuration Parameters
+# =====================================
+
+[calculation]
+name = "trial_alpha"
+description = "Series sum and numerical integration calculation"
+precision = 7
+method = "simpson_integration"
+
+[basic_parameters]
+a = 523
+b = 318
+c = 267
+d = 194
+e = 89
+f = 41
+
+[series_calculation]
+k_min = 1
+k_max = 50
+formula = "Σ(k=1 to 50) [a^k / (k! * (b+c*k))]"
+overflow_threshold = 1e100
+
+[numerical_integration]
+function = "sin(d*x)*cos(e*x)"
+lower_bound = 0
+upper_bound = "π"
+method = "simpson"
+divisions = 1000
+precision_check = true
+
+[error_handling]
+overflow_check = true
+division_by_zero_check = true
+convergence_check = true
+log_level = "INFO"
+
+[output]
+decimal_places = 7
+scientific_notation = false
+include_metadata = true
+save_intermediate_results = true
+
+[performance]
+max_computation_time = 300  # seconds
+memory_limit = "1GB"
+parallel_processing = false
+optimization_level = "standard"

@@ -1,0 +1,53 @@
+# Trial Beta Configuration Parameters
+# ====================================
+
+[calculation]
+name = "trial_beta"
+description = "3D matrix eigenvalue decomposition and maximum eigenvalue computation"
+precision = 9
+method = "eigenvalue_decomposition"
+
+[basic_parameters]
+a = 523
+b = 318
+c = 267
+d = 194
+e = 89
+f = 41
+
+[matrix_configuration]
+dimensions = [10, 10, 10]
+element_formula = "(i+j+k) * sin((i*j*k)*π/100)"
+matrix_type = "3d_to_2d_conversion"
+symmetry_enforcement = true
+
+[eigenvalue_computation]
+method = "numpy_linalg_eig"
+fallback_method = "svd"
+complex_eigenvalues = true
+separation_real_imaginary = true
+maximum_selection = "by_magnitude"
+
+[numerical_processing]
+denominator_calculation = "a*b*c*d*e*f"
+final_division = "max_eigenvalue_magnitude / denominator"
+precision_target = 9
+rounding_method = "standard"
+
+[error_handling]
+linalg_error_fallback = true
+overflow_protection = true
+underflow_handling = true
+precision_loss_monitoring = true
+
+[performance]
+matrix_size_limit = 1000
+memory_optimization = true
+computation_timeout = 600  # seconds
+parallel_processing = false
+
+[output]
+decimal_places = 9
+scientific_notation_threshold = 1e-6
+include_eigenvalue_details = true
+save_intermediate_matrices = false

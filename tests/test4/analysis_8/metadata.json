@@ -1,0 +1,10 @@
+{
+  "folder": "analysis_8",
+  "created_at": "2025-08-13 10:52:36",
+  "formula": "Monte Carlo π estimation (10000 trials)",
+  "variables_used": [
+    "trials=10000"
+  ],
+  "execution_time_ms": 890,
+  "complexity": "High"
+}

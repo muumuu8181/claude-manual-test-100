@@ -1,0 +1,89 @@
+{
+  "max_eigenvalue_real": 95.51651797542912,
+  "max_eigenvalue_imag": 0.0,
+  "max_eigenvalue_magnitude": 95.51651797542912,
+  "denominator": 31435159155228,
+  "final_result": 0.0,
+  "parameters": {
+    "a": 523,
+    "b": 318,
+    "c": 267,
+    "d": 194,
+    "e": 89,
+    "f": 41
+  },
+  "matrix_info": {
+    "original_size": "10x10x10",
+    "converted_size": "31x31",
+    "total_eigenvalues": 31
+  },
+  "stages": [
+    "3D matrix created with dimensions 10x10x10",
+    "3D matrix converted to 2D matrix 31x31",
+    "Eigenvalue decomposition completed: 31 eigenvalues computed",
+    "Maximum eigenvalue found: magnitude=95.5165179754"
+  ],
+  "eigenvalue_details": [
+    {
+      "index": 0,
+      "real_part": 95.51651797542912,
+      "imaginary_part": 0.0,
+      "magnitude": 95.51651797542912
+    },
+    {
+      "index": 1,
+      "real_part": 74.42628764362185,
+      "imaginary_part": 0.0,
+      "magnitude": 74.42628764362185
+    },
+    {
+      "index": 2,
+      "real_part": -70.33413556644891,
+      "imaginary_part": 0.0,
+      "magnitude": 70.33413556644891
+    },
+    {
+      "index": 3,
+      "real_part": -69.62098361744594,
+      "imaginary_part": 0.0,
+      "magnitude": 69.62098361744594
+    },
+    {
+      "index": 4,
+      "real_part": 62.86062249970647,
+      "imaginary_part": 0.0,
+      "magnitude": 62.86062249970647
+    },
+    {
+      "index": 5,
+      "real_part": 56.8998264522455,
+      "imaginary_part": 0.0,
+      "magnitude": 56.8998264522455
+    },
+    {
+      "index": 6,
+      "real_part": -60.97606579083661,
+      "imaginary_part": 0.0,
+      "magnitude": 60.97606579083661
+    },
+    {
+      "index": 7,
+      "real_part": 46.03585664434674,
+      "imaginary_part": 0.0,
+      "magnitude": 46.03585664434674
+    },
+    {
+      "index": 8,
+      "real_part": -51.08551923860446,
+      "imaginary_part": 0.0,
+      "magnitude": 51.08551923860446
+    },
+    {
+      "index": 9,
+      "real_part": -43.47063664528405,
+      "imaginary_part": 0.0,
+      "magnitude": 43.47063664528405
+    }
+  ],
+  "precision": 9
+}

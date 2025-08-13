@@ -1,0 +1,94 @@
+# Lab Environment 1 Configuration
+# 詳細設定ファイル - 5つのネストレベル実装
+
+system:
+  environment:
+    name: "lab_environment_1"
+    version: "1.0.0"
+    description: "高精度数値計算環境"
+    
+  computation:
+    parameters:
+      alpha: 427
+      beta: 256
+      gamma: 198
+      delta: 87
+      epsilon: 64
+      zeta: 31
+      
+    algorithms:
+      series_calculation:
+        method: "infinite_series_summation"
+        convergence:
+          tolerance: 1.0e-8
+          max_iterations: 1000
+          early_stopping: true
+          
+        performance:
+          precision:
+            decimal_places: 7
+            use_high_precision: true
+            library: "decimal"
+            
+          timing:
+            unit: "microseconds"
+            measurement_count: 10
+            
+      numerical_integration:
+        method: "adaptive_quadrature"
+        bounds:
+          lower: 0.0
+          upper: 3.141592653589793
+          
+        options:
+          subdivisions: 1000
+          tolerance: 1.0e-10
+          
+  hardware:
+    requirements:
+      cpu:
+        cores: 4
+        frequency_min: "2.0GHz"
+        architecture: "x64"
+        
+      memory:
+        ram_min: "8GB"
+        swap: "4GB"
+        
+      storage:
+        temp_space: "1GB"
+        results_storage: "500MB"
+        
+  logging:
+    level: "DEBUG"
+    format: "structured"
+    output:
+      console: true
+      file: "lab1_computation.log"
+      
+    rotation:
+      max_size: "100MB"
+      backup_count: 5
+      
+  monitoring:
+    metrics:
+      collection_interval: 1.0
+      
+      performance:
+        cpu_usage: true
+        memory_usage: true
+        execution_time: true
+        
+      accuracy:
+        error_tracking: true
+        convergence_monitoring: true
+        precision_validation: true
+        
+  security:
+    validation:
+      input_sanitization: true
+      result_verification: true
+      
+    access:
+      read_only_mode: false
+      audit_logging: true

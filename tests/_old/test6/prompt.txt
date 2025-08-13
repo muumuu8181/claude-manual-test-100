@@ -1,0 +1,150 @@
+【作業指示】
+1) 12個のフォルダを多層階層構造で作成してください。
+   ルートフォルダ: research_platform/
+   第1層フォルダ:
+   - research_platform/data_pipeline/ (データパイプライン管理)
+   - research_platform/ml_models/ (機械学習モデル)
+   - research_platform/optimization/ (最適化処理)
+   - research_platform/visualization/ (可視化)
+   第2層フォルダ:
+   - research_platform/data_pipeline/raw_data/
+   - research_platform/data_pipeline/processed_data/
+   - research_platform/ml_models/training/
+   - research_platform/ml_models/evaluation/
+   実験フォルダ:
+   - trial_alpha, trial_beta, trial_gamma, trial_delta
+
+2) 各trial_*フォルダには以下の7つのファイルを作成してください：
+   - parameters.toml（設定ファイル、TOML形式）
+   - dataset.json（データセット、JSON形式、最低1000要素を含む配列）
+   - algorithm.py（アルゴリズム実装、完全に実行可能なPythonコード）
+   - results.json（実行結果、JSON形式）
+   - metrics.yaml（評価指標、YAML形式）
+   - diagnostic.log（診断ログ、詳細なタイムスタンプ付き）
+   - visualization.svg（SVG形式の簡易グラフデータ）
+
+3) 以下の高度な計算を各trialで実施してください。
+   基本パラメータ: a=523, b=318, c=267, d=194, e=89, f=41
+   
+   trial_alpha:
+   - 計算: Σ(k=1 to 50) [a^k / (k! * (b+c*k))] + ∫(0 to π) sin(d*x)*cos(e*x)dx の数値積分（小数点第7位まで）
+   - 条件: 積分はシンプソン法で1000分割して計算
+   - 検証: 計算の各段階でオーバーフローチェック
+   
+   trial_beta:
+   - 計算: 3次元行列演算 M[10x10x10]の固有値分解の最大固有値を求め、それをa*b*c*d*e*fで除した値（小数点第9位まで）
+   - 条件: 行列の各要素は(i+j+k) * sin((i*j*k)*π/100)で初期化
+   - 検証: 固有値の実部と虚部を分離して記録
+   
+   trial_gamma:
+   - 計算: 確率的勾配降下法で関数f(x,y) = (x-a)^4 + (y-b)^4 + c*sin(d*x) + e*cos(f*y)の最小値を探索（小数点第8位まで）
+   - 条件: 学習率0.001、イテレーション10000回、モメンタム0.9使用
+   - 検証: 収束曲線を記録し、局所最小値の判定
+   
+   trial_delta:
+   - 計算: カオス理論のローレンツアトラクタをルンゲクッタ法で計算し、t=100での位置(x,y,z)を求める（小数点第10位まで）
+   - 条件: σ=a/50, ρ=b/10, β=c/100として、初期値(1,1,1)から開始
+   - 検証: リアプノフ指数を計算して記録
+
+4) research_platform/data_pipeline/raw_data/フォルダに以下のファイルを作成：
+   - sensor_data.csv（10000行×20列のセンサーデータ、ノイズ付き）
+   - metadata.json（データの統計情報とスキーマ定義）
+   - quality_report.yaml（データ品質レポート）
+
+5) research_platform/data_pipeline/processed_data/フォルダに以下のファイルを作成：
+   - cleaned_data.parquet（クリーニング済みデータの仮想Parquet形式記述）
+   - feature_engineering.json（特徴量エンジニアリング結果）
+   - preprocessing_pipeline.py（前処理パイプラインの実装）
+
+6) research_platform/ml_models/training/フォルダに以下のファイルを作成：
+   - model_architecture.json（モデルアーキテクチャの定義）
+   - training_history.csv（学習履歴、エポックごとのlossとaccuracy）
+   - hyperparameters.yaml（ハイパーパラメータの設定）
+   - cross_validation.json（交差検証の結果）
+
+7) research_platform/ml_models/evaluation/フォルダに以下のファイルを作成：
+   - confusion_matrix.csv（混同行列）
+   - roc_auc.json（ROC曲線とAUCスコア）
+   - feature_importance.yaml（特徴量の重要度）
+   - model_comparison.md（複数モデルの比較レポート）
+
+8) research_platform/optimization/フォルダに以下のファイルを作成：
+   - genetic_algorithm.py（遺伝的アルゴリズムの実装）
+   - particle_swarm.py（粒子群最適化の実装）
+   - simulated_annealing.py（焼きなまし法の実装）
+   - optimization_results.json（各手法の最適化結果比較）
+
+9) research_platform/visualization/フォルダに以下のファイルを作成：
+   - dashboard_config.yaml（ダッシュボード設定）
+   - chart_definitions.json（グラフ定義）
+   - interactive_plot.html（インタラクティブプロットのHTML）
+   - export_templates.md（エクスポートテンプレート）
+
+10) 「comprehensive_validator.py」という高度な統合検証スクリプトを作成し、以下を実装：
+    - 全フォルダとファイルの完全性チェック（チェックサム検証を含む）
+    - 各trialの数値計算の精度検証（誤差評価付き）
+    - データパイプラインの整合性確認
+    - MLモデルの再現性テスト
+    - 最適化アルゴリズムのベンチマーク
+    - 非同期処理のシミュレーション
+    - メモリリーク検出のシミュレーション
+    - 15個以上の単体テストと5個以上の統合テスト
+    - カバレッジレポートの生成
+    - パフォーマンスプロファイリング結果
+    - 結果を「validation_dashboard.html」として対話型HTMLレポートで出力
+    - CI/CD用のJenkinsfileまたはGitHub Actions設定ファイルの生成
+
+11) 「performance_benchmark.py」というベンチマークスクリプトを作成し、以下を測定：
+    - 各計算処理の実行時間（ナノ秒精度）
+    - メモリ使用量の推移
+    - CPU使用率
+    - I/O操作の統計
+    - 並列処理の効率性
+    - 結果を「benchmark_report.json」に出力
+
+12) 「work_history.log」に作業の詳細な記録を残してください。
+    形式: [作業者名] YYYYMMDD HH:MM:SS 作業内容
+    ※時刻は必ずdateコマンドで取得してください
+    ※最低30行以上の詳細な記録を残すこと
+    ※各フェーズ（設計、実装、テスト、検証）ごとに記録
+
+13) 「reflection.txt」に以下の項目を含む包括的な振り返りを記載：
+    【発生したエラー】
+    - エラーの有無と詳細（なければ「エラーなし」と明記）
+    - エラーの種類（構文、実行時、論理）ごとに分類
+    - 解決方法と試行回数
+    - 根本原因の分析
+    
+    【指示について】
+    - 明確だった点（3つ以上）
+    - 不明確だった点（あれば具体的に）
+    - 改善提案（2つ以上）
+    
+    【困難だった作業】
+    - 技術的に難しかった部分（5つ以上）
+    - 時間がかかった作業（3つ以上）
+    - 予想外の課題（2つ以上）
+    
+    【工夫した点】
+    - 効率化の工夫（5つ以上）
+    - 品質向上の取り組み（3つ以上）
+    - 自動化の実装（2つ以上）
+    
+    【改善案】
+    - プロセス改善案（3つ以上）
+    - システム改善案（3つ以上）
+    - ツール改善案（2つ以上）
+    
+    【学んだこと】
+    - 新しく学んだ技術や手法（3つ以上）
+    - 今後活用できそうな知見（2つ以上）
+    - チーム開発への応用（1つ以上）
+
+注意事項：
+- 全ての数値計算は指定精度を厳守すること
+- ファイル形式は厳密に守ること（JSON, YAML, CSV, TOML, Markdown, SVG, HTML）
+- エラーハンドリングとリトライ機構を実装すること
+- コードは完全に実行可能で、単体テスト可能にすること
+- ドキュメンテーションを充実させること
+- セキュリティとパフォーマンスを考慮すること
+- 作業は体系的かつ効率的に進め、進捗を定期的に記録すること

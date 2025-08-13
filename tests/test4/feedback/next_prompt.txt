@@ -1,109 +1,82 @@
 【作業指示】
-1) 10個のフォルダを階層構造で作成してください。
-   - ルートフォルダ: project_root
-   - 第1階層: data_processing, calculations, validations
-   - 第2階層: data_processing/raw, data_processing/processed
-   - 第2階層: calculations/basic, calculations/advanced, calculations/statistics
-   - 第2階層: validations/unit_tests, validations/integration_tests
+1) 10つのフォルダを作成してください。それぞれ、process_1, process_2, process_3, process_4, process_5, process_6, process_7, process_8, process_9, process_10とrename。
 
-2) 各最下層フォルダに5つのファイルを作成してください。
-   - config.yaml（設定情報）
-   - input_data.json（入力データ）
-   - processing_log.txt（処理ログ）
-   - output_results.json（出力結果）
-   - validation_report.txt（検証レポート）
+2) それぞれのフォルダに5つのファイルを作成してください。
+   - config.yaml（処理設定を記載）
+   - input_stream.txt（入力データストリーム）
+   - transformation.py（データ変換ロジック）
+   - output_stream.txt（出力データストリーム）
+   - metrics.json（処理メトリクス）
 
-3) 6つの数値 x=314, y=217, z=159, w=88, v=53, u=29 を使用して以下の計算を実施：
-   data_processing/raw: 
-     - データクレンジング: 各数値が素数かどうか判定
-     - 外れ値検出: 平均±2σの範囲外の値を特定
+3) 6つの数値 x=289, y=134, z=67, w=42, v=23, u=13 があります。
+   process_1には: ((x^2 + y^2) / (z*w)) * sin(v°) の計算（小数点第5位まで）
+   process_2には: Π(i=1 to u) [1 + i/(x-y*cos(i))] の計算（小数点第6位まで）
+   process_3には: 行列[[x,y],[z,w]]の固有値計算と最大固有値の特定
+   process_4には: x,y,z,w,v,uを使った2次多項式回帰と決定係数R²の計算（小数点第7位まで）
+   process_5には: フーリエ級数の第u項までの和（周期2π、x=π/4での値、小数点第4位まで）
+   process_6には: ニュートン法でx^3 - y*x + z = 0の解を求める（初期値w/v、誤差10^-8以内）
+   process_7には: 素数判定アルゴリズムでx,y,z,w,v,uの次の素数を全て見つける
+   process_8には: ランダムウォークシミュレーション（v*1000ステップ、最終位置と最大到達距離）
+   process_9には: 最適化問題: minimize f(a,b) = (a-x)^2 + (b-y)^2 subject to a*z + b*w <= v*u
+   process_10には: 暗号化処理: RSA風の処理でp=素数(x以上の最小), q=素数(y以上の最小), n=p*q, φ(n)=(p-1)(q-1), e=65537での公開鍵生成
    
-   data_processing/processed:
-     - 正規化: 全値を0-1の範囲に変換（小数点第5位まで）
-     - 標準化: z-score計算（小数点第4位まで）
-   
-   calculations/basic:
-     - 基本統計: 平均、分散、標準偏差（小数点第4位まで）
-     - 相関係数行列: 全ペアの相関（小数点第5位まで）
-   
-   calculations/advanced:
-     - フィボナッチ変換: F(x) = F(x-1) + F(x-2)の第n項を計算（n=各数値）
-     - 対数正規分布パラメータ: μとσを推定（小数点第6位まで）
-   
-   calculations/statistics:
-     - 信頼区間: 95%信頼区間を計算（小数点第3位まで）
-     - 仮説検定: t検定のp値計算（小数点第6位まで）
-   
-   validations/unit_tests:
-     - 各計算の単体テスト結果
-     - エッジケースのテスト
-   
-   validations/integration_tests:
-     - 全体フローの統合テスト
-     - パフォーマンス測定（処理時間）
+   各フォルダのファイルに適切な内容を記載してください。
 
-4) マスターレポート「master_analysis_report.json」を作成：
+4) 各processフォルダ内に「execution_log.txt」を作成し、以下を記載：
+   - 開始時刻（ミリ秒精度）
+   - 各ステップの処理時間
+   - メモリ使用量の変化
+   - エラーハンドリング記録
+   - 終了時刻と総処理時間
+
+5) ルートフォルダに「pipeline_orchestration.json」を作成し、以下の構造で記載：
    {
-     "project_metadata": {
-       "created_at": "作成日時",
-       "author": "作業者名",
-       "version": "2.0",
-       "total_folders": フォルダ数,
-       "total_files": ファイル数
+     "pipeline": {
+       "stages": [各process間の依存関係を定義],
+       "data_flow": [データフローの定義],
+       "parallel_execution": [並列実行可能なプロセス]
      },
-     "data_quality": {
-       "prime_numbers": [素数リスト],
-       "outliers": [外れ値リスト],
-       "normalization_range": [min, max],
-       "standardization_params": {"mean": 値, "std": 値}
-     },
-     "calculation_results": {
-       "basic_stats": {...},
-       "advanced_calcs": {...},
-       "statistical_tests": {...}
-     },
-     "validation_summary": {
-       "unit_tests_passed": 数,
-       "unit_tests_failed": 数,
-       "integration_tests_passed": 数,
-       "integration_tests_failed": 数,
-       "total_execution_time": "X.XXX seconds"
-     },
-     "dependencies": {
-       "calculation_flow": [処理順序の配列],
-       "critical_path": [クリティカルパス]
+     "performance": {
+       "total_execution_time_ms": 総実行時間,
+       "bottleneck_process": ボトルネックプロセス,
+       "optimization_recommendations": [最適化提案]
      }
    }
 
-5) 「analysis_dashboard.html」を作成し、以下を含めてください：
-   - 全計算結果の視覚的サマリー（テーブル形式）
-   - 処理フローの図解（ASCII アート）
-   - エラーと警告のハイライト
-   - 実行時間の内訳グラフ（テキストベース）
+6) 「distributed_validation.py」というPythonスクリプトを作成し、以下を実装：
+   - 全プロセスの結果を並列検証（multiprocessing使用）
+   - 各プロセス間のデータ整合性チェック
+   - 計算精度の統計的検証（標準偏差、信頼区間）
+   - 異常値検出アルゴリズムの実装
+   - 検証結果をvalidation_dashboard.htmlに出力（グラフ付き）
+   - 分散処理のシミュレーション（3ノード想定）
 
-6) 「comprehensive_validator.py」を作成し、以下を実装：
-   - 全フォルダ構造の検証
-   - 全ファイルの存在と形式チェック
-   - 計算結果の相互整合性検証
-   - 依存関係の循環参照チェック
-   - メモリ使用量とCPU使用率の測定
-   - エラーハンドリングとリトライ機構
-   - 詳細なログ出力（3段階: INFO, WARNING, ERROR）
-   - 最終メッセージ: 「Comprehensive validation completed: X/Y tests passed」
+7) 「ml_predictor.py」を作成し、以下を実装：
+   - 各プロセスの実行時間を機械学習で予測
+   - 過去のデータから学習（仮想データセット生成）
+   - 予測精度の評価（MAE、RMSE、R²）
+   - 予測結果をprediction_report.jsonに出力
 
-7) 「automated_test_suite.py」を作成：
-   - ユニットテスト20個以上
-   - 統合テスト5個以上
-   - パフォーマンステスト3個以上
-   - pytest形式で実装
+8) 「system_monitor.py」を作成し、以下を実装：
+   - リアルタイムシステムモニタリングのシミュレーション
+   - CPU、メモリ、ディスクI/Oの仮想メトリクス生成
+   - アラート条件の定義と検知
+   - モニタリングダッシュボードをmonitor_dashboard.htmlに出力
 
-8) 「work_history.log」に詳細な作業記録を残してください。
+9) 「work_history.log」に作業の詳細な記録を残してください。
    形式: [作業者名] YYYYMMDD HH:MM:SS 作業内容
-   ※時刻は必ずdateコマンドで取得
+   各プロセスの実行開始・終了、エラー発生と対処を必ず記録。
 
-9) 「reflection.txt」に以下を記載：
-   - 工夫した点（5つ以上）
-   - 難しかった点（3つ以上）
-   - 改善案（3つ以上）
-   - 学んだこと（2つ以上）
-   - 次回への提案（1つ以上）
+10) 「reflection.txt」に作業の振り返りを記載してください。
+   【エラー記録】
+   - 発生したエラーと解決方法（詳細なスタックトレース含む）
+   【つまずいた箇所】
+   - 特に難しかった実装や数学的概念
+   【指示の不明確な点】
+   - 解釈に迷った指示内容と採用した解釈
+   【工夫した点】
+   - パフォーマンス最適化の工夫
+   - コードの可読性向上の工夫
+   【改善案】
+   - アーキテクチャレベルの改善提案
+   - より効率的なアルゴリズムの提案

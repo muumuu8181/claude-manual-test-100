@@ -1,0 +1,171 @@
+【作業指示 - test7用（難易度レベル30）】
+
+1) 15個のフォルダを多層階層構造で作成してください。
+   メインシステム: quantum_computing_platform/
+   
+   コアレイヤー（第1層）:
+   - quantum_computing_platform/quantum_core/ (量子計算エンジン)
+   - quantum_computing_platform/hybrid_processor/ (ハイブリッド処理)
+   - quantum_computing_platform/error_correction/ (エラー訂正)
+   - quantum_computing_platform/optimization/ (最適化エンジン)
+   
+   アプリケーションレイヤー（第2層）:
+   - quantum_computing_platform/applications/cryptography/ (暗号化)
+   - quantum_computing_platform/applications/simulation/ (シミュレーション)
+   - quantum_computing_platform/applications/machine_learning/ (機械学習)
+   
+   実験環境（独立フォルダ）:
+   - quantum_lab_1, quantum_lab_2, quantum_lab_3, quantum_lab_4
+   - hybrid_test_1, hybrid_test_2, hybrid_test_3, hybrid_test_4
+
+2) 各quantum_lab_*とhybrid_test_*フォルダには以下の8つのファイルを作成：
+   - quantum_config.yaml（量子回路設定、最低7つのネストレベル）
+   - qubit_state.json（量子ビット状態、10,000状態のシミュレーション）
+   - quantum_circuit.py（量子回路実装、実行可能）
+   - entanglement_analyzer.py（エンタングルメント解析）
+   - noise_model.json（ノイズモデル定義）
+   - measurement_results.csv（測定結果、1000回の測定データ）
+   - fidelity_report.json（忠実度レポート）
+   - optimization_log.txt（最適化ログ）
+
+3) 以下の超高度な量子計算を各環境で実施：
+   基本パラメータ: λ=512, μ=384, ν=296, ξ=173, ο=128, π=89, ρ=67
+   
+   quantum_lab_1:
+   - 計算: 量子フーリエ変換（QFT）を20量子ビットで実装
+   - Shor's アルゴリズムでλ*μの素因数分解
+   - 量子位相推定（QPE）で固有値を10^-12の精度で計算
+   - エンタングルメントエントロピーの計算と可視化
+   - デコヒーレンス時間の測定（T1, T2）
+   
+   quantum_lab_2:
+   - 計算: Groverの探索アルゴリズムで2^20空間から最適解探索
+   - 量子近似最適化アルゴリズム（QAOA）で組合せ最適化
+   - VQE（変分量子固有値ソルバー）で分子のエネルギー計算
+   - 量子機械学習（QML）でアイリスデータセット分類
+   - 量子エラー訂正コード（表面符号）の実装
+   
+   quantum_lab_3:
+   - 計算: 量子ウォークアルゴリズムで100ノードグラフ探索
+   - HHL量子線形方程式ソルバーで1000×1000行列を解く
+   - 量子主成分分析（qPCA）で次元削減
+   - 量子サポートベクターマシン（qSVM）実装
+   - トポロジカル量子計算のシミュレーション
+   
+   quantum_lab_4:
+   - 計算: 量子モンテカルロ法で1,000,000回のシミュレーション
+   - 量子アニーリングでイジングモデル最適化
+   - 量子暗号（BB84プロトコル）の完全実装
+   - 量子テレポーテーション成功率99.9%以上達成
+   - 量子超越性の検証（ランダム量子回路サンプリング）
+   
+   hybrid_test_1-4:
+   - 古典-量子ハイブリッドアルゴリズム実装
+   - テンソルネットワーク最適化
+   - 量子インスパイアードアルゴリズム
+   - ノイズ耐性量子計算（NISQ）最適化
+
+4) quantum_computing_platform/quantum_core/に以下を作成：
+   - quantum_simulator.py（完全な量子シミュレータ実装）
+   - gate_library.json（全量子ゲートライブラリ）
+   - circuit_optimizer.py（回路最適化エンジン）
+   - state_tomography.py（量子状態トモグラフィー）
+   - error_mitigation.py（エラー緩和技術）
+
+5) quantum_computing_platform/hybrid_processor/に以下を作成：
+   - classical_interface.py（古典計算インターフェース）
+   - quantum_classical_bridge.py（量子-古典ブリッジ）
+   - resource_allocator.py（リソース割り当て最適化）
+   - job_scheduler.py（ジョブスケジューラー）
+   - performance_monitor.py（性能監視システム）
+
+6) quantum_computing_platform/error_correction/に以下を作成：
+   - surface_code.py（表面符号実装）
+   - stabilizer_codes.py（スタビライザー符号）
+   - topological_codes.py（トポロジカル符号）
+   - decoder_algorithms.py（デコーダアルゴリズム）
+   - syndrome_extraction.py（シンドローム抽出）
+
+7) quantum_computing_platform/optimization/に以下を作成：
+   - gradient_optimizer.py（勾配最適化）
+   - evolutionary_optimizer.py（進化的最適化）
+   - bayesian_optimizer.py（ベイズ最適化）
+   - hyperparameter_tuning.py（ハイパーパラメータ調整）
+   - convergence_analyzer.py（収束解析）
+
+8) 各applicationsサブフォルダに専門的実装：
+   - cryptography/: RSA破壊シミュレーション、量子鍵配送
+   - simulation/: 分子動力学、材料科学シミュレーション
+   - machine_learning/: 量子ニューラルネットワーク、量子GAN
+
+9) 「quantum_validation_suite.py」という超高度検証システムを作成：
+   - 100ファイル以上の完全検証
+   - 量子計算の正確性検証（忠実度99.9%以上）
+   - 量子エンタングルメント検証
+   - デコヒーレンス測定と分析
+   - 量子優位性ベンチマーク
+   - 50個以上の量子アルゴリズムテスト
+   - エラー率測定（ゲートエラー、測定エラー、デコヒーレンス）
+   - 並列量子計算シミュレーション
+   - 結果を4形式で出力：
+     * quantum_report.html（インタラクティブ可視化付き）
+     * quantum_metrics.json（詳細メトリクス）
+     * quantum_benchmark.csv（ベンチマーク結果）
+     * quantum_visualization.svg（量子回路図）
+
+10) 「quantum_benchmark_suite.py」という性能評価システムを作成：
+    - 量子回路深さ最適化
+    - ゲート数最小化
+    - 量子ビット利用効率
+    - 古典シミュレーション限界測定
+    - 量子優位性の定量評価
+    - NISQ時代のアルゴリズム最適化
+
+11) 「distributed_quantum_simulator.py」という分散量子シミュレータ：
+    - MPI並列化実装
+    - GPU加速対応
+    - 最大50量子ビットシミュレーション
+    - メモリ効率的なテンソルネットワーク
+    - リアルタイム可視化
+
+12) 「work_history.log」に作業の詳細な記録を残してください。
+    形式: [作業者名] YYYYMMDD HH:MM:SS 作業内容
+    ※時刻は必ずdateコマンドで取得
+    ※最低50行以上の超詳細な記録
+    ※量子計算の各ステップを明確に記録
+
+13) 「reflection.txt」に以下を含む学術的振り返りを記載：
+    【量子計算の理論的課題】
+    - 実装した量子アルゴリズムの理論的限界
+    - デコヒーレンス問題への対処
+    - エラー訂正の効率性分析
+    
+    【実装上の技術的革新】
+    - 新規に開発した最適化手法（5つ以上）
+    - 既存手法の改良点（5つ以上）
+    - 性能向上の定量的評価
+    
+    【量子優位性の検証】
+    - 古典計算との比較結果
+    - スピードアップ率の測定
+    - 実用化への道筋
+    
+    【研究開発への貢献】
+    - 学術的な新規性（3つ以上）
+    - 産業応用の可能性（5つ以上）
+    - 今後の研究方向性（3つ以上）
+    
+    【チーム開発への提言】
+    - 開発プロセスの標準化提案
+    - コード品質基準の策定
+    - ドキュメンテーション戦略
+
+注意事項：
+- 量子計算の理論的正確性を最優先
+- 数値精度は可能な限り高く（10^-15以上）
+- 量子回路の最適化を徹底的に実施
+- ノイズモデルを現実的に設定
+- 並列化と分散処理を最大限活用
+- 可視化は科学的に正確かつ美しく
+- コードは研究レベルの品質を保つ
+- ドキュメントは論文レベルの詳細さ

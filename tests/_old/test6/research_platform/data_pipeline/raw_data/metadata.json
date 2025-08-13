@@ -1,0 +1,170 @@
+{
+  "dataset_info": {
+    "name": "Industrial Sensor Data Collection",
+    "version": "2.1.0",
+    "description": "Multi-sensor environmental and operational data",
+    "creation_date": "2025-08-13T11:35:22.218091",
+    "total_records": 10000,
+    "columns": 20
+  },
+  "schema": {
+    "timestamp": {
+      "type": "datetime",
+      "format": "ISO8601"
+    },
+    "sensor_id": {
+      "type": "string",
+      "pattern": "SENSOR_[0-9]{3}"
+    },
+    "value_1": {
+      "type": "float",
+      "unit": "celsius",
+      "range": [
+        0,
+        100
+      ]
+    },
+    "value_2": {
+      "type": "float",
+      "unit": "humidity_%",
+      "range": [
+        0,
+        100
+      ]
+    },
+    "value_3": {
+      "type": "float",
+      "unit": "pressure_kpa",
+      "range": [
+        80,
+        120
+      ]
+    },
+    "value_4": {
+      "type": "float",
+      "unit": "vibration_hz",
+      "range": [
+        0,
+        1000
+      ]
+    },
+    "value_5": {
+      "type": "float",
+      "unit": "voltage_v",
+      "range": [
+        0,
+        24
+      ]
+    },
+    "value_6": {
+      "type": "float",
+      "unit": "current_a",
+      "range": [
+        0,
+        10
+      ]
+    },
+    "value_7": {
+      "type": "float",
+      "unit": "power_w",
+      "range": [
+        0,
+        240
+      ]
+    },
+    "value_8": {
+      "type": "float",
+      "unit": "flow_rate_lpm",
+      "range": [
+        0,
+        50
+      ]
+    },
+    "value_9": {
+      "type": "float",
+      "unit": "ph_level",
+      "range": [
+        0,
+        14
+      ]
+    },
+    "value_10": {
+      "type": "float",
+      "unit": "conductivity_ms",
+      "range": [
+        0,
+        2000
+      ]
+    },
+    "value_11": {
+      "type": "float",
+      "unit": "turbidity_ntu",
+      "range": [
+        0,
+        1000
+      ]
+    },
+    "value_12": {
+      "type": "float",
+      "unit": "dissolved_oxygen_ppm",
+      "range": [
+        0,
+        20
+      ]
+    },
+    "value_13": {
+      "type": "float",
+      "unit": "noise_level_db",
+      "range": [
+        30,
+        100
+      ]
+    },
+    "value_14": {
+      "type": "float",
+      "unit": "light_intensity_lux",
+      "range": [
+        0,
+        100000
+      ]
+    },
+    "value_15": {
+      "type": "float",
+      "unit": "co2_concentration_ppm",
+      "range": [
+        300,
+        5000
+      ]
+    },
+    "value_16": {
+      "type": "float",
+      "unit": "methane_concentration_ppm",
+      "range": [
+        0,
+        50
+      ]
+    },
+    "value_17": {
+      "type": "float",
+      "unit": "particle_count_per_m3",
+      "range": [
+        0,
+        1000000
+      ]
+    },
+    "value_18": {
+      "type": "float",
+      "unit": "uv_index",
+      "range": [
+        0,
+        11
+      ]
+    }
+  },
+  "statistics": {
+    "corruption_rate": 0.02,
+    "sensor_count": 50,
+    "time_span_days": 100,
+    "sampling_interval_minutes": 6
+  }
+}

@@ -1,0 +1,17 @@
+=== Advanced Validation Report ===
+テストAI4による高度検証レポート
+
+【検出されたエラー】
+❌ analysis_1: metadata.json が存在しません
+❌ analysis_2: metadata.json が存在しません
+❌ analysis_3: metadata.json が存在しません
+❌ analysis_4: metadata.json が存在しません
+❌ analysis_5: metadata.json が存在しません
+❌ analysis_6: metadata.json が存在しません
+❌ analysis_7: metadata.json が存在しません
+❌ analysis_8: metadata.json が存在しません
+❌ comprehensive_report.csv が存在しません
+
+総エラー数: 9
+
+検証実行時刻: 1755050093.2489188

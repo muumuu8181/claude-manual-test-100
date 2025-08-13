@@ -1,74 +1,65 @@
 【作業指示】
-1) 8つのフォルダを作成してください。それぞれ、analysis_1, analysis_2, analysis_3, analysis_4, analysis_5, analysis_6, analysis_7, analysis_8と名前を付けてください。
+1) 8つのフォルダを作成してください。それぞれ、analysis_1, analysis_2, analysis_3, analysis_4, analysis_5, analysis_6, analysis_7, analysis_8とrename。
 
 2) それぞれのフォルダに4つのファイルを作成してください。
-   - parameters.txt（使用するパラメータを記載）
-   - calculation.txt（計算過程を詳細に記載）
-   - result.txt（最終結果を記載）
-   - verification.txt（検算結果を記載）
+   - input_data.txt（入力値と条件を記載）
+   - calculation_process.txt（計算過程を記載）
+   - intermediate_results.txt（中間結果を記載）
+   - final_output.txt（最終結果を記載）
 
-3) 5つの数値 a=238, b=157, c=93, d=46, e=21 があります。
-   analysis_1には: (a+b)*(c-d) + e^2 の計算
-   analysis_2には: a^2 - b^2 + c^2 - d^2 の計算
-   analysis_3には: (a*b*c) / (d*e) の計算（小数点第4位まで）
-   analysis_4には: √(a^2 + b^2) - √(c^2 + d^2) の計算（小数点第3位まで）
-   analysis_5には: (c^3 - d^3) / (a-b) + e の計算（小数点第4位まで）
-   analysis_6には: log10(a*b) + log10(c*d) - log10(e) の計算（小数点第5位まで）
-   analysis_7には: sin(a/180*π) + cos(b/180*π) の計算（小数点第5位まで、πは3.14159265359を使用）
-   analysis_8には: (a!/(a-5)!) / (b!/(b-3)!) の計算（階乗の計算、整数結果）
+3) 5つの数値 a=213, b=97, c=45, d=28, e=11 があります。
+   analysis_1には: ((a+b)*c - d*e) / (a-b) の計算（小数点第4位まで）
+   analysis_2には: a^3 - b^2 + c^2 - d^2 + e^3 の計算
+   analysis_3には: √(a^2 + b^2) * sin(c°) の計算（小数点第5位まで、度数法）
+   analysis_4には: log(a*b) + ln(c*d) - log2(e) の計算（小数点第6位まで）
+   analysis_5には: Σ(i=1 to e) [a/(b+i*c)] の計算（小数点第3位まで）
+   analysis_6には: フィボナッチ数列のF(d)番目 + 階乗(e)! の計算
+   analysis_7には: (a mod b) * (c mod d) + (d mod e) の計算
+   analysis_8には: モンテカルロ法で円周率を推定（10000回試行）、誤差を5%以内に
    
-   各フォルダのparameters.txtには使用する変数値、calculation.txtには計算過程、result.txtには最終結果、verification.txtには別の方法での検算を記載してください。
+   各フォルダのファイルに適切な内容を記載してください。
 
-4) 全ての計算結果を統合した「comprehensive_report.json」をJSON形式で作成し、
-   以下の構造で記載してください：
+4) 各analysisフォルダ内に「metadata.json」を作成し、以下を記載：
    {
-     "metadata": {
-       "created_at": "作成日時",
-       "author": "作業者名",
-       "version": "1.0"
-     },
-     "calculations": {
-       "analysis_1": { 
-         "formula": "計算式", 
-         "result": 結果値,
-         "verification_status": "passed/failed"
-       },
-       ...（全8つ）
-     },
-     "statistics": {
-       "max": 最大値,
-       "min": 最小値,
-       "average": 平均値（小数点第3位まで）,
-       "median": 中央値（小数点第3位まで）,
-       "std_dev": 標準偏差（小数点第4位まで）
-     },
-     "summary": {
-       "total_calculations": 8,
-       "passed_verifications": 検証成功数,
-       "failed_verifications": 検証失敗数
-     }
+     "folder": "フォルダ名",
+     "created_at": "作成日時",
+     "formula": "使用した計算式",
+     "variables_used": ["使用変数リスト"],
+     "execution_time_ms": 実行時間（ミリ秒）,
+     "complexity": "Low/Medium/High"
    }
 
-5) 追加で「data_analysis.csv」ファイルを作成し、以下の形式で全結果をまとめてください：
-   フォルダ名,計算式,結果,検証状態
-   analysis_1,(a+b)*(c-d) + e^2,結果値,passed
-   ...（全8つ）
+5) ルートフォルダに「comprehensive_report.csv」を作成し、以下の形式で全結果をまとめてください：
+   Folder,Formula,Result,Complexity,ExecutionTime
+   （全8つの結果を記載）
 
 6) 「advanced_validation.py」というPythonスクリプトを作成し、以下を実装してください：
-   - 全計算結果の正確性検証（各計算を再実行）
-   - JSONファイルの形式妥当性チェック
-   - CSVファイルの形式と内容確認
-   - 統計値の正しさ確認（平均、中央値、標準偏差）
-   - 各フォルダのverification.txtとの整合性チェック
-   - エラーがあれば詳細を出力、なければ「All advanced validations passed successfully!」と表示
-   - 実行時間を測定して「Execution time: X.XXX seconds」と表示
+   - 全計算結果の再計算と検証
+   - 各フォルダのmetadata.jsonの形式チェック
+   - CSVファイルの整合性確認
+   - 計算精度の検証（指定桁数が正しいか）
+   - モンテカルロ法の誤差が5%以内か確認
+   - テスト結果をresult_report.txtに出力
+   - 全てのテストが通れば「✓ All advanced validations passed!」と表示
 
-7) 「work_history.log」に作業の詳細な記録を残してください。
+7) 「performance_analysis.py」を作成し、以下を実装：
+   - 各計算の実行時間を測定
+   - メモリ使用量の推定
+   - 最も時間のかかった計算を特定
+   - パフォーマンスレポートをperformance_report.jsonに出力
+
+8) 「work_history.log」に作業の詳細な記録を残してください。
    形式: [作業者名] YYYYMMDD HH:MM:SS 作業内容
-   ※時刻は必ずdateコマンドで取得してください
+   必ず各フォルダ作成、ファイル作成、計算実行の記録を残すこと。
 
-8) 「reflection.txt」に作業の振り返りを記載してください。
-   - 工夫した点（3つ以上）
-   - 難しかった点（2つ以上）
-   - 改善案（2つ以上）
-   - 学んだこと（1つ以上）
+9) 「reflection.txt」に作業の振り返りを記載してください。
+   【エラー記録】
+   - 発生したエラーと解決方法
+   【つまずいた箇所】
+   - 特に難しかった計算や実装
+   【指示の不明確な点】
+   - 解釈に迷った指示内容
+   【工夫した点】
+   - 効率化や精度向上のための工夫
+   【改善案】
+   - より良い実装方法の提案

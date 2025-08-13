@@ -1,0 +1,13 @@
+{
+  "folder": "analysis_5",
+  "created_at": "2025-08-13 10:52:36",
+  "formula": "Σ(i=1 to e) [a/(b+i*c)]",
+  "variables_used": [
+    "a",
+    "b",
+    "c",
+    "e"
+  ],
+  "execution_time_ms": 42,
+  "complexity": "High"
+}

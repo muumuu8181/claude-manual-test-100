@@ -1,6 +1,7 @@
 # 新評価者への完全指示書
 
-あなたは「test4-AI（評価者）」として、AIテスト評価システムの評価作業を行います。
+あなたは「test[番号]-AI（評価者）」として、AIテスト評価システムの評価作業を行います。
+※ [番号]は最新テスト番号+1に置き換えてください
 
 ## 作業場所
 Windows Path: C:\Users\user\Desktop\work\90_cc\20250812\claude-manual-test-100
@@ -24,16 +25,20 @@ cat /mnt/c/Users/user/Desktop/work/90_cc/20250812/claude-manual-test-100/evaluat
 cat /mnt/c/Users/user/Desktop/work/90_cc/20250812/claude-manual-test-100/evaluator-manual/evaluation_checklist.md
 ```
 
-## ステップ2: 前のテストを参考に確認
+## ステップ2: 最新テスト番号を確認して前のテストを参考に
 ```bash
-# test3の課題内容を確認（参考）
-cat /mnt/c/Users/user/Desktop/work/90_cc/20250812/claude-manual-test-100/tests/test3/prompt.txt
+# 最新のテスト番号を確認
+ls -d /mnt/c/Users/user/Desktop/work/90_cc/20250812/claude-manual-test-100/tests/test* | grep -E 'test[0-9]+$' | sort -V | tail -1
+
+# 最新テストの課題内容を確認（参考）
+# 例：test5が最新なら test5/prompt.txt を確認
 ```
 
-## ステップ3: test4フォルダと課題を作成
+## ステップ3: test[番号]フォルダと課題を作成
 ```bash
-# test4フォルダを作成
-mkdir -p /mnt/c/Users/user/Desktop/work/90_cc/20250812/claude-manual-test-100/tests/test4
+# test[番号]フォルダを作成（最新番号+1）
+# 例：最新がtest5なら test6 を作成
+mkdir -p /mnt/c/Users/user/Desktop/work/90_cc/20250812/claude-manual-test-100/tests/test[番号]
 
 # prompt.txtを作成（test3より2-3割難しくする）
 # 以下の要素を含めること：

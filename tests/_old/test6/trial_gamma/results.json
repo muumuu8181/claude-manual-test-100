@@ -1,0 +1,99 @@
+{
+  "optimal_x": 0.0,
+  "optimal_y": 0.0,
+  "minimum_value": 85044177306.00003,
+  "is_local_minimum": false,
+  "bounds_used": [
+    -1000,
+    1000
+  ],
+  "parameters": {
+    "a": 523,
+    "b": 318,
+    "c": 267,
+    "d": 194,
+    "e": 89,
+    "f": 41
+  },
+  "sgd_parameters": {
+    "learning_rate": 0.001,
+    "iterations": 10000,
+    "momentum": 0.9
+  },
+  "convergence_history": [
+    {
+      "iteration": 0,
+      "x": 1000,
+      "y": 1000,
+      "value": 268109780941.58966,
+      "gradient_norm": 586501772.732543
+    },
+    {
+      "iteration": 1000,
+      "x": 1000,
+      "y": 1000,
+      "value": 268109780941.58966,
+      "gradient_norm": 1341069033.192499
+    },
+    {
+      "iteration": 2000,
+      "x": 1000,
+      "y": -1000,
+      "value": 3069369236941.59,
+      "gradient_norm": 1341069033.192499
+    },
+    {
+      "iteration": 3000,
+      "x": 1000,
+      "y": 1000,
+      "value": 268109780941.58966,
+      "gradient_norm": 1341069033.192499
+    },
+    {
+      "iteration": 4000,
+      "x": 1000,
+      "y": 1000,
+      "value": 268109780941.58966,
+      "gradient_norm": 1341069033.192499
+    },
+    {
+      "iteration": 5000,
+      "x": 1000,
+      "y": 1000,
+      "value": 268109780941.58966,
+      "gradient_norm": 1341069033.192499
+    },
+    {
+      "iteration": 6000,
+      "x": 1000,
+      "y": -1000,
+      "value": 3069369236941.59,
+      "gradient_norm": 1341069033.192499
+    },
+    {
+      "iteration": 7000,
+      "x": 1000,
+      "y": 1000,
+      "value": 268109780941.58966,
+      "gradient_norm": 1341069033.192499
+    },
+    {
+      "iteration": 8000,
+      "x": 1000,
+      "y": 1000,
+      "value": 268109780941.58966,
+      "gradient_norm": 1341069033.192499
+    },
+    {
+      "iteration": 9000,
+      "x": 1000,
+      "y": 1000,
+      "value": 268109780941.58966,
+      "gradient_norm": 1341069033.192499
+    }
+  ],
+  "stages": [
+    "Bounded SGD completed: 10000 iterations"
+  ],
+  "precision": 8
+}

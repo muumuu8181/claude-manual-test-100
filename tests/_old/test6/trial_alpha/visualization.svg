@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f8ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e6f3ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGradient)" stroke="#ddd" stroke-width="1"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">
+    Trial Alpha Calculation Visualization
+  </text>
+  
+  <!-- Series Sum Graph -->
+  <g transform="translate(50, 80)">
+    <text x="200" y="-10" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#555">
+      Series Sum Convergence (k=1 to 50)
+    </text>
+    
+    <!-- Axes -->
+    <line x1="0" y1="200" x2="400" y2="200" stroke="#333" stroke-width="2"/>
+    <line x1="0" y1="0" x2="0" y2="200" stroke="#333" stroke-width="2"/>
+    
+    <!-- X-axis labels -->
+    <text x="0" y="220" text-anchor="middle" font-size="10" fill="#666">0</text>
+    <text x="100" y="220" text-anchor="middle" font-size="10" fill="#666">10</text>
+    <text x="200" y="220" text-anchor="middle" font-size="10" fill="#666">20</text>
+    <text x="300" y="220" text-anchor="middle" font-size="10" fill="#666">30</text>
+    <text x="400" y="220" text-anchor="middle" font-size="10" fill="#666">50</text>
+    
+    <!-- Y-axis labels (logarithmic scale) -->
+    <text x="-30" y="200" text-anchor="middle" font-size="10" fill="#666">10^0</text>
+    <text x="-30" y="150" text-anchor="middle" font-size="10" fill="#666">10^20</text>
+    <text x="-30" y="100" text-anchor="middle" font-size="10" fill="#666">10^40</text>
+    <text x="-30" y="50" text-anchor="middle" font-size="10" fill="#666">10^52</text>
+    
+    <!-- Series convergence curve -->
+    <polyline points="0,200 40,190 80,180 120,160 160,140 200,100 240,80 280,60 320,40 360,20 400,10" 
+              fill="none" stroke="#ff6b6b" stroke-width="3"/>
+    
+    <!-- Data points -->
+    <circle cx="40" cy="190" r="3" fill="#ff6b6b"/>
+    <circle cx="80" cy="180" r="3" fill="#ff6b6b"/>
+    <circle cx="120" cy="160" r="3" fill="#ff6b6b"/>
+    <circle cx="160" cy="140" r="3" fill="#ff6b6b"/>
+    <circle cx="200" cy="100" r="3" fill="#ff6b6b"/>
+    <circle cx="240" cy="80" r="3" fill="#ff6b6b"/>
+    <circle cx="280" cy="60" r="3" fill="#ff6b6b"/>
+    <circle cx="320" cy="40" r="3" fill="#ff6b6b"/>
+    <circle cx="360" cy="20" r="3" fill="#ff6b6b"/>
+    <circle cx="400" cy="10" r="3" fill="#ff6b6b"/>
+  </g>
+  
+  <!-- Integration Function Graph -->
+  <g transform="translate(50, 350)">
+    <text x="200" y="-10" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#555">
+      Integrand: sin(194x)·cos(89x) over [0,π]
+    </text>
+    
+    <!-- Axes -->
+    <line x1="0" y1="100" x2="400" y2="100" stroke="#333" stroke-width="2"/>
+    <line x1="0" y1="0" x2="0" y2="200" stroke="#333" stroke-width="2"/>
+    
+    <!-- X-axis labels -->
+    <text x="0" y="220" text-anchor="middle" font-size="10" fill="#666">0</text>
+    <text x="100" y="220" text-anchor="middle" font-size="10" fill="#666">π/4</text>
+    <text x="200" y="220" text-anchor="middle" font-size="10" fill="#666">π/2</text>
+    <text x="300" y="220" text-anchor="middle" font-size="10" fill="#666">3π/4</text>
+    <text x="400" y="220" text-anchor="middle" font-size="10" fill="#666">π</text>
+    
+    <!-- Y-axis labels -->
+    <text x="-20" y="20" text-anchor="middle" font-size="10" fill="#666">1</text>
+    <text x="-20" y="100" text-anchor="middle" font-size="10" fill="#666">0</text>
+    <text x="-20" y="180" text-anchor="middle" font-size="10" fill="#666">-1</text>
+    
+    <!-- Integrand curve (simplified oscillation) -->
+    <polyline points="0,100 10,80 20,120 30,70 40,130 50,60 60,140 70,50 80,150 90,40 100,160 110,30 120,170 130,20 140,180 150,10 160,170 170,30 180,160 190,40 200,150 210,50 220,140 230,60 240,130 250,70 260,120 270,80 280,110 290,90 300,105 310,95 320,102 330,98 340,101 350,99 360,100 370,100 380,100 390,100 400,100" 
+              fill="none" stroke="#4ecdc4" stroke-width="2"/>
+    
+    <!-- Area under curve (integration result) -->
+    <polygon points="0,100 10,80 20,120 30,70 40,130 50,60 60,140 70,50 80,150 90,40 100,160 110,30 120,170 130,20 140,180 150,10 160,170 170,30 180,160 190,40 200,150 210,50 220,140 230,60 240,130 250,70 260,120 270,80 280,110 290,90 300,105 310,95 320,102 330,98 340,101 350,99 360,100 370,100 380,100 390,100 400,100 400,100 0,100" 
+              fill="#4ecdc4" fill-opacity="0.2"/>
+  </g>
+  
+  <!-- Results Summary -->
+  <g transform="translate(500, 80)">
+    <rect x="0" y="0" width="250" height="200" fill="white" stroke="#ddd" stroke-width="1" rx="5"/>
+    <text x="125" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">
+      Calculation Results
+    </text>
+    
+    <text x="10" y="45" font-family="Arial, sans-serif" font-size="12" fill="#555">
+      Series Sum:
+    </text>
+    <text x="10" y="60" font-family="monospace" font-size="10" fill="#ff6b6b">
+      2.139781253169707e+52
+    </text>
+    
+    <text x="10" y="85" font-family="Arial, sans-serif" font-size="12" fill="#555">
+      Integral Value:
+    </text>
+    <text x="10" y="100" font-family="monospace" font-size="10" fill="#4ecdc4">
+      0.0130715370
+    </text>
+    
+    <text x="10" y="125" font-family="Arial, sans-serif" font-size="12" fill="#555">
+      Final Result:
+    </text>
+    <text x="10" y="140" font-family="monospace" font-size="10" fill="#333" font-weight="bold">
+      2.139781253169707e+52
+    </text>
+    
+    <text x="10" y="165" font-family="Arial, sans-serif" font-size="12" fill="#555">
+      Precision: 7 decimal places
+    </text>
+    <text x="10" y="180" font-family="Arial, sans-serif" font-size="12" fill="#555">
+      Overflow Events: 14
+    </text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(500, 320)">
+    <rect x="0" y="0" width="250" height="100" fill="white" stroke="#ddd" stroke-width="1" rx="5"/>
+    <text x="125" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">
+      Legend
+    </text>
+    
+    <line x1="10" y1="35" x2="30" y2="35" stroke="#ff6b6b" stroke-width="3"/>
+    <text x="35" y="40" font-family="Arial, sans-serif" font-size="11" fill="#555">
+      Series Convergence
+    </text>
+    
+    <line x1="10" y1="55" x2="30" y2="55" stroke="#4ecdc4" stroke-width="3"/>
+    <text x="35" y="60" font-family="Arial, sans-serif" font-size="11" fill="#555">
+      Integrand Function
+    </text>
+    
+    <rect x="10" y="70" width="20" height="10" fill="#4ecdc4" fill-opacity="0.2"/>
+    <text x="35" y="80" font-family="Arial, sans-serif" font-size="11" fill="#555">
+      Integration Area
+    </text>
+  </g>
+</svg>
