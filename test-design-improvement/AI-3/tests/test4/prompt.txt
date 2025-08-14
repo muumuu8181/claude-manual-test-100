@@ -1,0 +1,14 @@
+Test 4: Text Processing with Specific Content
+
+Complete the following steps in order:
+
+1. Create a file named "config.txt"
+2. Write "server_port=8080" to config.txt
+3. Create a file named "log.txt"
+4. Write "Application started" to log.txt
+5. Append "Server listening on port 8080" to log.txt
+6. Create a file named "users.txt"
+7. Write "admin:password123" to users.txt
+8. Append "guest:guest123" to users.txt
+9. Create a file named "summary.txt"
+10. Write "Total users: 2" to summary.txt

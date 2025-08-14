@@ -1,0 +1,24 @@
+Test 7: Multi-stage Configuration Management
+
+Complete the following steps in order:
+
+1. Create a folder named "config_system"
+2. Create a folder named "environments" inside config_system
+3. Create a file named "base.conf" in environments
+4. Write "app_name=MyApp" to base.conf
+5. Append "version=1.0" to base.conf
+6. Create a file named "dev.conf" in environments
+7. Copy all content from base.conf to dev.conf
+8. Append "environment=development" to dev.conf
+9. Append "debug_mode=true" to dev.conf
+10. Create a file named "prod.conf" in environments
+11. Copy all content from base.conf to prod.conf
+12. Append "environment=production" to prod.conf
+13. Append "debug_mode=false" to prod.conf
+14. Create a folder named "templates" inside config_system
+15. Create a file named "app_template.txt" in templates
+16. Write "Application: {{app_name}}" to app_template.txt
+17. Append "Version: {{version}}" to app_template.txt
+18. Append "Environment: {{environment}}" to app_template.txt
+19. Create a file named "deployment_notes.txt" in config_system
+20. Write "Config files created for dev and prod environments" to deployment_notes.txt

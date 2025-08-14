@@ -1,0 +1,31 @@
+Test 8: File System Organization and Cross-Reference Analysis
+
+Instructions:
+Organize and analyze files through individual operations:
+
+1. Create three main directories: "projects", "clients", "invoices"
+2. Create "project_alpha.txt" in projects with content: "Client: TechCorp, Budget: 50000, Status: Active"
+3. Create "project_beta.txt" in projects with content: "Client: InnovateLLC, Budget: 35000, Status: Completed"
+4. Create "project_gamma.txt" in projects with content: "Client: StartupInc, Budget: 25000, Status: Active"
+5. Create "techcorp.txt" in clients with content: "Company: TechCorp, Contact: John Smith, Phone: 555-0123"
+6. Create "innovatellc.txt" in clients with content: "Company: InnovateLLC, Contact: Sarah Johnson, Phone: 555-0456"
+7. Create "startupinc.txt" in clients with content: "Company: StartupInc, Contact: Mike Wilson, Phone: 555-0789"
+8. Create "invoice_001.txt" in invoices with content: "Client: TechCorp, Amount: 15000, Date: 2024-01-15"
+9. Create "invoice_002.txt" in invoices with content: "Client: InnovateLLC, Amount: 35000, Date: 2024-02-01"
+10. Create "invoice_003.txt" in invoices with content: "Client: TechCorp, Amount: 20000, Date: 2024-02-15"
+11. Read each project file and extract client names, save to individual "client_*" files
+12. Read each invoice and calculate total amount per client, save individual totals
+13. Cross-reference projects with clients to create "contact_list.txt" with all client contacts
+14. Find all active projects and list them in "active_projects.txt"
+15. Find all completed projects and list them in "completed_projects.txt"
+16. Calculate total invoiced amount across all clients, save to "total_invoiced.txt"
+17. Create "client_summary.txt" showing each client's project budget and invoiced amounts
+18. Create "reconciliation_report.txt" comparing budgets vs actual invoiced amounts per client
+
+Requirements:
+- Create each file individually with exact content format
+- Extract information manually from each file
+- Perform calculations individually for each client
+- Cross-reference data by reading files individually
+- Create separate analysis files without automation
+- Verify data accuracy through manual comparison

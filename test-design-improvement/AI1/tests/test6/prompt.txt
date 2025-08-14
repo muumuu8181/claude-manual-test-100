@@ -1,0 +1,30 @@
+Test 6: Multi-Step File Processing and Validation
+
+Instructions:
+Complete this multi-step processing workflow individually:
+
+1. Create "input_list.txt" with names: Alice, Bob, Charlie, Diana, Eve, Frank
+2. Create individual files for each person: "alice.txt", "bob.txt", "charlie.txt", "diana.txt", "eve.txt", "frank.txt"
+3. In alice.txt, write: "Name: Alice, ID: 001, Department: Sales"
+4. In bob.txt, write: "Name: Bob, ID: 002, Department: Engineering"  
+5. In charlie.txt, write: "Name: Charlie, ID: 003, Department: Marketing"
+6. In diana.txt, write: "Name: Diana, ID: 004, Department: HR"
+7. In eve.txt, write: "Name: Eve, ID: 005, Department: Finance"
+8. In frank.txt, write: "Name: Frank, ID: 006, Department: Operations"
+9. Read alice.txt and extract the department, save to "dept_alice.txt"
+10. Read bob.txt and extract the department, save to "dept_bob.txt"
+11. Read charlie.txt and extract the department, save to "dept_charlie.txt"
+12. Read diana.txt and extract the department, save to "dept_diana.txt"
+13. Read eve.txt and extract the department, save to "dept_eve.txt"
+14. Read frank.txt and extract the department, save to "dept_frank.txt"
+15. Create "departments.txt" listing all unique departments found
+16. Count employees in each department and save counts to "dept_count.txt"
+17. Create "employee_roster.txt" with all names and IDs in numerical ID order
+18. Validate that all 6 employee files exist and create "validation_report.txt"
+
+Requirements:
+- Create each employee file individually with exact format
+- Extract department information manually from each file
+- Count departments manually without automation
+- Create all output files separately
+- Verify file contents before proceeding to next step

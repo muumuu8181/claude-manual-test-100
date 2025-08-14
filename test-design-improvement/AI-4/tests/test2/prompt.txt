@@ -1,0 +1,19 @@
+Test 2: File Operations with Content
+
+Execute the following steps individually:
+
+Step 1: Create a file named "notes_A.txt" and write the text "Hello World" into it.
+
+Step 2: Create a file named "notes_B.txt" and write the text "Testing 123" into it.
+
+Step 3: Create a file named "config.json" and write the text '{"name": "test", "value": 42}' into it.
+
+Step 4: Read the contents of "notes_A.txt" and display it.
+
+Step 5: Read the contents of "config.json" and display it.
+
+Step 6: Create a file named "summary.md" and write the text "# Project Summary" into it.
+
+Step 7: Create a file named "data_03.csv" and write the text "name,age,city" into it.
+
+Note: Each step should be completed individually without using loops or batch operations.

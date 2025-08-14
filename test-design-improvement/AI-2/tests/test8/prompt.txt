@@ -1,0 +1,62 @@
+タスク: 商品在庫管理システムの構築
+
+以下の手順を順番通りに実行してください。各手順は前の結果を使用して次の処理を行います。
+
+1. 作業用ディレクトリ「inventory_system」を作成する
+2. inventory_system内に「products」フォルダを作成する
+3. inventory_system内に「orders」フォルダを作成する
+4. inventory_system内に「reports」フォルダを作成する
+5. inventory_system内に「scripts」フォルダを作成する
+6. productsフォルダ内に「electronics.json」ファイルを作成し、以下のJSON形式で商品データを保存する：
+   {\"laptop\": {\"price\": 80000, \"stock\": 15}, \"smartphone\": {\"price\": 60000, \"stock\": 25}, \"tablet\": {\"price\": 45000, \"stock\": 12}}
+7. productsフォルダ内に「furniture.json」ファイルを作成し、以下のJSON形式で商品データを保存する：
+   {\"desk\": {\"price\": 25000, \"stock\": 8}, \"chair\": {\"price\": 15000, \"stock\": 20}, \"shelf\": {\"price\": 18000, \"stock\": 10}}
+8. ordersフォルダ内に「order_001.txt」ファイルを作成し、以下の内容を保存する：
+   「Customer: Tanaka\nProduct: laptop\nQuantity: 2\nDate: 2024-01-15」
+9. ordersフォルダ内に「order_002.txt」ファイルを作成し、以下の内容を保存する：
+   「Customer: Suzuki\nProduct: chair\nQuantity: 5\nDate: 2024-01-15」
+10. scriptsフォルダ内に「inventory_checker.py」ファイルを作成し、以下のPythonコードを保存する：
+    ```python
+    import json
+    
+    def load_inventory(filename):
+        with open(filename, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    
+    def calculate_total_value(inventory):
+        total = 0
+        for item, details in inventory.items():
+            total += details['price'] * details['stock']
+        return total
+    
+    def find_low_stock(inventory, threshold=10):
+        low_stock_items = []
+        for item, details in inventory.items():
+            if details['stock'] < threshold:
+                low_stock_items.append(f"{item}: {details['stock']}")
+        return low_stock_items
+    ```
+11. scriptsフォルダ内に「process_orders.py」ファイルを作成し、以下のコードを保存する：
+    ```python
+    def parse_order_file(filename):
+        order_data = {}
+        with open(filename, 'r', encoding='utf-8') as f:
+            for line in f:
+                if ':' in line:
+                    key, value = line.strip().split(': ', 1)
+                    order_data[key.lower()] = value
+        return order_data
+    
+    def calculate_order_total(product_price, quantity):
+        return product_price * int(quantity)
+    ```
+12. scriptsディレクトリに移動し、inventory_checker.pyを使用してelectronics.jsonの総在庫価値を計算し、結果を「../reports/electronics_value.txt」ファイルに保存する（Python実行）
+13. 同様にfurniture.jsonの総在庫価値を計算し、結果を「../reports/furniture_value.txt」ファイルに保存する
+14. electronics.jsonとfurniture.jsonから在庫が10未満の商品を見つけ、「../reports/low_stock_alert.txt」ファイルに保存する
+15. process_orders.pyを使用してorder_001.txtを読み込み、注文情報を解析する
+16. order_001.txtの注文金額を計算し（laptop価格×注文数量）、結果を「../reports/order_001_total.txt」ファイルに保存する
+17. order_002.txtについても同様に処理し、注文金額を「../reports/order_002_total.txt」ファイルに保存する
+18. reportsフォルダ内のすべての結果ファイルの内容を確認し、「../reports/system_summary.txt」ファイルに以下の形式でまとめる：
+    「Inventory Management Report\nElectronics Total Value: [金額]\nFurniture Total Value: [金額]\nLow Stock Items: [件数]\nOrders Processed: 2」
+19. inventory_systemのルートディレクトリに「README.txt」ファイルを作成し、システムの概要と各フォルダの説明を記載する
+20. 作成した全ファイルとフォルダの構造を確認し、システムが正常に構築されたことを検証する

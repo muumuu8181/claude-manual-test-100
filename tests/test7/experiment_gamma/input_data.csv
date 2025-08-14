@@ -1,0 +1,11 @@
+calculation_type,parameter,expected_range,notes
+standard_fibonacci,50,12586269025,"F(50) standard sequence"
+standard_fibonacci,60,1548008755920,"F(60) standard sequence"
+modified_fibonacci,1,640,"F(1) = a*1 + b*0 + c = 512*1 + 256*0 + 128"
+modified_fibonacci,2,896,"F(2) = a*1 + b*1 + c = 512*1 + 256*1 + 128"
+modified_fibonacci,3,1408,"F(3) = a*F(2) + b*F(1) + c"
+modified_fibonacci,4,2176,"F(4) = a*F(3) + b*F(2) + c"
+modified_fibonacci,5,3328,"F(5) = a*F(4) + b*F(3) + c"
+modified_fibonacci,10,51200,"F(10) approximation"
+modified_fibonacci,15,819200,"F(15) approximation"
+modified_fibonacci,20,13107200,"F(20) approximation"

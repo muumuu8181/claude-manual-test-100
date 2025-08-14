@@ -1,0 +1,14 @@
+Test 3: Creating Nested Directory Structure
+
+Complete the following steps in order:
+
+1. Create a folder named "project_root"
+2. Create a folder named "src" inside project_root
+3. Create a folder named "components" inside the src folder
+4. Create a folder named "utils" inside the src folder
+5. Create a folder named "tests" inside project_root
+6. Create a folder named "unit" inside the tests folder
+7. Create a folder named "integration" inside the tests folder
+8. Create a folder named "docs" inside project_root
+9. Create a file named "README.md" inside the docs folder
+10. Write "Project documentation goes here" to the README.md file

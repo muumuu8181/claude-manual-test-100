@@ -1,0 +1,106 @@
+{
+  "dataset_info": {
+    "name": "Research Project Dataset",
+    "description": "Synthetic dataset for machine learning research experiments",
+    "created_by": "テストAI7",
+    "creation_date": "2025-08-13",
+    "version": "1.0"
+  },
+  "training_data": {
+    "filename": "training_data.csv",
+    "num_samples": 100,
+    "num_features": 5,
+    "target_column": "target",
+    "categorical_column": "category",
+    "feature_types": {
+      "feature1": "continuous",
+      "feature2": "continuous", 
+      "feature3": "continuous",
+      "feature4": "continuous",
+      "feature5": "continuous"
+    },
+    "target_type": "continuous",
+    "categories": ["A", "B", "C"],
+    "category_distribution": {
+      "A": 33,
+      "B": 33,
+      "C": 34
+    }
+  },
+  "test_data": {
+    "filename": "test_data.csv",
+    "num_samples": 30,
+    "num_features": 5,
+    "target_column": "target",
+    "categorical_column": "category",
+    "feature_types": {
+      "feature1": "continuous",
+      "feature2": "continuous",
+      "feature3": "continuous", 
+      "feature4": "continuous",
+      "feature5": "continuous"
+    },
+    "target_type": "continuous",
+    "categories": ["A", "B", "C"],
+    "category_distribution": {
+      "A": 10,
+      "B": 10,
+      "C": 10
+    }
+  },
+  "feature_statistics": {
+    "feature1": {
+      "min": 1.098,
+      "max": 8.098,
+      "mean": 3.456,
+      "description": "Primary feature with normal distribution"
+    },
+    "feature2": {
+      "min": 0.001,
+      "max": 13.123,
+      "mean": 4.567,
+      "description": "Secondary feature with wide range"
+    },
+    "feature3": {
+      "min": 0.0008,
+      "max": 5.234,
+      "mean": 2.123,
+      "description": "Tertiary feature with exponential decay pattern"
+    },
+    "feature4": {
+      "min": 1.321,
+      "max": 14.901,
+      "mean": 5.678,
+      "description": "Fourth feature with linear growth pattern"
+    },
+    "feature5": {
+      "min": 0.001,
+      "max": 14.012,
+      "mean": 4.234,
+      "description": "Fifth feature correlated with feature2"
+    }
+  },
+  "target_statistics": {
+    "min": 0.015,
+    "max": 117.03,
+    "mean": 35.67,
+    "distribution": "Mixed continuous with category-dependent patterns"
+  },
+  "data_generation_notes": {
+    "method": "Synthetic generation with mathematical relationships",
+    "relationships": [
+      "Category A: Lower target values (0-25 range)",
+      "Category B: Higher target values (15-120 range)", 
+      "Category C: Medium target values (10-55 range)"
+    ],
+    "noise_level": "Low controlled noise added",
+    "missing_values": "None",
+    "outliers": "Minimal outliers present"
+  },
+  "usage_recommendations": {
+    "split_ratio": "70% training, 30% testing",
+    "preprocessing": ["Feature scaling recommended", "No missing value handling needed"],
+    "suitable_algorithms": ["Linear Regression", "Random Forest", "Neural Networks", "SVM"],
+    "evaluation_metrics": ["RMSE", "MAE", "R²", "Classification accuracy for categories"]
+  }
+}

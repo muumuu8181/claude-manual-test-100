@@ -1,0 +1,24 @@
+Test 6: Data Processing Pipeline with Validation
+
+Complete the following steps in order:
+
+1. Create a folder named "pipeline"
+2. Create a file named "raw_data.txt" in pipeline
+3. Write "raw,input,data,batch1" to raw_data.txt
+4. Create a folder named "processed" inside pipeline
+5. Create a file named "cleaned_data.txt" in processed
+6. Read the content from raw_data.txt and write it to cleaned_data.txt
+7. Create a file named "validation.txt" in pipeline
+8. Write "Validation started" to validation.txt
+9. Append "Data format: CSV" to validation.txt
+10. Append "Records found: 1" to validation.txt
+11. Create a folder named "output" inside pipeline
+12. Create a file named "final_data.txt" in output
+13. Copy the content from cleaned_data.txt to final_data.txt
+14. Append ",validated" to final_data.txt
+15. Create a file named "report.txt" in pipeline
+16. Write "Processing report:" to report.txt
+17. Append "Input: raw_data.txt" to report.txt
+18. Append "Output: final_data.txt" to report.txt
+19. Append "Status: Complete" to report.txt
+20. Create a file named "metadata.txt" in pipeline and write "Pipeline executed successfully" to it

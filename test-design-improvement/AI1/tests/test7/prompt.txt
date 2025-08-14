@@ -1,0 +1,31 @@
+Test 7: Complex Data Transformation and Organization
+
+Instructions:
+Transform and organize data through these individual steps:
+
+1. Create "raw_scores.txt" with: Math: 87, Science: 92, English: 78, History: 85, Art: 90
+2. Create individual grade files: "math_grade.txt", "science_grade.txt", "english_grade.txt", "history_grade.txt", "art_grade.txt"
+3. Convert Math score (87) to letter grade and save to math_grade.txt (A=90+, B=80-89, C=70-79, D=60-69, F<60)
+4. Convert Science score (92) to letter grade and save to science_grade.txt
+5. Convert English score (78) to letter grade and save to english_grade.txt
+6. Convert History score (85) to letter grade and save to history_grade.txt
+7. Convert Art score (90) to letter grade and save to art_grade.txt
+8. Calculate total points by adding all scores manually, save to "total_points.txt"
+9. Calculate average score by dividing total by 5, save to "average_score.txt"
+10. Count how many subjects have grade A, save to "count_a.txt"
+11. Count how many subjects have grade B, save to "count_b.txt"
+12. Count how many subjects have grade C, save to "count_c.txt"
+13. Find the highest scoring subject manually and save to "top_subject.txt"
+14. Find the lowest scoring subject manually and save to "bottom_subject.txt"
+15. Create "grade_distribution.txt" showing count of each letter grade
+16. Create "performance_analysis.txt" with subjects above and below average
+17. Rank all subjects from highest to lowest score and save to "subject_ranking.txt"
+18. Create "final_report.txt" with overall GPA calculation (A=4.0, B=3.0, C=2.0, D=1.0, F=0.0)
+
+Requirements:
+- Convert each score to letter grade individually
+- Perform all calculations manually without formulas
+- Count grades by examining each grade file individually  
+- Compare scores individually to find highest/lowest
+- Create each analysis file separately
+- Calculate GPA by manually converting grades and averaging

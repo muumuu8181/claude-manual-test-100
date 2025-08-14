@@ -1,0 +1,69 @@
+Test 9: Complex Folder Hierarchies with File Movements
+
+You are tasked with creating complex directory structures and performing file movements with dependencies. This test evaluates your ability to handle multi-level folder operations, file relocations, and maintain state across complex hierarchical operations.
+
+**CRITICAL REQUIREMENTS:**
+1. Execute steps in exact sequential order (1 through 25)
+2. Create exact directory structures as specified
+3. Handle file movements with proper dependency checking
+4. Use exact names and paths as specified
+5. Do not optimize or combine steps with loops
+6. Pay attention to hierarchical dependencies
+
+**STEP-BY-STEP INSTRUCTIONS:**
+
+Step 1: Create a directory named "project_root"
+Step 2: Create a directory named "src" inside "project_root"
+Step 3: Create a directory named "assets" inside "project_root"
+Step 4: Create a directory named "config" inside "project_root"
+Step 5: Create a file named "main.txt" with content: "application_entry" inside "project_root/src"
+Step 6: Create a directory named "components" inside "project_root/src"
+Step 7: Create a directory named "utils" inside "project_root/src"
+Step 8: Create a file named "helper.txt" with content: "utility_functions" inside "project_root/src/utils"
+Step 9: Create a directory named "images" inside "project_root/assets"
+Step 10: Create a directory named "styles" inside "project_root/assets"
+Step 11: Create a file named "logo.txt" with content: "brand_image" inside "project_root/assets/images"
+Step 12: Create a file named "theme.txt" with content: "visual_design" inside "project_root/assets/styles"
+Step 13: Create a file named "settings.txt" with content: "app_configuration" inside "project_root/config"
+Step 14: Create a directory named "backup" inside "project_root"
+Step 15: Copy "main.txt" from "project_root/src" to "project_root/backup" (rename copy to "main_backup.txt")
+Step 16: Create a directory named "archive" inside "project_root/backup"
+Step 17: Move "helper.txt" from "project_root/src/utils" to "project_root/backup/archive"
+Step 18: Create a file named "index.txt" with content: "component_list" inside "project_root/src/components"
+Step 19: Create a directory named "temp" inside "project_root/src/components"
+Step 20: Copy "logo.txt" from "project_root/assets/images" to "project_root/src/components/temp"
+Step 21: Rename "logo.txt" in "project_root/src/components/temp" to "temp_logo.txt"
+Step 22: Create a directory named "production" inside "project_root"
+Step 23: Move "theme.txt" from "project_root/assets/styles" to "project_root/production"
+Step 24: Create a file named "deployment.txt" with content: "ready_for_production" inside "project_root/production"
+Step 25: Create a file named "manifest.txt" inside "project_root" with content: "project_structure_complete"
+
+**EXPECTED FINAL STRUCTURE:**
+```
+├── project_root/
+│   ├── manifest.txt (content: "project_structure_complete")
+│   ├── src/
+│   │   ├── main.txt (content: "application_entry")
+│   │   ├── components/
+│   │   │   ├── index.txt (content: "component_list")
+│   │   │   └── temp/
+│   │   │       └── temp_logo.txt (content: "brand_image")
+│   │   └── utils/
+│   │       [empty - helper.txt moved to backup]
+│   ├── assets/
+│   │   ├── images/
+│   │   │   └── logo.txt (content: "brand_image")
+│   │   └── styles/
+│   │       [empty - theme.txt moved to production]
+│   ├── config/
+│   │   └── settings.txt (content: "app_configuration")
+│   ├── backup/
+│   │   ├── main_backup.txt (content: "application_entry")
+│   │   └── archive/
+│   │       └── helper.txt (content: "utility_functions")
+│   └── production/
+│       ├── theme.txt (content: "visual_design")
+│       └── deployment.txt (content: "ready_for_production")
+```
+
+Complete all 25 steps, maintaining the exact directory structure and file movements as specified.

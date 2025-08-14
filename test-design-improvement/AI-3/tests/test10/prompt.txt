@@ -1,0 +1,44 @@
+Test 10: Data Migration and Transformation Pipeline
+
+Complete the following steps in order:
+
+1. Create a folder named "data_migration"
+2. Create a folder named "source_data" inside data_migration
+3. Create a folder named "staging" inside data_migration
+4. Create a folder named "processed" inside data_migration
+5. Create a folder named "archive" inside data_migration
+6. Create a file named "customers_old.txt" in source_data
+7. Write "id,name,email" to customers_old.txt
+8. Append "1,John Doe,john@email.com" to customers_old.txt
+9. Append "2,Jane Smith,jane@email.com" to customers_old.txt
+10. Create a file named "products_old.txt" in source_data
+11. Write "id,product,price" to products_old.txt
+12. Append "101,Widget A,19.99" to products_old.txt
+13. Append "102,Widget B,29.99" to products_old.txt
+14. Create a file named "migration_log.txt" in data_migration
+15. Write "Data Migration Log:" to migration_log.txt
+16. Append "Source files: customers_old.txt, products_old.txt" to migration_log.txt
+17. Create a file named "customers_staging.txt" in staging
+18. Copy all content from customers_old.txt to customers_staging.txt
+19. Append "3,Bob Johnson,bob@email.com" to customers_staging.txt
+20. Create a file named "products_staging.txt" in staging
+21. Copy all content from products_old.txt to products_staging.txt
+22. Append "103,Widget C,39.99" to products_staging.txt
+23. Append "Staging complete: Added new records" to migration_log.txt
+24. Create a file named "customers_processed.txt" in processed
+25. Copy all content from customers_staging.txt to customers_processed.txt
+26. Create a file named "products_processed.txt" in processed
+27. Copy all content from products_staging.txt to products_processed.txt
+28. Append "Processing complete: Files ready for production" to migration_log.txt
+29. Create a file named "customers_archive.txt" in archive
+30. Copy content from customers_old.txt to customers_archive.txt
+31. Append "Archived on migration date" to customers_archive.txt
+32. Create a file named "products_archive.txt" in archive
+33. Copy content from products_old.txt to products_archive.txt
+34. Append "Archived on migration date" to products_archive.txt
+35. Append "Archive complete: Original files preserved" to migration_log.txt
+36. Create a file named "migration_summary.txt" in data_migration
+37. Write "Migration Summary Report:" to migration_summary.txt
+38. Append "Customers: 2 original + 1 new = 3 total" to migration_summary.txt
+39. Append "Products: 2 original + 1 new = 3 total" to migration_summary.txt
+40. Append "All stages completed successfully" to migration_summary.txt

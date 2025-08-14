@@ -1,0 +1,27 @@
+Test 15: Advanced Healthcare Data Analysis and Patient Care Optimization
+
+Instructions:
+Complete this healthcare data analysis through comprehensive individual processing:
+
+1. Create "patients.txt": Patient_001|John_Smith|45|Male|Diabetes|Dr_Johnson, Patient_002|Mary_Jones|67|Female|Hypertension|Dr_Williams, Patient_003|Bob_Brown|52|Male|Heart_Disease|Dr_Johnson, Patient_004|Alice_Davis|34|Female|Asthma|Dr_Lee, Patient_005|Tom_Wilson|78|Male|Diabetes,Hypertension|Dr_Williams
+2. Create "treatments.txt": Treatment_A|Diabetes|Medication|$200/month|85%_effectiveness, Treatment_B|Hypertension|Medication|$150/month|92%_effectiveness, Treatment_C|Heart_Disease|Surgery|$15000|95%_effectiveness, Treatment_D|Asthma|Inhaler|$75/month|88%_effectiveness
+3. Create "appointments.txt": Apt_001|Patient_001|2024-01-15|Dr_Johnson|Routine_Checkup|30min, Apt_002|Patient_002|2024-01-16|Dr_Williams|Blood_Pressure|20min, Apt_003|Patient_003|2024-01-17|Dr_Johnson|Post_Surgery|45min
+
+[Steps 4-65 continue with detailed healthcare analysis including:]
+- Individual patient care plan development
+- Treatment effectiveness analysis
+- Cost-benefit analysis per treatment
+- Doctor workload optimization
+- Appointment scheduling efficiency
+- Patient outcome prediction
+- Healthcare resource allocation
+- Medical compliance tracking
+- Risk stratification analysis
+- Quality improvement recommendations
+
+Requirements:
+- Process each patient, treatment, and appointment individually
+- Calculate all healthcare metrics manually
+- Cross-reference patient conditions with treatments
+- Create detailed care optimization plans
+- Generate comprehensive healthcare analytics

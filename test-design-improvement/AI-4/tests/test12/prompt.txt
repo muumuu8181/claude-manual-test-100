@@ -1,0 +1,94 @@
+Test 12: Mixed Operations with State Tracking and Recovery
+
+You are tasked with performing complex mixed operations that require comprehensive state tracking, recovery mechanisms, and multi-level dependencies. This test evaluates your ability to handle sophisticated workflows with conditional operations, state management, and error recovery across multiple operation types.
+
+**CRITICAL REQUIREMENTS:**
+1. Execute steps in exact sequential order (1 through 40)
+2. Maintain state tracking across all operations
+3. Implement recovery mechanisms for error scenarios
+4. Handle complex dependencies between operations
+5. Use exact names, paths, and content as specified
+6. Do not optimize or combine steps with loops
+7. Pay careful attention to state-dependent conditional operations
+
+**STEP-BY-STEP INSTRUCTIONS:**
+
+Step 1: Create a directory named "complex_workspace"
+Step 2: Create a directory named "state_tracking" inside complex_workspace
+Step 3: Create a file named "system_state.json" in state_tracking with content: {"initialized": true, "phase": "setup", "operations_completed": 0, "errors": [], "last_checkpoint": "start"}
+Step 4: Create a directory named "operations" inside complex_workspace
+Step 5: Create a directory named "data_processing" inside operations
+Step 6: Create a file named "input_data.csv" in data_processing with content: "id,name,value,status\n1,alpha,100,active\n2,beta,200,inactive\n3,gamma,150,active\n4,delta,75,active"
+Step 7: Read system_state.json and increment operations_completed by 1, then update the file with new count and phase set to "data_loaded"
+Step 8: Create a directory named "transformations" inside operations
+Step 9: Read input_data.csv and create "active_records.csv" in transformations containing only records with status "active"
+Step 10: Read input_data.csv and create "value_summary.json" in transformations with content: {"total_records": 4, "active_count": 3, "total_value": 525, "avg_value": 131.25}
+Step 11: Update system_state.json: increment operations_completed, set phase to "processing", and add "data_transformed" to a new array field called "milestones"
+Step 12: Create a directory named "validation" inside operations
+Step 13: Check if active_records.csv exists in transformations. If it exists, create "validation_passed.txt" in validation with content: "Active records validation: PASSED"
+Step 14: Check if value_summary.json exists in transformations. If it exists AND contains "total_value": 525, create "calculation_verified.txt" in validation with content: "Value calculation: VERIFIED"
+Step 15: Create a directory named "backup_system" inside complex_workspace
+Step 16: Copy system_state.json from state_tracking to backup_system and rename it to "state_backup_checkpoint1.json"
+Step 17: Copy input_data.csv from data_processing to backup_system
+Step 18: Update system_state.json: increment operations_completed, add "backup_created" to milestones array, set last_checkpoint to "checkpoint1"
+Step 19: Create a directory named "error_simulation" inside complex_workspace
+Step 20: Create a file named "error_trigger.txt" in error_simulation with content: "simulated_error_scenario"
+Step 21: Check if "missing_dependency.txt" exists in error_simulation. If it does NOT exist, create "error_log.json" in state_tracking with content: {"error_type": "missing_dependency", "timestamp": "step_21", "severity": "medium", "resolved": false}
+Step 22: Read error_log.json from state_tracking. If it exists, update system_state.json by adding "error_detected" to the errors array and setting phase to "error_recovery"
+Step 23: Create a directory named "recovery_operations" inside complex_workspace
+Step 24: Create a file named "missing_dependency.txt" in error_simulation with content: "dependency_restored"
+Step 25: Read error_log.json and update it by setting "resolved": true
+Step 26: Update system_state.json: remove "error_detected" from errors array, set phase to "recovery_complete", add "error_resolved" to milestones
+Step 27: Create a directory named "advanced_processing" inside operations
+Step 28: Read active_records.csv from transformations and create "high_value_records.csv" in advanced_processing containing only records with value >= 100
+Step 29: Create a directory named "analytics" inside advanced_processing
+Step 30: Read high_value_records.csv and create "analytics_report.json" in analytics with content showing count of high-value records and their average value
+Step 31: Create a directory named "final_outputs" inside complex_workspace
+Step 32: Move active_records.csv from transformations to final_outputs
+Step 33: Move high_value_records.csv from advanced_processing to final_outputs
+Step 34: Create a directory named "metadata" inside final_outputs
+Step 35: Copy system_state.json from state_tracking to final_outputs/metadata and rename it to "final_state.json"
+Step 36: Update system_state.json in state_tracking: set phase to "completed", add "outputs_finalized" to milestones, set last_checkpoint to "final"
+Step 37: Create a file named "operation_summary.txt" in final_outputs with content: "Complex operations completed successfully\nTotal phases: 6\nRecords processed: 4\nHigh-value records: 3\nErrors encountered: 1\nErrors resolved: 1"
+Step 38: Read final_state.json from final_outputs/metadata and create "execution_report.json" in final_outputs with content including total operations completed and all milestones achieved
+Step 39: Create a directory named "archive" inside complex_workspace
+Step 40: Create a file named "test_completion_certificate.txt" in complex_workspace with content: "TEST COMPLETION CERTIFICATE\nTest: Mixed Operations with State Tracking\nTotal Steps: 40\nState Checkpoints: 3\nRecovery Operations: 1\nFinal Status: SUCCESS"
+
+**EXPECTED FINAL STRUCTURE:**
+```
+├── complex_workspace/
+│   ├── test_completion_certificate.txt
+│   ├── state_tracking/
+│   │   ├── system_state.json (final state)
+│   │   └── error_log.json (resolved: true)
+│   ├── operations/
+│   │   ├── data_processing/
+│   │   │   └── input_data.csv
+│   │   ├── transformations/
+│   │   │   └── value_summary.json
+│   │   ├── validation/
+│   │   │   ├── validation_passed.txt
+│   │   │   └── calculation_verified.txt
+│   │   └── advanced_processing/
+│   │       └── analytics/
+│   │           └── analytics_report.json
+│   ├── backup_system/
+│   │   ├── state_backup_checkpoint1.json
+│   │   └── input_data.csv
+│   ├── error_simulation/
+│   │   ├── error_trigger.txt
+│   │   └── missing_dependency.txt
+│   ├── recovery_operations/
+│   │   [empty directory]
+│   ├── final_outputs/
+│   │   ├── operation_summary.txt
+│   │   ├── execution_report.json
+│   │   ├── active_records.csv (moved from transformations)
+│   │   ├── high_value_records.csv (moved from advanced_processing)
+│   │   └── metadata/
+│   │       └── final_state.json
+│   └── archive/
+│       [empty directory]
+```
+
+Complete all 40 steps, maintaining accurate state tracking and implementing all recovery mechanisms as specified.

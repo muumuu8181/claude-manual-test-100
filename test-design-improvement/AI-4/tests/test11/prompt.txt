@@ -1,0 +1,88 @@
+Test 11: Script Creation with Error Handling Scenarios
+
+You are tasked with creating various script files and implementing comprehensive error handling scenarios. This test evaluates your ability to handle script creation, error detection, recovery mechanisms, and conditional operations based on file states.
+
+**CRITICAL REQUIREMENTS:**
+1. Execute steps in exact sequential order (1 through 35)
+2. Handle error scenarios and implement recovery mechanisms
+3. Create conditional operations based on file existence and content
+4. Use exact names, paths, and script content as specified
+5. Do not optimize or combine steps with loops
+6. Pay attention to error handling and validation steps
+
+**STEP-BY-STEP INSTRUCTIONS:**
+
+Step 1: Create a directory named "script_workspace"
+Step 2: Create a directory named "scripts" inside script_workspace
+Step 3: Create a directory named "logs" inside script_workspace
+Step 4: Create a file named "setup.sh" in scripts directory with content: "#!/bin/bash\necho 'Setup starting'\nmkdir -p temp_dir\necho 'Setup complete'"
+Step 5: Create a file named "process_data.py" in scripts directory with content: "import os\nprint('Processing data')\nif os.path.exists('data.txt'):\n    print('Data file found')\nelse:\n    print('ERROR: Data file missing')"
+Step 6: Create a file named "cleanup.bat" in scripts directory with content: "@echo off\necho Cleanup starting\nif exist temp_files rmdir /s /q temp_files\necho Cleanup complete"
+Step 7: Create a file named "validation.js" in scripts directory with content: "console.log('Validation starting');\nconst fs = require('fs');\nif (fs.existsSync('config.json')) {\n    console.log('Config validated');\n} else {\n    console.log('ERROR: Config missing');\n}"
+Step 8: Create a directory named "temp_data" inside script_workspace
+Step 9: Create a file named "data.txt" in temp_data with content: "sample_data_content"
+Step 10: Create a file named "config.json" in temp_data with content: {"status": "active", "version": "1.0", "debug": true}
+Step 11: Check if "missing_script.py" exists in scripts directory. If it does NOT exist, create "error_log.txt" in logs directory with content: "ERROR: missing_script.py not found at startup"
+Step 12: Create a directory named "backup_scripts" inside script_workspace
+Step 13: Copy "setup.sh" from scripts to backup_scripts directory
+Step 14: Copy "process_data.py" from scripts to backup_scripts directory
+Step 15: Create a file named "monitor.py" in scripts directory with content: "import sys\nprint('Monitor starting')\ntry:\n    with open('status.txt', 'r') as f:\n        status = f.read().strip()\n        print(f'Current status: {status}')\nexcept FileNotFoundError:\n    print('WARNING: status.txt not found')\n    with open('status.txt', 'w') as f:\n        f.write('initialized')"
+Step 16: Run the monitor.py script logic: Check if "status.txt" exists in script_workspace. If it does NOT exist, create "status.txt" with content: "initialized"
+Step 17: Create a directory named "error_recovery" inside script_workspace
+Step 18: Create a file named "recovery.sh" in error_recovery with content: "#!/bin/bash\necho 'Recovery process started'\nif [ ! -f '../status.txt' ]; then\n    echo 'Creating missing status file'\n    echo 'recovered' > ../status.txt\nfi\necho 'Recovery complete'"
+Step 19: Check if "status.txt" exists in script_workspace. If it exists, read its content and create "status_backup.txt" in logs directory with the same content
+Step 20: Create a file named "test_runner.py" in scripts directory with content: "import subprocess\nimport os\nprint('Test runner starting')\nscripts_to_test = ['setup.sh', 'process_data.py']\nfor script in scripts_to_test:\n    if os.path.exists(script):\n        print(f'Found: {script}')\n    else:\n        print(f'MISSING: {script}')"
+Step 21: Simulate test_runner.py logic: Check if both "setup.sh" and "process_data.py" exist in scripts directory. Create "test_results.txt" in logs directory with content listing "FOUND: setup.sh" and "FOUND: process_data.py" (or MISSING if not found)
+Step 22: Create a directory named "validation_scripts" inside script_workspace
+Step 23: Move "validation.js" from scripts to validation_scripts directory
+Step 24: Create a file named "validate_all.py" in validation_scripts with content: "import os\nprint('Validating all components')\nrequired_files = ['../temp_data/data.txt', '../temp_data/config.json']\nfor file in required_files:\n    if os.path.exists(file):\n        print(f'VALID: {file}')\n    else:\n        print(f'INVALID: {file}')"
+Step 25: Simulate validate_all.py logic: Check if both "data.txt" and "config.json" exist in temp_data. Create "validation_results.txt" in logs directory with content showing validation status for each file
+Step 26: Create a file named "error_handler.py" in error_recovery with content: "import os\nprint('Error handler starting')\nerror_log_path = '../logs/error_log.txt'\nif os.path.exists(error_log_path):\n    with open(error_log_path, 'r') as f:\n        errors = f.read()\n        print(f'Errors found: {errors}')\n    print('Creating recovery action')\n    with open('recovery_actions.txt', 'w') as f:\n        f.write('Action: Recreate missing files')\nelse:\n    print('No errors found')"
+Step 27: Simulate error_handler.py logic: Check if "error_log.txt" exists in logs directory. If it exists, create "recovery_actions.txt" in error_recovery directory with content: "Action: Recreate missing files"
+Step 28: Create a directory named "final_scripts" inside script_workspace
+Step 29: Copy "monitor.py" from scripts to final_scripts directory
+Step 30: Copy "test_runner.py" from scripts to final_scripts directory
+Step 31: Create a file named "deployment.sh" in final_scripts with content: "#!/bin/bash\necho 'Deployment starting'\necho 'Checking prerequisites'\nif [ -f '../status.txt' ] && [ -f '../temp_data/config.json' ]; then\n    echo 'Prerequisites met'\n    echo 'Deployment successful'\nelse\n    echo 'ERROR: Prerequisites not met'\nfi"
+Step 32: Simulate deployment.sh logic: Check if both "status.txt" (in script_workspace) and "config.json" (in temp_data) exist. Create "deployment_log.txt" in logs directory with content: "Prerequisites met - Deployment successful" or "ERROR: Prerequisites not met"
+Step 33: Create a file named "cleanup_all.py" in final_scripts with content: "import os\nimport shutil\nprint('Cleanup starting')\ntemp_dirs = ['../temp_data']\nfor temp_dir in temp_dirs:\n    if os.path.exists(temp_dir):\n        print(f'Found temp directory: {temp_dir}')\n    else:\n        print(f'Temp directory not found: {temp_dir}')\nprint('Cleanup analysis complete')"
+Step 34: Create a file named "final_report.txt" in logs directory with content: "Script creation and error handling test completed\nTotal scripts created: 11\nError scenarios handled: 4\nRecovery mechanisms: 3"
+Step 35: Create a file named "test_summary.json" in script_workspace with content: {"test_name": "script_error_handling", "total_steps": 35, "scripts_created": 11, "error_scenarios": 4, "status": "completed"}
+
+**EXPECTED FINAL STRUCTURE:**
+```
+├── script_workspace/
+│   ├── test_summary.json
+│   ├── status.txt (content: "initialized")
+│   ├── scripts/
+│   │   ├── setup.sh
+│   │   ├── process_data.py
+│   │   ├── cleanup.bat
+│   │   ├── monitor.py
+│   │   └── test_runner.py
+│   ├── logs/
+│   │   ├── error_log.txt
+│   │   ├── status_backup.txt
+│   │   ├── test_results.txt
+│   │   ├── validation_results.txt
+│   │   ├── deployment_log.txt
+│   │   └── final_report.txt
+│   ├── temp_data/
+│   │   ├── data.txt
+│   │   └── config.json
+│   ├── backup_scripts/
+│   │   ├── setup.sh
+│   │   └── process_data.py
+│   ├── error_recovery/
+│   │   ├── recovery.sh
+│   │   ├── error_handler.py
+│   │   └── recovery_actions.txt
+│   ├── validation_scripts/
+│   │   └── validation.js
+│   └── final_scripts/
+│       ├── monitor.py
+│       ├── test_runner.py
+│       ├── deployment.sh
+│       └── cleanup_all.py
+```
+
+Complete all 35 steps, implementing all error handling scenarios and recovery mechanisms as specified.

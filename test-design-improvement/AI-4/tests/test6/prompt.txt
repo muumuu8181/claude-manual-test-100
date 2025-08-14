@@ -1,0 +1,45 @@
+You are tasked with creating files with specific content and then using that content to name other files. This test focuses on content-dependent operations with strict step dependencies.
+
+**CRITICAL REQUIREMENTS:**
+1. Execute steps in exact sequential order (1 through 15)
+2. Read file content exactly as written to determine next file names
+3. Use exact names and content as specified
+4. Do not optimize or combine steps with loops
+5. Each step depends on content from previous files
+
+**STEP-BY-STEP INSTRUCTIONS:**
+
+Step 1: Create a file named "base_info.txt" with content: "alpha"
+Step 2: Create a file named "config_data.txt" with content: "beta"
+Step 3: Create a file named "settings.txt" with content: "gamma"
+Step 4: Read the content of "base_info.txt" and create a file named "[content]_log.txt" (using the content as the filename)
+Step 5: Read the content of "config_data.txt" and create a file named "[content]_settings.txt" (using the content as the filename)
+Step 6: Read the content of "settings.txt" and create a file named "[content]_backup.txt" (using the content as the filename)
+Step 7: Create a file named "name_list.txt" with content: "delta"
+Step 8: Create a file named "project_code.txt" with content: "epsilon"
+Step 9: Read the content of "name_list.txt" and create a file named "[content]_report.txt" (using the content as the filename)
+Step 10: Read the content of "project_code.txt" and create a file named "[content]_data.txt" (using the content as the filename)
+Step 11: Create a file named "final_key.txt" with content: "omega"
+Step 12: Read the content of "final_key.txt" and create a file named "[content]_summary.txt" (using the content as the filename)
+Step 13: Create a directory named "results"
+Step 14: Read the content of "base_info.txt" and create a file named "[content]_final.txt" inside the "results" directory
+Step 15: Read the content of "final_key.txt" and create a file named "[content]_archive.txt" inside the "results" directory
+
+**EXPECTED FILES AFTER COMPLETION:**
+- base_info.txt (content: "alpha")
+- config_data.txt (content: "beta")
+- settings.txt (content: "gamma")
+- alpha_log.txt
+- beta_settings.txt
+- gamma_backup.txt
+- name_list.txt (content: "delta")
+- project_code.txt (content: "epsilon")
+- delta_report.txt
+- epsilon_data.txt
+- final_key.txt (content: "omega")
+- omega_summary.txt
+- results/ (directory)
+- results/alpha_final.txt
+- results/omega_archive.txt
+
+Complete all 15 steps in exact order, ensuring each content-reading step uses the exact text from the specified file.

@@ -1,0 +1,27 @@
+Test 16: Complex Financial Risk Assessment and Portfolio Management
+
+Instructions:
+Complete this comprehensive financial analysis through systematic individual processing:
+
+1. Create "securities.txt": Stock_AAPL|Technology|$175.50|1.2_beta|$2.5B_volume, Stock_MSFT|Technology|$410.25|0.9_beta|$1.8B_volume, Bond_GOVT|Government|$98.75|0.1_beta|$500M_volume, Stock_TSLA|Automotive|$245.80|1.8_beta|$3.2B_volume, Stock_JPM|Financial|$155.30|1.1_beta|$1.5B_volume
+2. Create "portfolios.txt": Portfolio_A|Conservative|AAPL_20%,MSFT_30%,GOVT_50%|Risk_Low, Portfolio_B|Aggressive|TSLA_40%,AAPL_35%,JPM_25%|Risk_High, Portfolio_C|Balanced|AAPL_25%,MSFT_25%,GOVT_25%,JPM_25%|Risk_Medium
+3. Create "market_data.txt": Date_2024-01-15|AAPL_+2.5%|MSFT_+1.8%|GOVT_+0.2%|TSLA_-3.1%|JPM_+1.2%, Date_2024-01-16|AAPL_-1.2%|MSFT_+0.8%|GOVT_+0.1%|TSLA_+4.2%|JPM_-0.5%
+
+[Steps 4-75 continue with detailed financial analysis including:]
+- Individual security performance analysis
+- Portfolio risk calculation and optimization
+- Value-at-Risk (VaR) calculations
+- Correlation analysis between securities
+- Sharpe ratio calculations
+- Beta-weighted portfolio analysis
+- Stress testing under various scenarios
+- Rebalancing recommendations
+- Risk-adjusted return analysis
+- Market volatility impact assessment
+
+Requirements:
+- Process each security and portfolio individually
+- Calculate all financial metrics manually
+- Cross-reference market data with portfolio performance
+- Create detailed risk assessment reports
+- Generate comprehensive investment recommendations

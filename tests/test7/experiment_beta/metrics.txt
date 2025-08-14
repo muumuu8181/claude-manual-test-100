@@ -1,0 +1,6 @@
+Matrix Size: 5x5
+Determinant A: 0.0
+Determinant B: 0.0
+Determinant Product: 0.0
+Execution Time: 0.0 ms
+Operations Completed: Matrix Multiplication, Determinant, Transpose

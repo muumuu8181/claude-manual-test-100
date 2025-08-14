@@ -1,0 +1,111 @@
+Test 13: Database Simulation with File-Based Records
+
+You are tasked with implementing a comprehensive database simulation system using file-based records that includes multi-table operations, transactions, indexing, and rollback mechanisms. This test evaluates your ability to handle complex database operations with state persistence, referential integrity, and advanced query processing across multiple interconnected data structures.
+
+**CRITICAL REQUIREMENTS:**
+1. Execute steps in exact sequential order (1 through 50)
+2. Maintain strict referential integrity across all operations
+3. Implement transaction logging and rollback mechanisms
+4. Handle complex multi-table joins and aggregations
+5. Use exact names, paths, and content as specified
+6. Do not optimize or combine steps with loops
+7. Pay careful attention to state-dependent operations and data consistency
+
+**STEP-BY-STEP INSTRUCTIONS:**
+
+Step 1: Create a directory named "database_engine"
+Step 2: Create a directory named "tables" inside database_engine
+Step 3: Create a directory named "indexes" inside database_engine
+Step 4: Create a directory named "transactions" inside database_engine
+Step 5: Create a file named "db_config.json" in database_engine with content: {"version": "1.0", "active_transactions": [], "table_count": 0, "index_count": 0, "integrity_checks": true, "auto_commit": false}
+Step 6: Create a file named "users.csv" in tables with content: "user_id,username,email,created_date,status\n1,alice,alice@test.com,2024-01-15,active\n2,bob,bob@test.com,2024-01-20,active\n3,charlie,charlie@test.com,2024-01-25,inactive"
+Step 7: Create a file named "products.csv" in tables with content: "product_id,name,price,category_id,stock_quantity\n101,laptop,999.99,1,50\n102,mouse,29.99,1,200\n103,desk,199.99,2,25\n104,chair,149.99,2,30"
+Step 8: Create a file named "categories.csv" in tables with content: "category_id,name,description\n1,electronics,Electronic devices and accessories\n2,furniture,Office and home furniture"
+Step 9: Update db_config.json: increment table_count to 3 and add "tables_initialized" to a new array field called "operations_log"
+Step 10: Create a directory named "primary_keys" inside indexes
+Step 11: Create a file named "users_pk.idx" in primary_keys with content: "user_id|1|users.csv:1\nuser_id|2|users.csv:2\nuser_id|3|users.csv:3"
+Step 12: Create a file named "products_pk.idx" in primary_keys with content: "product_id|101|products.csv:1\nproduct_id|102|products.csv:2\nproduct_id|103|products.csv:3\nproduct_id|104|products.csv:4"
+Step 13: Create a file named "categories_pk.idx" in primary_keys with content: "category_id|1|categories.csv:1\ncategory_id|2|categories.csv:2"
+Step 14: Update db_config.json: increment index_count to 3 and add "primary_indexes_created" to operations_log
+Step 15: Create a directory named "foreign_keys" inside indexes
+Step 16: Create a file named "products_category_fk.idx" in foreign_keys with content: "product_id|category_id|101|1|valid\nproduct_id|category_id|102|1|valid\nproduct_id|category_id|103|2|valid\nproduct_id|category_id|104|2|valid"
+Step 17: Create a directory named "orders" inside tables
+Step 18: Create a file named "orders.csv" in tables/orders with content: "order_id,user_id,order_date,total_amount,status\n1001,1,2024-02-01,1029.98,completed\n1002,2,2024-02-05,199.99,pending\n1003,1,2024-02-10,179.98,completed"
+Step 19: Create a file named "order_items.csv" in tables/orders with content: "item_id,order_id,product_id,quantity,unit_price\n1,1001,101,1,999.99\n2,1001,102,1,29.99\n3,1002,103,1,199.99\n4,1003,102,2,29.99\n5,1003,104,1,149.99"
+Step 20: Update db_config.json: increment table_count to 5 and add "order_tables_created" to operations_log
+Step 21: Create a directory named "transaction_001" inside transactions
+Step 22: Create a file named "begin_transaction.log" in transaction_001 with content: "TRANSACTION_ID: 001\nTIMESTAMP: step_22\nTYPE: INSERT\nTABLE: users\nSTATUS: begun"
+Step 23: Read users.csv and create "users_backup_001.csv" in transaction_001 with the current content of users.csv
+Step 24: Append a new user to users.csv: "4,diana,diana@test.com,2024-02-15,active"
+Step 25: Create a file named "insert_user.log" in transaction_001 with content: "OPERATION: INSERT\nTABLE: users\nNEW_RECORD: 4,diana,diana@test.com,2024-02-15,active\nBACKUP_FILE: users_backup_001.csv"
+Step 26: Update users_pk.idx in primary_keys by appending: "user_id|4|users.csv:4"
+Step 27: Create a file named "index_update.log" in transaction_001 with content: "INDEX_UPDATED: users_pk.idx\nNEW_ENTRY: user_id|4|users.csv:4"
+Step 28: Update db_config.json: add "001" to active_transactions array and add "transaction_001_started" to operations_log
+Step 29: Create a directory named "queries" inside database_engine
+Step 30: Create a file named "query_001.sql" in queries with content: "SELECT u.username, u.email FROM users u WHERE u.status = 'active'"
+Step 31: Execute query_001.sql by reading users.csv and create "query_001_results.csv" in queries with content showing only active users
+Step 32: Create a file named "query_002.sql" in queries with content: "SELECT p.name, c.name as category FROM products p JOIN categories c ON p.category_id = c.category_id WHERE p.price > 100"
+Step 33: Execute query_002.sql by reading products.csv and categories.csv, create "query_002_results.csv" in queries with the joined results
+Step 34: Create a directory named "aggregations" inside queries
+Step 35: Create a file named "total_orders_by_user.csv" in aggregations by reading orders.csv and calculating total order amount per user
+Step 36: Create a file named "product_sales_summary.csv" in aggregations by reading order_items.csv and calculating total quantity sold per product
+Step 37: Update db_config.json: add "query_operations_completed" to operations_log
+Step 38: Create a directory named "integrity_check" inside database_engine
+Step 39: Check foreign key integrity by reading products.csv and categories.csv, create "fk_integrity_report.txt" in integrity_check with validation results
+Step 40: Check referential integrity between orders.csv and users.csv, create "referential_integrity_report.txt" in integrity_check
+Step 41: Create a directory named "rollback_scenario" inside transactions
+Step 42: Create a file named "rollback_trigger.txt" in rollback_scenario with content: "integrity_violation_detected"
+Step 43: Create a file named "rollback_001.log" in rollback_scenario with content: "ROLLBACK TRANSACTION 001\nREASON: Data integrity check\nACTIONS: Restore users table from backup"
+Step 44: Copy users_backup_001.csv from transaction_001 to tables and rename it back to "users.csv" (overwriting the current users.csv)
+Step 45: Remove the last entry from users_pk.idx (the user_id|4 entry that was added)
+Step 46: Update db_config.json: remove "001" from active_transactions array and add "transaction_001_rolled_back" to operations_log
+Step 47: Create a directory named "database_statistics" inside database_engine
+Step 48: Create a file named "table_stats.json" in database_statistics with content showing record counts for all tables
+Step 49: Create a file named "system_health.json" in database_statistics with content: {"total_tables": 5, "total_indexes": 4, "active_transactions": 0, "integrity_status": "verified", "last_operation": "rollback_completed"}
+Step 50: Create a file named "database_session_log.txt" in database_engine with content: "DATABASE SESSION COMPLETE\nTables Created: 5\nIndexes Created: 4\nTransactions Processed: 1\nRollbacks Executed: 1\nQueries Executed: 2\nIntegrity Checks: 2\nFinal Status: HEALTHY"
+
+**EXPECTED FINAL STRUCTURE:**
+```
+├── database_engine/
+│   ├── database_session_log.txt
+│   ├── db_config.json (final state with operations_log)
+│   ├── tables/
+│   │   ├── users.csv (restored from backup)
+│   │   ├── products.csv
+│   │   ├── categories.csv
+│   │   └── orders/
+│   │       ├── orders.csv
+│   │       └── order_items.csv
+│   ├── indexes/
+│   │   ├── primary_keys/
+│   │   │   ├── users_pk.idx (user_id 4 entry removed)
+│   │   │   ├── products_pk.idx
+│   │   │   └── categories_pk.idx
+│   │   └── foreign_keys/
+│   │       └── products_category_fk.idx
+│   ├── transactions/
+│   │   ├── transaction_001/
+│   │   │   ├── begin_transaction.log
+│   │   │   ├── users_backup_001.csv
+│   │   │   ├── insert_user.log
+│   │   │   └── index_update.log
+│   │   └── rollback_scenario/
+│   │       ├── rollback_trigger.txt
+│   │       └── rollback_001.log
+│   ├── queries/
+│   │   ├── query_001.sql
+│   │   ├── query_001_results.csv
+│   │   ├── query_002.sql
+│   │   ├── query_002_results.csv
+│   │   └── aggregations/
+│   │       ├── total_orders_by_user.csv
+│   │       └── product_sales_summary.csv
+│   ├── integrity_check/
+│   │   ├── fk_integrity_report.txt
+│   │   └── referential_integrity_report.txt
+│   └── database_statistics/
+│       ├── table_stats.json
+│       └── system_health.json
+```
+
+Complete all 50 steps, maintaining strict data consistency, implementing proper transaction handling with rollback capabilities, and ensuring all integrity checks pass correctly.

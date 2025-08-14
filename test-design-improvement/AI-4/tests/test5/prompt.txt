@@ -1,0 +1,41 @@
+You are tasked with creating a directory structure and files with specific dependencies between steps. Follow each step in exact order and complete all tasks.
+
+**CRITICAL REQUIREMENTS:**
+1. Execute steps in exact sequential order (1 through 12)
+2. Each step builds on previous steps
+3. Use exact names and paths as specified
+4. Do not optimize or combine steps with loops
+5. Verify each step completion before proceeding
+
+**STEP-BY-STEP INSTRUCTIONS:**
+
+Step 1: Create a directory named "projects"
+Step 2: Create a directory named "documents" inside the "projects" directory  
+Step 3: Create a directory named "reports" inside the "projects" directory
+Step 4: Create a directory named "archive" inside the "documents" directory (from Step 2)
+Step 5: Create a directory named "templates" inside the "documents" directory (from Step 2)
+Step 6: Create a file named "readme.txt" inside the "projects" directory (from Step 1)
+Step 7: Create a file named "project_list.txt" inside the "documents" directory (from Step 2)
+Step 8: Create a file named "monthly_report.txt" inside the "reports" directory (from Step 3)
+Step 9: Create a file named "old_data.txt" inside the "archive" directory (from Step 4)
+Step 10: Create a file named "template_basic.txt" inside the "templates" directory (from Step 5)
+Step 11: Create a file named "summary.txt" inside the "reports" directory (from Step 3)
+Step 12: Create a file named "backup_info.txt" inside the "archive" directory (from Step 4)
+
+**EXPECTED FINAL STRUCTURE:**
+```
+projects/
+├── readme.txt
+├── documents/
+│   ├── project_list.txt
+│   ├── archive/
+│   │   ├── old_data.txt
+│   │   └── backup_info.txt
+│   └── templates/
+│       └── template_basic.txt
+└── reports/
+    ├── monthly_report.txt
+    └── summary.txt
+```
+
+Complete all 12 steps and verify the final directory structure matches exactly.

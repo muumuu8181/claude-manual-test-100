@@ -1,0 +1,44 @@
+Test 11: Software Release Management System
+
+Complete the following steps in order:
+
+1. Create a folder named "release_management"
+2. Create a folder named "versions" inside release_management
+3. Create a folder named "v1.0" inside versions
+4. Create a folder named "v1.1" inside versions
+5. Create a folder named "v2.0" inside versions
+6. Create a file named "features.txt" in v1.0
+7. Write "Version 1.0 Features:" to features.txt
+8. Append "User authentication" to features.txt
+9. Append "Basic dashboard" to features.txt
+10. Append "Data export" to features.txt
+11. Create a file named "bugfixes.txt" in v1.0
+12. Write "Version 1.0 Bug Fixes: None (initial release)" to bugfixes.txt
+13. Create a file named "features.txt" in v1.1
+14. Copy all content from v1.0/features.txt to v1.1/features.txt
+15. Append "Advanced reporting" to v1.1/features.txt
+16. Append "Email notifications" to v1.1/features.txt
+17. Create a file named "bugfixes.txt" in v1.1
+18. Write "Version 1.1 Bug Fixes:" to bugfixes.txt in v1.1
+19. Append "Fixed login timeout issue" to v1.1/bugfixes.txt
+20. Append "Resolved dashboard loading delay" to v1.1/bugfixes.txt
+21. Create a file named "features.txt" in v2.0
+22. Copy all content from v1.1/features.txt to v2.0/features.txt
+23. Append "Multi-tenant support" to v2.0/features.txt
+24. Append "API endpoints" to v2.0/features.txt
+25. Append "Mobile responsive design" to v2.0/features.txt
+26. Create a file named "bugfixes.txt" in v2.0
+27. Write "Version 2.0 Bug Fixes:" to bugfixes.txt in v2.0
+28. Append "Fixed data export corruption" to v2.0/bugfixes.txt
+29. Append "Resolved memory leak in reporting" to v2.0/bugfixes.txt
+30. Create a folder named "documentation" inside release_management
+31. Create a file named "release_notes.txt" in documentation
+32. Write "Software Release Notes Summary:" to release_notes.txt
+33. Append "v1.0: Initial release with 3 core features" to release_notes.txt
+34. Append "v1.1: Added 2 features, fixed 2 bugs" to release_notes.txt
+35. Append "v2.0: Added 3 major features, fixed 2 critical bugs" to release_notes.txt
+36. Create a file named "changelog.txt" in documentation
+37. Write "Complete Changelog:" to changelog.txt
+38. Append "v1.0 -> v1.1: +2 features, +2 fixes" to changelog.txt
+39. Append "v1.1 -> v2.0: +3 features, +2 fixes" to changelog.txt
+40. Append "Total evolution: 3 -> 5 -> 8 features" to changelog.txt

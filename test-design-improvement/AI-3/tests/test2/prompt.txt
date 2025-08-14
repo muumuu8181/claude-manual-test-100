@@ -1,0 +1,14 @@
+Test 2: Basic File Operations with Renaming
+
+Complete the following steps in order:
+
+1. Create a file named "document_v1.txt" in the current directory
+2. Write the text "Initial draft content" to document_v1.txt
+3. Create a file named "backup_file.txt" in the current directory
+4. Copy the content from document_v1.txt to backup_file.txt
+5. Rename document_v1.txt to "document_v2.txt"
+6. Create a new file named "notes.txt"
+7. Write "Version 2 notes: Updated formatting" to notes.txt
+8. Rename backup_file.txt to "document_v1_backup.txt"
+9. Create a file named "changelog.txt"
+10. Write "v1 -> v2: Renamed and backed up original file" to changelog.txt

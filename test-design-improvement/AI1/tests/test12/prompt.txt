@@ -1,0 +1,37 @@
+Test 12: Advanced Project Management and Resource Allocation
+
+Instructions:
+Complete this project management analysis through individual task processing:
+
+1. Create "projects.txt" with: Project_Alpha|2024-01-15|2024-03-15|Development|John,Mary,Bob|50000, Project_Beta|2024-02-01|2024-04-30|Marketing|Sarah,Tom|30000, Project_Gamma|2024-01-20|2024-05-20|Research|Alice,Carol,Dan,Eve|75000
+2. Create "resources.txt" with: John|Developer|80|Available, Mary|Designer|75|Available, Bob|Tester|70|Available, Sarah|Manager|90|Busy, Tom|Analyst|85|Available, Alice|Researcher|88|Available, Carol|Scientist|92|Available, Dan|Engineer|87|Busy, Eve|Coordinator|78|Available
+3. Create "tasks.txt" with: Task001|Alpha|Planning|John|40h|Completed, Task002|Alpha|Design|Mary|60h|InProgress, Task003|Beta|Strategy|Sarah|30h|Pending, Task004|Gamma|Analysis|Alice|80h|InProgress, Task005|Alpha|Testing|Bob|50h|Pending
+4. Extract each project individually: create "project_alpha.txt", "project_beta.txt", "project_gamma.txt"
+5. Extract each resource individually: create files for each person with their details
+6. Process each task individually: create "task001.txt" through "task005.txt" with full details
+7. Calculate total allocated hours for each project: save to individual "hours_*" files
+8. Calculate resource utilization for each person: save to individual "utilization_*" files
+9. Identify available resources for each project: create "available_alpha.txt", "available_beta.txt", "available_gamma.txt"
+10. Calculate project duration in days for each project: save to "duration_alpha.txt", "duration_beta.txt", "duration_gamma.txt"
+11. Analyze skill requirements vs available skills for each project: create skill matching files
+12. Calculate cost per hour for each resource (rate from resources): create "cost_*" files
+13. Calculate total project costs: save to "cost_alpha.txt", "cost_beta.txt", "cost_gamma.txt"
+14. Identify resource conflicts (people assigned to overlapping projects): save to "resource_conflicts.txt"
+15. Create resource allocation recommendations: save to "allocation_recommendations.txt"
+16. Calculate overall portfolio budget: save to "portfolio_budget.txt"
+17. Analyze project timeline overlaps: save to "timeline_analysis.txt"
+18. Generate critical path analysis for each project: create "critical_path_*" files
+19. Create risk assessment based on resource availability: save to "risk_assessment.txt"
+20. Generate capacity planning report: save to "capacity_planning.txt"
+21. Create project prioritization recommendations: save to "project_priorities.txt"
+22. Analyze team composition for each project: save to "team_analysis_*" files
+23. Calculate return on investment for each project: save to "roi_*" files
+24. Generate resource optimization suggestions: save to "resource_optimization.txt"
+25. Create executive project portfolio report: save to "portfolio_executive_summary.txt"
+
+Requirements:
+- Process each project, resource, and task individually
+- Calculate all metrics manually without automation
+- Cross-reference project requirements with available resources individually
+- Create detailed analysis for resource allocation and scheduling
+- Verify all calculations and recommendations manually

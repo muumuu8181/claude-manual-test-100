@@ -1,0 +1,15 @@
+Test 1: Basic Folder and File Creation
+
+Execute the following steps individually:
+
+Step 1: Create a folder named "folder_A" in the current working directory.
+
+Step 2: Create a folder named "folder_B" in the current working directory.
+
+Step 3: Create an empty file named "file_01.txt" in the current working directory.
+
+Step 4: Create an empty file named "file_02.txt" in the current working directory.
+
+Step 5: Create an empty file named "data_file.csv" in the current working directory.
+
+Note: Each step should be completed individually without using loops or batch operations.

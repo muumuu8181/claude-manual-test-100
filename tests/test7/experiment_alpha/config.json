@@ -1,0 +1,16 @@
+{
+  "experiment_name": "experiment_alpha",
+  "description": "Complex mathematical calculation with summation formula",
+  "parameters": {
+    "a": 512,
+    "b": 256,
+    "c": 128,
+    "d": 64,
+    "e": 32
+  },
+  "formula": "Σ(i=1 to 100) [a * i^2 + b * i + c] / (d + e * i)",
+  "precision": 5,
+  "intermediate_recording_interval": 10,
+  "created_by": "テストAI7",
+  "timestamp": "2025-08-13T13:32:20"
+}

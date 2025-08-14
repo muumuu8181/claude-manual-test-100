@@ -1,0 +1,43 @@
+Test 9: Multi-Level Data Processing and Statistical Analysis
+
+Instructions:
+Complete this comprehensive data processing workflow step by step:
+
+1. Create "survey_responses.txt" with data: Q1: 4,5,3,4,5,2,4,3,5,4 | Q2: 3,4,4,3,5,3,4,4,2,4 | Q3: 5,4,3,5,4,4,3,5,4,4
+2. Create individual question files: "q1_responses.txt", "q2_responses.txt", "q3_responses.txt"
+3. Extract Q1 responses (4,5,3,4,5,2,4,3,5,4) and save to q1_responses.txt
+4. Extract Q2 responses (3,4,4,3,5,3,4,4,2,4) and save to q2_responses.txt  
+5. Extract Q3 responses (5,4,3,5,4,4,3,5,4,4) and save to q3_responses.txt
+6. Calculate Q1 total by manually adding all responses, save to "q1_total.txt"
+7. Calculate Q2 total by manually adding all responses, save to "q2_total.txt"
+8. Calculate Q3 total by manually adding all responses, save to "q3_total.txt"
+9. Calculate Q1 average (total÷10), save to "q1_average.txt"
+10. Calculate Q2 average (total÷10), save to "q2_average.txt"
+11. Calculate Q3 average (total÷10), save to "q3_average.txt"
+12. Find Q1 highest response by comparing each value, save to "q1_max.txt"
+13. Find Q1 lowest response by comparing each value, save to "q1_min.txt"
+14. Find Q2 highest response by comparing each value, save to "q2_max.txt"
+15. Find Q2 lowest response by comparing each value, save to "q2_min.txt"
+16. Find Q3 highest response by comparing each value, save to "q3_max.txt"
+17. Find Q3 lowest response by comparing each value, save to "q3_min.txt"
+18. Count how many 5s in Q1 responses, save to "q1_fives.txt"
+19. Count how many 4s in Q1 responses, save to "q1_fours.txt"
+20. Count how many 3s in Q1 responses, save to "q1_threes.txt"
+21. Count how many 2s in Q1 responses, save to "q1_twos.txt"
+22. Count how many 1s in Q1 responses, save to "q1_ones.txt"
+23. Repeat counts for Q2: create "q2_fives.txt", "q2_fours.txt", "q2_threes.txt", "q2_twos.txt", "q2_ones.txt"
+24. Repeat counts for Q3: create "q3_fives.txt", "q3_fours.txt", "q3_threes.txt", "q3_twos.txt", "q3_ones.txt"
+25. Compare Q1, Q2, Q3 averages to find highest average question, save to "best_question.txt"
+26. Compare Q1, Q2, Q3 averages to find lowest average question, save to "worst_question.txt"
+27. Calculate overall survey average across all questions, save to "overall_average.txt"
+28. Create "response_distribution.txt" showing distribution of each rating (1-5) across all questions
+29. Create "question_comparison.txt" comparing statistics for all three questions
+30. Create "survey_analysis_report.txt" with comprehensive analysis and insights
+
+Requirements:
+- Extract each question's data individually
+- Perform all calculations manually without formulas
+- Count each rating value by examining responses individually  
+- Compare values individually to find max/min
+- Create each statistical file separately
+- Verify all calculations before saving

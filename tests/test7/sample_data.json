@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created_by": "テストAI7"
+  },
+  "data": [
+    {
+      "id": 1,
+      "value": 2.687,
+      "label": "Object_1"
+    },
+    {
+      "id": 2,
+      "value": 51.071,
+      "label": "Object_2"
+    },
+    {
+      "id": 3,
+      "value": 69.071,
+      "label": "Object_3"
+    },
+    {
+      "id": 4,
+      "value": 41.548,
+      "label": "Object_4"
+    },
+    {
+      "id": 5,
+      "value": 0.667,
+      "label": "Object_5"
+    }
+  ],
+  "statistics": {
+    "mean_value": 116.39,
+    "max_value": 216.38,
+    "sample_count": 694
+  }
+}

@@ -1,0 +1,12 @@
+以下の手順を順番通りに実行してください。各手順は個別に実行し、まとめて処理しないでください。
+
+1) alphaフォルダを作成してください
+2) betaフォルダを作成してください
+3) gammaフォルダを作成してください
+4) alphaの中にconfig.jsonを作成してください
+5) config.jsonに{"version": "1.0"}と書き込んでください
+6) betaをbeta_backupにリネームしてください
+7) config.jsonをgammaフォルダにコピーしてください
+8) gammaの中のconfig.jsonの内容を{"version": "2.0"}に変更してください
+9) alphaフォルダを削除してください
+10) beta_backupをproductionにリネームしてください

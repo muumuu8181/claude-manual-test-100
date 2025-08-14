@@ -1,0 +1,27 @@
+Test 5: Data Analysis and Reporting
+
+Instructions:
+Perform data analysis by completing each task individually:
+
+1. Create "sales_data.txt" with: Product A: 150, Product B: 89, Product C: 203, Product D: 67, Product E: 134
+2. Read Product A's sales (150) and calculate 15% commission, save to "commission_a.txt"
+3. Read Product B's sales (89) and calculate 15% commission, save to "commission_b.txt"  
+4. Read Product C's sales (203) and calculate 15% commission, save to "commission_c.txt"
+5. Read Product D's sales (67) and calculate 15% commission, save to "commission_d.txt"
+6. Read Product E's sales (134) and calculate 15% commission, save to "commission_e.txt"
+7. Find the highest sales figure by comparing all products manually, save to "top_performer.txt"
+8. Find the lowest sales figure by comparing all products manually, save to "bottom_performer.txt"
+9. Calculate the total sales by manually adding all five products, save to "total_sales.txt"
+10. Calculate the average sales by dividing total by 5, save to "average_sales.txt"
+11. Create "sales_report.txt" with product names and sales in descending order
+12. Calculate total commission by adding all commission files, save to "total_commission.txt"
+13. Determine how many products sold above average, save count to "above_average.txt"
+14. Determine how many products sold below average, save count to "below_average.txt"
+15. Create "analysis_summary.txt" with all key findings and statistics
+
+Requirements:
+- Read each product's data individually
+- Perform all calculations manually (no automation)
+- Compare values individually to find highest/lowest
+- Create each output file separately with single values or results
+- Verify all calculations before saving

@@ -1,0 +1,15 @@
+{
+  "experiment_name": "experiment_beta",
+  "description": "Matrix operations: 5x5 matrix multiplication and determinant calculation",
+  "parameters": {
+    "a": 512,
+    "b": 256,
+    "c": 128,
+    "d": 64,
+    "matrix_size": 5
+  },
+  "initialization_formula": "A[i][j] = (a+i*10) * (b-j*5) / (c+d)",
+  "operations": ["matrix_multiplication", "determinant", "transpose"],
+  "created_by": "テストAI7",
+  "timestamp": "2025-08-13T13:33:30"
+}

@@ -1,0 +1,19 @@
+Test 1: Basic File Management Operations
+
+Instructions:
+Please perform the following tasks in sequence. Each step must be completed individually.
+
+1. Create a new directory called "workspace" in the current test directory
+2. Inside workspace, create a file named "data.txt" containing the text "Initial data"
+3. Create another file named "config.json" in workspace with content: {"version": 1, "active": true}
+4. Copy data.txt to create a backup file named "data_backup.txt" in the same directory
+5. Create a subdirectory called "archive" inside workspace
+6. Move data_backup.txt into the archive directory
+7. List all files in the workspace directory and save the output to "file_list.txt"
+8. Read the contents of config.json and append ", read: true" to the end (making it invalid JSON intentionally)
+
+Requirements:
+- Complete each step exactly as described
+- Do not use loops or automation scripts
+- Each file operation must be performed individually
+- Verify each step before proceeding to the next

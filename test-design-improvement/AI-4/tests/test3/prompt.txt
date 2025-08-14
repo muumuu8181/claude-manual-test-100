@@ -1,0 +1,21 @@
+Test 3: Folder Rename and File Move Operations
+
+Execute the following steps individually:
+
+Step 1: Create a folder named "temp_folder" in the current working directory.
+
+Step 2: Create a folder named "backup_dir" in the current working directory.
+
+Step 3: Create a file named "document_X.txt" in the current working directory.
+
+Step 4: Create a file named "document_Y.txt" in the current working directory.
+
+Step 5: Rename the folder "temp_folder" to "main_folder".
+
+Step 6: Rename the folder "backup_dir" to "archive_storage".
+
+Step 7: Move the file "document_X.txt" into the "main_folder" directory.
+
+Step 8: Move the file "document_Y.txt" into the "archive_storage" directory.
+
+Note: Each step should be completed individually without using loops or batch operations.

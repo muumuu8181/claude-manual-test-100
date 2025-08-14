@@ -1,0 +1,70 @@
+Test 13: Enterprise Content Management with Workflow States
+
+Complete the following steps in order:
+
+1. Create a folder named "content_management"
+2. Create a folder named "documents" inside content_management
+3. Create a folder named "workflows" inside content_management
+4. Create a folder named "users" inside content_management
+5. Create a folder named "audit" inside content_management
+6. Create a folder named "draft" inside documents
+7. Create a folder named "review" inside documents
+8. Create a folder named "approved" inside documents
+9. Create a folder named "published" inside documents
+10. Create a folder named "archived" inside documents
+11. Create a file named "doc001_draft.txt" in draft
+12. Write "Document 001 - Content Strategy" to doc001_draft.txt
+13. Append "Status: Draft" to doc001_draft.txt
+14. Append "Author: John Smith" to doc001_draft.txt
+15. Append "Created: 2024-01-15" to doc001_draft.txt
+16. Create a file named "doc002_draft.txt" in draft
+17. Write "Document 002 - Marketing Plan" to doc002_draft.txt
+18. Append "Status: Draft" to doc002_draft.txt
+19. Append "Author: Jane Doe" to doc002_draft.txt
+20. Append "Created: 2024-01-16" to doc002_draft.txt
+21. Create a file named "workflow_states.txt" in workflows
+22. Write "Document Workflow States:" to workflow_states.txt
+23. Append "1. Draft - Initial creation" to workflow_states.txt
+24. Append "2. Review - Under evaluation" to workflow_states.txt
+25. Append "3. Approved - Ready for publication" to workflow_states.txt
+26. Append "4. Published - Live content" to workflow_states.txt
+27. Append "5. Archived - Historical content" to workflow_states.txt
+28. Create a file named "doc001_review.txt" in review
+29. Copy all content from draft/doc001_draft.txt to doc001_review.txt
+30. Edit doc001_review.txt by appending "Status changed from Draft to Review"
+31. Append "Reviewer: Alice Johnson" to doc001_review.txt
+32. Append "Review Date: 2024-01-17" to doc001_review.txt
+33. Create a file named "user_roles.txt" in users
+34. Write "User Roles and Permissions:" to user_roles.txt
+35. Append "John Smith: Author, Drafter" to user_roles.txt
+36. Append "Jane Doe: Author, Drafter" to user_roles.txt
+37. Append "Alice Johnson: Reviewer, Approver" to user_roles.txt
+38. Append "Bob Wilson: Publisher, Administrator" to user_roles.txt
+39. Create a file named "doc001_approved.txt" in approved
+40. Copy all content from review/doc001_review.txt to doc001_approved.txt
+41. Append "Status changed from Review to Approved" to doc001_approved.txt
+42. Append "Approved by: Alice Johnson" to doc001_approved.txt
+43. Append "Approval Date: 2024-01-18" to doc001_approved.txt
+44. Create a file named "audit_log.txt" in audit
+45. Write "Content Management Audit Log:" to audit_log.txt
+46. Append "Doc001: Draft -> Review (2024-01-17)" to audit_log.txt
+47. Append "Doc001: Review -> Approved (2024-01-18)" to audit_log.txt
+48. Create a file named "doc001_published.txt" in published
+49. Copy all content from approved/doc001_approved.txt to doc001_published.txt
+50. Append "Status changed from Approved to Published" to doc001_published.txt
+51. Append "Published by: Bob Wilson" to doc001_published.txt
+52. Append "Publication Date: 2024-01-19" to doc001_published.txt
+53. Append "Doc001: Approved -> Published (2024-01-19)" to audit_log.txt
+54. Create a file named "state_summary.txt" in content_management
+55. Write "Content Management State Summary:" to state_summary.txt
+56. Append "Documents in Draft: 1 (doc002)" to state_summary.txt
+57. Append "Documents in Review: 0" to state_summary.txt
+58. Append "Documents Approved: 0" to state_summary.txt
+59. Append "Documents Published: 1 (doc001)" to state_summary.txt
+60. Append "Documents Archived: 0" to state_summary.txt
+61. Create a file named "workflow_metrics.txt" in content_management
+62. Write "Workflow Performance Metrics:" to workflow_metrics.txt
+63. Append "Average time Draft to Review: 2 days" to workflow_metrics.txt
+64. Append "Average time Review to Approval: 1 day" to workflow_metrics.txt
+65. Append "Average time Approval to Publication: 1 day" to workflow_metrics.txt
+66. Append "Total workflow time for doc001: 4 days" to workflow_metrics.txt

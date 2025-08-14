@@ -1,0 +1,57 @@
+You are tasked with performing mixed operations including dependencies, conditional operations, and simple error handling cases. This test combines various operation types with realistic scenarios.
+
+**CRITICAL REQUIREMENTS:**
+1. Execute steps in exact sequential order (1 through 20)
+2. Handle conditional operations based on file existence
+3. Follow dependencies carefully - some steps depend on success of previous steps
+4. Use exact names and paths as specified
+5. Do not optimize or combine steps with loops
+6. Pay attention to error handling instructions
+
+**STEP-BY-STEP INSTRUCTIONS:**
+
+Step 1: Create a directory named "workspace"
+Step 2: Create a file named "input.txt" with content: "start"
+Step 3: Create a file named "config.json" inside the "workspace" directory
+Step 4: Read the content of "input.txt" and create a file named "[content]_process.txt" (use content for filename)
+Step 5: Create a directory named "temp" inside the "workspace" directory
+Step 6: Move "start_process.txt" into the "workspace/temp" directory
+Step 7: Check if file "missing_file.txt" exists. If it does NOT exist, create a file named "error_log.txt" with content: "file_not_found"
+Step 8: Create a file named "data.txt" with content: "processing"
+Step 9: Read the content of "data.txt" and create a directory named "[content]_dir" (use content for directory name)
+Step 10: Create a file named "status.txt" inside the "processing_dir" directory (from Step 9)
+Step 11: Rename "config.json" in workspace to "settings.json"
+Step 12: Copy "error_log.txt" into the "workspace" directory (if it exists from Step 7)
+Step 13: Create a file named "output.txt" with content: "complete"
+Step 14: Check if "workspace/settings.json" exists. If it exists, create a file named "validation_passed.txt"
+Step 15: Move "data.txt" into the "processing_dir" directory
+Step 16: Rename "data.txt" in "processing_dir" to "processed_data.txt"
+Step 17: Create a directory named "results" inside the "workspace" directory
+Step 18: Move "output.txt" into the "workspace/results" directory
+Step 19: Read the content of "output.txt" in results directory and create a file named "[content]_summary.txt" in the same directory
+Step 20: Create a file named "final_report.txt" inside the "workspace" directory with content: "test_finished"
+
+**CONDITIONAL OPERATION NOTES:**
+- Step 7: Only creates error_log.txt if missing_file.txt does NOT exist (which should be the case)
+- Step 12: Only copies error_log.txt if it exists (depends on Step 7)
+- Step 14: Only creates validation_passed.txt if settings.json exists (depends on Step 11)
+
+**EXPECTED FINAL STRUCTURE:**
+```
+├── workspace/
+│   ├── settings.json
+│   ├── error_log.txt
+│   ├── validation_passed.txt
+│   ├── final_report.txt (content: "test_finished")
+│   ├── temp/
+│   │   └── start_process.txt
+│   └── results/
+│       ├── output.txt (content: "complete")
+│       └── complete_summary.txt
+├── processing_dir/
+│   ├── status.txt
+│   └── processed_data.txt (content: "processing")
+└── input.txt (content: "start")
+```
+
+Complete all 20 steps, handling the conditional operations based on file existence checks.

@@ -1,0 +1,35 @@
+Test 14: Advanced Supply Chain and Logistics Optimization
+
+Instructions:
+Complete this comprehensive supply chain analysis through detailed individual processing:
+
+1. Create "suppliers.txt": Supplier_A|Electronics|China|7days|95%, Supplier_B|Components|Germany|14days|98%, Supplier_C|Materials|USA|3days|92%, Supplier_D|Parts|Japan|10days|96%, Supplier_E|Assembly|Mexico|5days|94%
+2. Create "warehouses.txt": Warehouse_North|Capacity_10000|Current_7500|Location_Chicago, Warehouse_South|Capacity_8000|Current_6200|Location_Atlanta, Warehouse_East|Capacity_12000|Current_9800|Location_NewYork, Warehouse_West|Capacity_9000|Current_7100|Location_LosAngeles
+3. Create "products.txt": Product_X|Supplier_A,C|Weight_2kg|Value_500|Warehouse_North,East, Product_Y|Supplier_B,D|Weight_1.5kg|Value_300|Warehouse_South,West, Product_Z|Supplier_A,E|Weight_3kg|Value_750|All_Warehouses
+4. Create "orders.txt": Order_001|Product_X|50|2024-02-01|Chicago|Rush, Order_002|Product_Y|75|2024-02-03|Atlanta|Standard, Order_003|Product_Z|30|2024-02-05|NewYork|Standard, Order_004|Product_X|25|2024-02-07|LosAngeles|Rush, Order_005|Product_Y|40|2024-02-10|Chicago|Standard
+5. Create "transportation.txt": Route_1|Chicago-Atlanta|2days|$500, Route_2|Atlanta-NewYork|1day|$300, Route_3|NewYork-LosAngeles|4days|$800, Route_4|LosAngeles-Chicago|3days|$600, Route_5|Chicago-NewYork|1day|$400
+
+[Steps 6-50 continue with detailed supply chain analysis including:]
+- Individual supplier performance analysis
+- Warehouse capacity utilization calculations  
+- Product movement tracking and optimization
+- Order fulfillment route planning
+- Cost analysis per transportation route
+- Supplier reliability assessment
+- Inventory level optimization
+- Lead time analysis by supplier and product
+- Regional demand pattern analysis
+- Supply chain risk assessment
+- Bottleneck identification and resolution
+- Cost optimization recommendations
+- Performance metrics calculation
+- Supply chain efficiency analysis
+- Strategic optimization planning
+
+Requirements:
+- Process each supplier, warehouse, product, and order individually
+- Calculate all logistics metrics manually
+- Cross-reference multiple supply chain components
+- Create detailed analysis for each supply chain element
+- Optimize routes and inventory levels through manual analysis
+- Generate comprehensive supply chain optimization recommendations

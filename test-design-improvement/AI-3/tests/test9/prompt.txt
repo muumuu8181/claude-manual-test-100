@@ -1,0 +1,44 @@
+Test 9: Complex Project Management System
+
+Complete the following steps in order:
+
+1. Create a folder named "project_management"
+2. Create a folder named "projects" inside project_management
+3. Create a folder named "project_alpha" inside projects
+4. Create a folder named "project_beta" inside projects
+5. Create a file named "alpha_spec.txt" in project_alpha
+6. Write "Project Alpha Specification" to alpha_spec.txt
+7. Append "Requirements: Database integration" to alpha_spec.txt
+8. Append "Timeline: 3 months" to alpha_spec.txt
+9. Create a file named "beta_spec.txt" in project_beta
+10. Write "Project Beta Specification" to beta_spec.txt
+11. Append "Requirements: API development" to beta_spec.txt
+12. Append "Timeline: 2 months" to beta_spec.txt
+13. Create a folder named "resources" inside project_management
+14. Create a file named "team_alpha.txt" in resources
+15. Write "Team Alpha Members:" to team_alpha.txt
+16. Append "Lead: Alice Johnson" to team_alpha.txt
+17. Append "Dev: Bob Smith" to team_alpha.txt
+18. Append "QA: Carol Wilson" to team_alpha.txt
+19. Create a file named "team_beta.txt" in resources
+20. Write "Team Beta Members:" to team_beta.txt
+21. Append "Lead: David Brown" to team_beta.txt
+22. Append "Dev: Emma Davis" to team_beta.txt
+23. Create a folder named "schedules" inside project_management
+24. Create a file named "alpha_timeline.txt" in schedules
+25. Copy content from alpha_spec.txt to alpha_timeline.txt
+26. Append "Start Date: January 1" to alpha_timeline.txt
+27. Append "End Date: March 31" to alpha_timeline.txt
+28. Create a file named "beta_timeline.txt" in schedules
+29. Copy content from beta_spec.txt to beta_timeline.txt
+30. Append "Start Date: February 1" to beta_timeline.txt
+31. Append "End Date: March 31" to beta_timeline.txt
+32. Create a file named "master_schedule.txt" in project_management
+33. Write "Master Project Schedule:" to master_schedule.txt
+34. Append "Alpha: Jan-Mar (3 months)" to master_schedule.txt
+35. Append "Beta: Feb-Mar (2 months)" to master_schedule.txt
+36. Append "Overlap period: February-March" to master_schedule.txt
+37. Create a file named "resource_allocation.txt" in project_management
+38. Write "Resource Allocation Summary:" to resource_allocation.txt
+39. Append "Alpha team: 3 members" to resource_allocation.txt
+40. Append "Beta team: 2 members" to resource_allocation.txt

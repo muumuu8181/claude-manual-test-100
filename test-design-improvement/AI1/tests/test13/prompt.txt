@@ -1,0 +1,53 @@
+Test 13: Enterprise Data Integration and Multi-Source Analysis
+
+Instructions:
+Complete this enterprise-level data processing workflow through systematic individual operations:
+
+1. Create "sales_data.txt": Region_North|Q1|125000|Q2|145000|Q3|167000|Q4|189000, Region_South|Q1|98000|Q2|112000|Q3|134000|Q4|156000, Region_East|Q1|156000|Q2|178000|Q3|195000|Q4|223000, Region_West|Q1|87000|Q2|95000|Q3|109000|Q4|124000
+2. Create "customer_data.txt": Enterprise|North|45|ActiveContract, SMB|South|78|ActiveContract, Government|East|23|PendingRenewal, Startup|West|134|ActiveContract, Corporation|North|67|ExpiredContract
+3. Create "product_data.txt": Software_A|License|2500|North,East, Software_B|Subscription|180|All_Regions, Hardware_X|Physical|15000|South,West, Service_Y|Professional|5000|All_Regions
+4. Create "employee_data.txt": North|John_Manager|Sarah_Sales|Mike_Support|Lisa_Admin, South|Tom_Manager|Carol_Sales|Dan_Support|Amy_Admin, East|Alex_Manager|Nina_Sales|Paul_Support|Kate_Admin, West|Chris_Manager|Emma_Sales|Ryan_Support|Zoe_Admin
+5. Extract each region's quarterly data individually: create "north_q1.txt" through "north_q4.txt", "south_q1.txt" through "south_q4.txt", etc.
+6. Calculate year-end totals for each region: create "north_total.txt", "south_total.txt", "east_total.txt", "west_total.txt"
+7. Calculate quarterly performance across all regions: create "q1_total.txt", "q2_total.txt", "q3_total.txt", "q4_total.txt"
+8. Extract customer information by region: create "customers_north.txt", "customers_south.txt", "customers_east.txt", "customers_west.txt"
+9. Analyze contract status by region: create "contracts_active_north.txt", "contracts_pending_east.txt", "contracts_expired_north.txt"
+10. Process product availability by region: create individual product-region files like "software_a_north.txt", "software_a_east.txt"
+11. Calculate revenue per employee for each region: create "revenue_per_emp_north.txt" through "revenue_per_emp_west.txt"
+12. Cross-reference top performing products with regional sales: create "product_performance_north.txt" through "product_performance_west.txt"
+13. Analyze customer acquisition by region (count active contracts): create "acquisition_north.txt" through "acquisition_west.txt"
+14. Calculate market penetration by customer type: create "penetration_enterprise.txt", "penetration_smb.txt", "penetration_government.txt", "penetration_startup.txt", "penetration_corporation.txt"
+15. Generate regional performance rankings: create "region_ranking_q1.txt" through "region_ranking_q4.txt"
+16. Calculate growth rates quarter-over-quarter for each region: create "growth_north_q2.txt", "growth_north_q3.txt", "growth_north_q4.txt" (and similar for other regions)
+17. Analyze employee productivity by calculating revenue per person per region: create "productivity_analysis_north.txt" through "productivity_analysis_west.txt"
+18. Cross-reference product pricing with regional performance: create "pricing_analysis_software_a.txt", "pricing_analysis_software_b.txt", "pricing_analysis_hardware_x.txt", "pricing_analysis_service_y.txt"
+19. Calculate total addressable market by region based on customer counts: create "tam_north.txt" through "tam_west.txt"
+20. Generate contract renewal analysis: create "renewal_analysis_north.txt" through "renewal_analysis_west.txt"
+21. Create competitive analysis by comparing performance metrics: create "competitive_north.txt" through "competitive_west.txt"
+22. Calculate customer lifetime value by region: create "clv_north.txt" through "clv_west.txt"
+23. Analyze seasonal trends across quarters: create "seasonal_analysis_q1.txt" through "seasonal_analysis_q4.txt"
+24. Generate resource allocation recommendations based on performance: create "resource_recommendations_north.txt" through "resource_recommendations_west.txt"
+25. Create territory expansion analysis: create "expansion_north.txt" through "expansion_west.txt"
+26. Calculate return on investment for each region: create "roi_north.txt" through "roi_west.txt"
+27. Generate sales forecasting based on trends: create "forecast_north_2024.txt" through "forecast_west_2024.txt"
+28. Create market share analysis: create "market_share_north.txt" through "market_share_west.txt"
+29. Analyze customer segmentation effectiveness: create "segmentation_enterprise.txt" through "segmentation_startup.txt"
+30. Generate performance variance analysis: create "variance_north.txt" through "variance_west.txt"
+31. Create budget allocation recommendations: create "budget_north.txt" through "budget_west.txt"
+32. Analyze team composition effectiveness: create "team_analysis_north.txt" through "team_analysis_west.txt"
+33. Calculate margin analysis by product and region: create detailed margin analysis files
+34. Generate strategic recommendations: create "strategy_north.txt" through "strategy_west.txt"
+35. Create executive dashboard data compilation: create "dashboard_north.txt" through "dashboard_west.txt"
+36. Generate risk assessment by region: create "risk_north.txt" through "risk_west.txt"
+37. Create market opportunity analysis: create "opportunity_north.txt" through "opportunity_west.txt"
+38. Calculate performance benchmarks: create "benchmarks_north.txt" through "benchmarks_west.txt"
+39. Generate comprehensive regional reports: create "report_north.txt" through "report_west.txt"
+40. Create enterprise-wide summary analysis: create "enterprise_summary.txt"
+
+Requirements:
+- Process each data source individually without automation
+- Calculate all metrics manually by reading source data
+- Cross-reference multiple data sources individually  
+- Create each analysis file separately with detailed calculations
+- Verify all cross-references and calculations manually
+- Maintain detailed documentation of processing methodology

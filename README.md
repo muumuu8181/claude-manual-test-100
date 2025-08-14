@@ -25,6 +25,9 @@ claude-manual-test-100/
 ├── audit-reports/        # 第三者監査レポート（管理者用）
 │   ├── README.md         # 監査ガイド
 │   └── [年]/[月]/        # 年月別レポート
+├── evaluation-tools/     # 客観的評価ツール
+│   ├── objective_difficulty_calculator.py # 難易度自動計算ツール
+│   └── objective_difficulty_results.json  # 計算結果
 └── tests/               # テストケース
     ├── test1/
     ├── test2/
@@ -41,6 +44,7 @@ claude-manual-test-100/
 
 - ✅ サブエージェントによる自動テスト実施
 - ✅ 標準化された評価基準（100点満点）
+- ✅ 客観的難易度計算システム（AI主観排除）
 - ✅ 時刻記録の自動化（dateコマンド必須）
 - ✅ エラー・問題の詳細記録
 - ✅ 段階的な難易度設定
@@ -77,6 +81,37 @@ cat /mnt/c/Users/user/Desktop/work/90_cc/20250812/claude-manual-test-100/evaluat
 3. サブエージェント呼び出し（Task tool使用）
 4. 自動評価実施
 5. feedbackフォルダに評価レポート作成
+
+### 客観的難易度計算ツール
+**場所:** `evaluation-tools/objective_difficulty_calculator.py`
+
+**特徴:**
+- 100点制約なしの完全機械的計算
+- AI主観を完全排除
+- プロンプト解析による自動評価
+- **誰がいつ実行しても同じ結果**
+
+**使用方法:**
+```bash
+cd evaluation-tools
+python objective_difficulty_calculator.py
+```
+
+**結果例 (test1-7):**
+```
+test1: 15.75点
+test2: 48.30点 (+32.55)
+test3: 125.77点 (+77.47)
+test4: 197.53点 (+71.76)
+test5: 420.87点 (+223.34)
+test6: 857.81点 (+436.94)
+test7: 259.12点 (-598.69) ← 逆転検出
+```
+
+**活用方法:**
+- 新テスト作成時の難易度確認
+- AI評価との客観的比較
+- 難易度逆転の事前検出
 
 ## バージョン履歴
 

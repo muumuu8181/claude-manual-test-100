@@ -1,0 +1,136 @@
+Test 14: Build System Simulation with Dependencies
+
+You are tasked with implementing a comprehensive build system simulation that manages complex multi-stage builds, dependency resolution, parallel execution tracking, incremental builds, and sophisticated error handling with recovery mechanisms. This test evaluates your ability to handle intricate build pipelines with conditional compilation, caching strategies, and advanced dependency graph management.
+
+**CRITICAL REQUIREMENTS:**
+1. Execute steps in exact sequential order (1 through 60)
+2. Maintain accurate dependency graph resolution and tracking
+3. Implement incremental build detection and caching mechanisms
+4. Handle complex multi-stage build pipelines with parallel coordination
+5. Use exact names, paths, and content as specified
+6. Do not optimize or combine steps with loops
+7. Pay careful attention to build state management and dependency ordering
+
+**STEP-BY-STEP INSTRUCTIONS:**
+
+Step 1: Create a directory named "build_system"
+Step 2: Create a directory named "source_code" inside build_system
+Step 3: Create a directory named "build_cache" inside build_system
+Step 4: Create a directory named "output" inside build_system
+Step 5: Create a file named "build_config.json" in build_system with content: {"version": "2.1", "parallel_jobs": 4, "cache_enabled": true, "incremental": true, "stages": [], "dependencies": {}, "build_history": []}
+Step 6: Create a directory named "frontend" inside source_code
+Step 7: Create a file named "main.js" in frontend with content: "// Main frontend application\nconsole.log('Frontend App v1.0');\nimport { utils } from '../shared/utils.js';\nutils.initialize();"
+Step 8: Create a file named "styles.css" in frontend with content: "/* Main styles */\nbody { font-family: Arial; }\n.container { max-width: 1200px; }"
+Step 9: Create a file named "package.json" in frontend with content: "{\n  \"name\": \"frontend\",\n  \"version\": \"1.0.0\",\n  \"dependencies\": [\"shared\"],\n  \"build_time\": null,\n  \"last_modified\": \"step_9\"\n}"
+Step 10: Create a directory named "backend" inside source_code
+Step 11: Create a file named "server.py" in backend with content: "# Backend server application\nimport sys\nimport json\nfrom shared.database import Database\n\nclass Server:\n    def __init__(self):\n        self.db = Database()\n        \n    def start(self):\n        print('Server v1.0 starting')"
+Step 12: Create a file named "requirements.txt" in backend with content: "flask==2.0.1\nsqlalchemy==1.4.0\nshared-utils==1.0.0"
+Step 13: Create a file named "config.py" in backend with content: "# Backend configuration\nDATABASE_URL = 'sqlite:///app.db'\nDEBUG = True\nDEPENDENCIES = ['shared']"
+Step 14: Create a directory named "shared" inside source_code
+Step 15: Create a file named "utils.js" in shared with content: "// Shared utilities\nexport const utils = {\n    initialize: () => console.log('Utils initialized'),\n    version: '1.0.0'\n};"
+Step 16: Create a file named "database.py" in shared with content: "# Shared database utilities\nclass Database:\n    def __init__(self):\n        self.connection = None\n        \n    def connect(self):\n        print('Database connected')"
+Step 17: Create a file named "constants.json" in shared with content: "{\n  \"API_VERSION\": \"v1\",\n  \"MAX_CONNECTIONS\": 100,\n  \"TIMEOUT\": 30\n}"
+Step 18: Update build_config.json: add "dependency_scan_completed" to build_history and set stages to ["scan", "validate", "compile", "test", "package"]
+Step 19: Create a directory named "dependency_graph" inside build_system
+Step 20: Create a file named "build_order.json" in dependency_graph with content: "{\n  \"build_sequence\": [\n    {\"stage\": 1, \"components\": [\"shared\"], \"parallel\": false},\n    {\"stage\": 2, \"components\": [\"frontend\", \"backend\"], \"parallel\": true}\n  ],\n  \"dependencies\": {\n    \"frontend\": [\"shared\"],\n    \"backend\": [\"shared\"],\n    \"shared\": []\n  }\n}"
+Step 21: Create a directory named "stage_1_shared" inside build_cache
+Step 22: Create a file named "shared_build_start.log" in stage_1_shared with content: "BUILD_START: shared component\nTIMESTAMP: step_22\nDEPENDENCIES: none\nSTATUS: building"
+Step 23: Create a file named "utils_compiled.js" in stage_1_shared with content: "// Compiled shared utilities\nconst utils = {\n    initialize: function() { console.log('Utils initialized'); },\n    version: '1.0.0'\n};\nmodule.exports = utils;"
+Step 24: Create a file named "database_compiled.py" in stage_1_shared with content: "# Compiled shared database utilities\nclass Database:\n    def __init__(self):\n        self.connection = None\n        self.compiled = True\n        \n    def connect(self):\n        print('Database connected - compiled version')"
+Step 25: Create a file named "shared_build_complete.log" in stage_1_shared with content: "BUILD_COMPLETE: shared component\nTIMESTAMP: step_25\nOUTPUT_FILES: 2\nSTATUS: success\nBUILD_TIME: 3.2s"
+Step 26: Update build_config.json: add "shared_build_completed" to build_history and update dependencies with "shared": {"status": "built", "timestamp": "step_25", "outputs": ["utils_compiled.js", "database_compiled.py"]}
+Step 27: Create a directory named "stage_2_frontend" inside build_cache
+Step 28: Create a directory named "stage_2_backend" inside build_cache
+Step 29: Create a file named "frontend_build_start.log" in stage_2_frontend with content: "BUILD_START: frontend component\nTIMESTAMP: step_29\nDEPENDENCIES: [shared]\nPARALLEL_BUILD: true\nSTATUS: building"
+Step 30: Create a file named "backend_build_start.log" in stage_2_backend with content: "BUILD_START: backend component\nTIMESTAMP: step_30\nDEPENDENCIES: [shared]\nPARALLEL_BUILD: true\nSTATUS: building"
+Step 31: Create a file named "dependency_check.json" in stage_2_frontend with content: "{\n  \"shared_dependency\": {\n    \"required\": true,\n    \"found\": true,\n    \"version\": \"1.0.0\",\n    \"build_artifacts\": [\"utils_compiled.js\"]\n  },\n  \"validation\": \"passed\"\n}"
+Step 32: Create a file named "dependency_check.json" in stage_2_backend with content: "{\n  \"shared_dependency\": {\n    \"required\": true,\n    \"found\": true,\n    \"version\": \"1.0.0\",\n    \"build_artifacts\": [\"database_compiled.py\"]\n  },\n  \"validation\": \"passed\"\n}"
+Step 33: Create a file named "frontend_bundle.js" in stage_2_frontend with content: "// Frontend application bundle\n(function() {\n    const utils = require('./utils_compiled.js');\n    console.log('Frontend App v1.0');\n    utils.initialize();\n})();"
+Step 34: Create a file named "frontend_styles.css" in stage_2_frontend with content: "/* Compiled frontend styles */\nbody{font-family:Arial;margin:0}.container{max-width:1200px;margin:0 auto}"
+Step 35: Create a file named "backend_compiled.py" in stage_2_backend with content: "# Compiled backend server\nimport sys\nimport json\nfrom database_compiled import Database\n\nclass CompiledServer:\n    def __init__(self):\n        self.db = Database()\n        self.compiled = True\n        \n    def start(self):\n        print('Compiled Server v1.0 starting')"
+Step 36: Create a file named "frontend_build_complete.log" in stage_2_frontend with content: "BUILD_COMPLETE: frontend component\nTIMESTAMP: step_36\nOUTPUT_FILES: 2\nPARALLEL_JOB: 1\nSTATUS: success\nBUILD_TIME: 5.1s"
+Step 37: Create a file named "backend_build_complete.log" in stage_2_backend with content: "BUILD_COMPLETE: backend component\nTIMESTAMP: step_37\nOUTPUT_FILES: 1\nPARALLEL_JOB: 2\nSTATUS: success\nBUILD_TIME: 4.8s"
+Step 38: Update build_config.json: add "parallel_build_completed" to build_history and update dependencies with frontend and backend build status
+Step 39: Create a directory named "testing" inside build_system
+Step 40: Create a file named "test_suite_config.json" in testing with content: "{\n  \"test_stages\": [\"unit\", \"integration\", \"e2e\"],\n  \"parallel_testing\": true,\n  \"components_to_test\": [\"shared\", \"frontend\", \"backend\"]\n}"
+Step 41: Create a directory named "unit_tests" inside testing
+Step 42: Create a file named "shared_tests.log" in unit_tests with content: "UNIT_TESTS: shared component\nTESTS_RUN: 12\nPASSED: 12\nFAILED: 0\nCOVERAGE: 95%\nSTATUS: passed"
+Step 43: Create a file named "frontend_tests.log" in unit_tests with content: "UNIT_TESTS: frontend component\nTESTS_RUN: 8\nPASSED: 7\nFAILED: 1\nCOVERAGE: 87%\nSTATUS: failed\nFAILED_TEST: styles.css validation"
+Step 44: Create a file named "backend_tests.log" in unit_tests with content: "UNIT_TESTS: backend component\nTESTS_RUN: 15\nPASSED: 15\nFAILED: 0\nCOVERAGE: 92%\nSTATUS: passed"
+Step 45: Create a directory named "build_recovery" inside build_system
+Step 46: Create a file named "test_failure_detected.log" in build_recovery with content: "BUILD_FAILURE_DETECTED\nCOMPONENT: frontend\nSTAGE: unit_testing\nERROR: styles.css validation failed\nRECOVERY_ACTION: rebuild_frontend_styles"
+Step 47: Create a directory named "recovery_stage_frontend" inside build_recovery
+Step 48: Create a file named "frontend_styles_fixed.css" in recovery_stage_frontend with content: "/* Fixed frontend styles with validation */\nbody{font-family:Arial,sans-serif;margin:0;padding:0}\n.container{max-width:1200px;margin:0 auto;padding:20px}"
+Step 49: Copy frontend_styles_fixed.css from recovery_stage_frontend to stage_2_frontend and rename it to "frontend_styles.css" (overwriting)
+Step 50: Create a file named "frontend_recovery_complete.log" in recovery_stage_frontend with content: "RECOVERY_COMPLETE: frontend styles\nTIMESTAMP: step_50\nRECOVERY_ACTION: styles_rebuilt\nNEW_BUILD_TIME: 1.3s\nSTATUS: success"
+Step 51: Create a file named "frontend_retest.log" in unit_tests with content: "UNIT_TESTS_RERUN: frontend component\nTESTS_RUN: 8\nPASSED: 8\nFAILED: 0\nCOVERAGE: 89%\nSTATUS: passed\nRECOVERY_SUCCESSFUL: true"
+Step 52: Update build_config.json: add "build_recovery_completed" to build_history
+Step 53: Create a directory named "final_packaging" inside output
+Step 54: Copy frontend_bundle.js from stage_2_frontend to final_packaging
+Step 55: Copy frontend_styles.css from stage_2_frontend to final_packaging
+Step 56: Copy backend_compiled.py from stage_2_backend to final_packaging
+Step 57: Copy utils_compiled.js from stage_1_shared to final_packaging and rename it to "shared_utils.js"
+Step 58: Copy database_compiled.py from stage_1_shared to final_packaging and rename it to "shared_database.py"
+Step 59: Create a file named "build_manifest.json" in final_packaging with content: "{\n  \"build_version\": \"1.0.0\",\n  \"build_timestamp\": \"step_59\",\n  \"components\": {\n    \"shared\": {\"files\": [\"shared_utils.js\", \"shared_database.py\"], \"version\": \"1.0.0\"},\n    \"frontend\": {\"files\": [\"frontend_bundle.js\", \"frontend_styles.css\"], \"version\": \"1.0.0\"},\n    \"backend\": {\"files\": [\"backend_compiled.py\"], \"version\": \"1.0.0\"}\n  },\n  \"total_build_time\": \"14.4s\",\n  \"recovery_actions\": 1,\n  \"final_status\": \"success\"\n}"
+Step 60: Create a file named "build_system_summary.txt" in build_system with content: "BUILD SYSTEM EXECUTION COMPLETE\nTotal Components: 3\nBuild Stages: 5\nParallel Jobs: 2\nTest Failures: 1 (recovered)\nRecovery Actions: 1\nFinal Artifacts: 5\nTotal Build Time: 14.4s\nOverall Status: SUCCESS"
+
+**EXPECTED FINAL STRUCTURE:**
+```
+├── build_system/
+│   ├── build_system_summary.txt
+│   ├── build_config.json (final state with complete build_history)
+│   ├── source_code/
+│   │   ├── frontend/
+│   │   │   ├── main.js
+│   │   │   ├── styles.css
+│   │   │   └── package.json
+│   │   ├── backend/
+│   │   │   ├── server.py
+│   │   │   ├── requirements.txt
+│   │   │   └── config.py
+│   │   └── shared/
+│   │       ├── utils.js
+│   │       ├── database.py
+│   │       └── constants.json
+│   ├── build_cache/
+│   │   ├── stage_1_shared/
+│   │   │   ├── shared_build_start.log
+│   │   │   ├── utils_compiled.js
+│   │   │   ├── database_compiled.py
+│   │   │   └── shared_build_complete.log
+│   │   ├── stage_2_frontend/
+│   │   │   ├── frontend_build_start.log
+│   │   │   ├── dependency_check.json
+│   │   │   ├── frontend_bundle.js
+│   │   │   ├── frontend_styles.css (overwritten with fixed version)
+│   │   │   └── frontend_build_complete.log
+│   │   └── stage_2_backend/
+│   │       ├── backend_build_start.log
+│   │       ├── dependency_check.json
+│   │       ├── backend_compiled.py
+│   │       └── backend_build_complete.log
+│   ├── output/
+│   │   └── final_packaging/
+│   │       ├── frontend_bundle.js
+│   │       ├── frontend_styles.css
+│   │       ├── backend_compiled.py
+│   │       ├── shared_utils.js (renamed from utils_compiled.js)
+│   │       ├── shared_database.py (renamed from database_compiled.py)
+│   │       └── build_manifest.json
+│   ├── dependency_graph/
+│   │   └── build_order.json
+│   ├── testing/
+│   │   ├── test_suite_config.json
+│   │   └── unit_tests/
+│   │       ├── shared_tests.log
+│   │       ├── frontend_tests.log
+│   │       ├── backend_tests.log
+│   │       └── frontend_retest.log
+│   └── build_recovery/
+│       ├── test_failure_detected.log
+│       └── recovery_stage_frontend/
+│           ├── frontend_styles_fixed.css
+│           └── frontend_recovery_complete.log
+```
+
+Complete all 60 steps, maintaining accurate dependency tracking, implementing proper parallel build coordination, handling build failures with recovery mechanisms, and ensuring final packaging contains all required artifacts.

@@ -1,0 +1,154 @@
+[
+  {
+    "test_folder": "test1",
+    "difficulty_score": 4,
+    "instruction_count": 4,
+    "detection_method": "番号付きリスト方式",
+    "details": {
+      "numbered_list_max": 4,
+      "file_count_requests": [],
+      "folder_count_requests": [],
+      "explicit_files": 2,
+      "explicit_folders": 0,
+      "action_verbs": 1,
+      "text_length": 269
+    },
+    "calculated_at": "2025-08-13T18:03:00.353803"
+  },
+  {
+    "test_folder": "test2",
+    "difficulty_score": 5,
+    "instruction_count": 5,
+    "detection_method": "番号付きリスト方式",
+    "details": {
+      "numbered_list_max": 5,
+      "file_count_requests": [],
+      "folder_count_requests": [],
+      "explicit_files": 2,
+      "explicit_folders": 0,
+      "action_verbs": 2,
+      "text_length": 579
+    },
+    "calculated_at": "2025-08-13T18:03:00.357758"
+  },
+  {
+    "test_folder": "test2-v2",
+    "difficulty_score": 5,
+    "instruction_count": 5,
+    "detection_method": "番号付きリスト方式",
+    "details": {
+      "numbered_list_max": 5,
+      "file_count_requests": [],
+      "folder_count_requests": [],
+      "explicit_files": 2,
+      "explicit_folders": 0,
+      "action_verbs": 2,
+      "text_length": 579
+    },
+    "calculated_at": "2025-08-13T18:03:00.357758"
+  },
+  {
+    "test_folder": "test2-v3",
+    "difficulty_score": 5,
+    "instruction_count": 5,
+    "detection_method": "番号付きリスト方式",
+    "details": {
+      "numbered_list_max": 5,
+      "file_count_requests": [],
+      "folder_count_requests": [],
+      "explicit_files": 2,
+      "explicit_folders": 0,
+      "action_verbs": 2,
+      "text_length": 579
+    },
+    "calculated_at": "2025-08-13T18:03:00.360630"
+  },
+  {
+    "test_folder": "test3",
+    "difficulty_score": 7,
+    "instruction_count": 7,
+    "detection_method": "番号付きリスト方式",
+    "details": {
+      "numbered_list_max": 7,
+      "file_count_requests": [],
+      "folder_count_requests": [],
+      "explicit_files": 9,
+      "explicit_folders": 0,
+      "action_verbs": 3,
+      "text_length": 1174
+    },
+    "calculated_at": "2025-08-13T18:03:00.362653"
+  },
+  {
+    "test_folder": "test4",
+    "difficulty_score": 9,
+    "instruction_count": 9,
+    "detection_method": "番号付きリスト方式",
+    "details": {
+      "numbered_list_max": 9,
+      "file_count_requests": [],
+      "folder_count_requests": [],
+      "explicit_files": 12,
+      "explicit_folders": 3,
+      "action_verbs": 3,
+      "text_length": 1887
+    },
+    "calculated_at": "2025-08-13T18:03:00.362653"
+  },
+  {
+    "test_folder": "test5",
+    "difficulty_score": 11,
+    "instruction_count": 11,
+    "detection_method": "番号付きリスト方式",
+    "details": {
+      "numbered_list_max": 11,
+      "file_count_requests": [],
+      "folder_count_requests": [
+        10
+      ],
+      "explicit_files": 23,
+      "explicit_folders": 8,
+      "action_verbs": 2,
+      "text_length": 3054
+    },
+    "calculated_at": "2025-08-13T18:03:00.366082"
+  },
+  {
+    "test_folder": "test6",
+    "difficulty_score": 13,
+    "instruction_count": 13,
+    "detection_method": "番号付きリスト方式",
+    "details": {
+      "numbered_list_max": 13,
+      "file_count_requests": [
+        70
+      ],
+      "folder_count_requests": [
+        12
+      ],
+      "explicit_files": 38,
+      "explicit_folders": 16,
+      "action_verbs": 1,
+      "text_length": 4883
+    },
+    "calculated_at": "2025-08-13T18:03:00.368106"
+  },
+  {
+    "test_folder": "test7",
+    "difficulty_score": 12,
+    "instruction_count": 12,
+    "detection_method": "番号付きリスト方式",
+    "details": {
+      "numbered_list_max": 12,
+      "file_count_requests": [],
+      "folder_count_requests": [
+        9
+      ],
+      "explicit_files": 29,
+      "explicit_folders": 9,
+      "action_verbs": 1,
+      "text_length": 2563
+    },
+    "calculated_at": "2025-08-13T18:03:00.368106"
+  }
+]

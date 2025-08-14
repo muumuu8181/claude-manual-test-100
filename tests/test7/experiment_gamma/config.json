@@ -1,0 +1,17 @@
+{
+  "experiment_name": "experiment_gamma",
+  "description": "Fibonacci sequence calculations with variants and timing",
+  "parameters": {
+    "a": 512,
+    "b": 256,
+    "c": 128
+  },
+  "calculations": [
+    "Standard Fibonacci F(50)",
+    "Standard Fibonacci F(60)", 
+    "Modified Fibonacci F(n) = a*F(n-1) + b*F(n-2) + c for n=1 to 20"
+  ],
+  "timing_requirement": "milliseconds precision",
+  "created_by": "テストAI7",
+  "timestamp": "2025-08-13T13:34:30"
+}

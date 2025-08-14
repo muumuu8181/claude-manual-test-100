@@ -1,0 +1,44 @@
+Test 12: Inventory Management with Cross-Department Tracking
+
+Complete the following steps in order:
+
+1. Create a folder named "inventory_system"
+2. Create a folder named "departments" inside inventory_system
+3. Create a folder named "warehouse" inside departments
+4. Create a folder named "sales" inside departments
+5. Create a folder named "purchasing" inside departments
+6. Create a file named "stock_levels.txt" in warehouse
+7. Write "Warehouse Stock Levels:" to stock_levels.txt
+8. Append "Item A: 100 units" to stock_levels.txt
+9. Append "Item B: 50 units" to stock_levels.txt
+10. Append "Item C: 75 units" to stock_levels.txt
+11. Create a file named "orders_pending.txt" in sales
+12. Write "Sales Orders Pending:" to orders_pending.txt
+13. Append "Order 001: Item A, 20 units" to orders_pending.txt
+14. Append "Order 002: Item B, 15 units" to orders_pending.txt
+15. Append "Order 003: Item C, 10 units" to orders_pending.txt
+16. Create a file named "procurement_requests.txt" in purchasing
+17. Write "Procurement Requests:" to procurement_requests.txt
+18. Append "Request 501: Item A, 50 units (low stock alert)" to procurement_requests.txt
+19. Append "Request 502: Item D, 25 units (new item)" to procurement_requests.txt
+20. Create a folder named "reports" inside inventory_system
+21. Create a file named "stock_allocation.txt" in reports
+22. Write "Stock Allocation Report:" to stock_allocation.txt
+23. Copy content from warehouse/stock_levels.txt to stock_allocation.txt
+24. Append "" to stock_allocation.txt (blank line)
+25. Append "Pending Allocations:" to stock_allocation.txt
+26. Append "Item A: 100 - 20 = 80 available" to stock_allocation.txt
+27. Append "Item B: 50 - 15 = 35 available" to stock_allocation.txt
+28. Append "Item C: 75 - 10 = 65 available" to stock_allocation.txt
+29. Create a file named "reorder_analysis.txt" in reports
+30. Write "Reorder Analysis Report:" to reorder_analysis.txt
+31. Append "Current stock vs. minimum thresholds:" to reorder_analysis.txt
+32. Append "Item A: 80 available (threshold: 60) - REORDER NEEDED" to reorder_analysis.txt
+33. Append "Item B: 35 available (threshold: 40) - REORDER NEEDED" to reorder_analysis.txt
+34. Append "Item C: 65 available (threshold: 30) - OK" to reorder_analysis.txt
+35. Create a file named "master_inventory.txt" in inventory_system
+36. Write "Master Inventory Dashboard:" to master_inventory.txt
+37. Append "Total items tracked: 3" to master_inventory.txt
+38. Append "Total pending orders: 3" to master_inventory.txt
+39. Append "Items needing reorder: 2 (A, B)" to master_inventory.txt
+40. Append "New item requests: 1 (D)" to master_inventory.txt

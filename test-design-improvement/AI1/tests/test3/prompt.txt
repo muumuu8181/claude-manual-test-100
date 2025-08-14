@@ -1,0 +1,20 @@
+Test 3: Text Processing and File Manipulation
+
+Instructions:
+Complete each text processing task individually:
+
+1. Create a file "source.txt" containing: "The quick brown fox jumps over the lazy dog"
+2. Extract the word "quick" and save it to "word1.txt"
+3. Extract the word "brown" and save it to "word2.txt" 
+4. Extract the word "jumps" and save it to "word3.txt"
+5. Count the total number of characters in source.txt (including spaces) and save to "char_count.txt"
+6. Count the total number of words in source.txt and save to "word_count.txt"
+7. Create "reversed.txt" containing the source text written backwards (character by character)
+8. Create "uppercase.txt" containing the source text in all capital letters
+9. Create "report.txt" summarizing: original text, character count, word count, and confirmation of file creation
+
+Requirements:
+- Extract each word individually (not using automated text processing)
+- Perform character and word counting manually
+- Create each output file separately
+- Verify content of each file after creation

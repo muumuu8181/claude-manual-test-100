@@ -1,0 +1,832 @@
+タスク: 統合業務システムの構築とエラー回復機能
+
+以下の手順を順番通りに実行してください。各手順は複雑な依存関係を持ち、エラー処理と回復機能を含みます。
+
+1. 作業用ディレクトリ「integrated_system」を作成する
+2. integrated_system内に「modules」フォルダを作成する
+3. integrated_system内に「data」フォルダを作成する
+4. integrated_system内に「logs」フォルダを作成する
+5. integrated_system内に「backups」フォルダを作成する
+6. integrated_system内に「config」フォルダを作成する
+7. integrated_system内に「reports」フォルダを作成する
+8. dataフォルダ内に「employees.json」ファイルを作成し、以下のデータを保存する（故意にエラーデータを含む）：
+   ```json
+   {
+     "employees": [
+       {"id": "E001", "name": "田中太郎", "department": "営業", "salary": 450000, "hire_date": "2020-04-01"},
+       {"id": "E002", "name": "佐藤花子", "department": "開発", "salary": "invalid_salary", "hire_date": "2019-03-15"},
+       {"id": "E003", "name": "", "department": "人事", "salary": 420000, "hire_date": "2021-06-01"},
+       {"id": "E004", "name": "山田次郎", "department": "開発", "salary": 480000, "hire_date": "invalid_date"},
+       {"id": "E005", "name": "鈴木三郎", "department": "営業", "salary": 430000, "hire_date": "2020-08-20"}
+     ]
+   }
+   ```
+9. dataフォルダ内に「projects.json」ファイルを作成し、以下のデータを保存する：
+   ```json
+   {
+     "projects": [
+       {"id": "P001", "name": "Webシステム開発", "manager": "E002", "budget": 2000000, "status": "進行中", "start_date": "2023-01-15"},
+       {"id": "P002", "name": "データベース設計", "manager": "E004", "budget": 1500000, "status": "完了", "start_date": "2022-12-01"},
+       {"id": "P003", "name": "営業支援ツール", "manager": "E001", "budget": 800000, "status": "計画中", "start_date": "2024-02-01"},
+       {"id": "P004", "name": "人事管理システム", "manager": "E999", "budget": 1200000, "status": "進行中", "start_date": "2023-06-01"}
+     ]
+   }
+   ```
+10. configフォルダ内に「system_config.json」ファイルを作成し、以下の設定を保存する：
+    ```json
+    {
+      "system": {
+        "name": "統合業務システム",
+        "version": "1.0.0",
+        "environment": "production"
+      },
+      "validation": {
+        "required_fields": ["id", "name", "department"],
+        "salary_range": {"min": 200000, "max": 1000000},
+        "date_format": "YYYY-MM-DD"
+      },
+      "backup": {
+        "enabled": true,
+        "retention_days": 30,
+        "backup_interval": 24
+      },
+      "logging": {
+        "level": "INFO",
+        "max_file_size": "10MB",
+        "backup_count": 5
+      },
+      "error_handling": {
+        "max_retries": 3,
+        "retry_delay": 1,
+        "fail_on_critical": true
+      }
+    }
+    ```
+11. modulesフォルダ内に「data_validator.py」ファイルを作成し、以下のコードを保存する：
+    ```python
+    import json
+    import re
+    from datetime import datetime
+    from typing import Dict, List, Tuple, Any
+    
+    class DataValidator:
+        def __init__(self, config: Dict):
+            self.config = config
+            self.validation_rules = config.get('validation', {})
+            self.errors = []
+            self.warnings = []
+        
+        def validate_employee_data(self, employees: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
+            valid_employees = []
+            invalid_employees = []
+            
+            for emp in employees:
+                errors = self._validate_employee(emp)
+                if errors:
+                    emp['validation_errors'] = errors
+                    invalid_employees.append(emp)
+                    self.errors.extend([f"Employee {emp.get('id', 'Unknown')}: {err}" for err in errors])
+                else:
+                    valid_employees.append(emp)
+            
+            return valid_employees, invalid_employees
+        
+        def _validate_employee(self, emp: Dict) -> List[str]:
+            errors = []
+            
+            # 必須フィールド検証
+            for field in self.validation_rules.get('required_fields', []):
+                if not emp.get(field) or str(emp.get(field)).strip() == '':
+                    errors.append(f"Missing or empty required field: {field}")
+            
+            # 給与範囲検証
+            salary = emp.get('salary')
+            if salary:
+                try:
+                    salary_val = int(salary)
+                    salary_range = self.validation_rules.get('salary_range', {})
+                    if salary_val < salary_range.get('min', 0) or salary_val > salary_range.get('max', 999999999):
+                        errors.append(f"Salary out of valid range: {salary_val}")
+                except (ValueError, TypeError):
+                    errors.append(f"Invalid salary format: {salary}")
+            
+            # 日付形式検証
+            hire_date = emp.get('hire_date')
+            if hire_date:
+                try:
+                    datetime.strptime(hire_date, '%Y-%m-%d')
+                except ValueError:
+                    errors.append(f"Invalid date format: {hire_date}")
+            
+            return errors
+        
+        def validate_project_data(self, projects: List[Dict], valid_employee_ids: List[str]) -> Tuple[List[Dict], List[Dict]]:
+            valid_projects = []
+            invalid_projects = []
+            
+            for proj in projects:
+                errors = self._validate_project(proj, valid_employee_ids)
+                if errors:
+                    proj['validation_errors'] = errors
+                    invalid_projects.append(proj)
+                    self.errors.extend([f"Project {proj.get('id', 'Unknown')}: {err}" for err in errors])
+                else:
+                    valid_projects.append(proj)
+            
+            return valid_projects, invalid_projects
+        
+        def _validate_project(self, proj: Dict, valid_employee_ids: List[str]) -> List[str]:
+            errors = []
+            
+            # 必須フィールド検証
+            if not proj.get('id') or not proj.get('name'):
+                errors.append("Missing required project ID or name")
+            
+            # マネージャー存在確認
+            manager_id = proj.get('manager')
+            if manager_id and manager_id not in valid_employee_ids:
+                errors.append(f"Invalid manager ID: {manager_id}")
+            
+            # 予算検証
+            budget = proj.get('budget')
+            if budget and (not isinstance(budget, (int, float)) or budget <= 0):
+                errors.append(f"Invalid budget value: {budget}")
+            
+            return errors
+        
+        def get_validation_summary(self) -> Dict:
+            return {
+                'total_errors': len(self.errors),
+                'total_warnings': len(self.warnings),
+                'error_details': self.errors,
+                'warning_details': self.warnings
+            }
+    ```
+12. modulesフォルダ内に「backup_manager.py」ファイルを作成し、以下のコードを保存する：
+    ```python
+    import json
+    import shutil
+    import os
+    from datetime import datetime, timedelta
+    from typing import Dict, List
+    
+    class BackupManager:
+        def __init__(self, config: Dict):
+            self.config = config
+            self.backup_config = config.get('backup', {})
+            self.backup_dir = '../backups'
+        
+        def create_backup(self, data: Dict, backup_name: str) -> str:
+            try:
+                timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+                backup_filename = f"{timestamp}_{backup_name}.json"
+                backup_path = os.path.join(self.backup_dir, backup_filename)
+                
+                with open(backup_path, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, ensure_ascii=False, indent=2)
+                
+                return backup_path
+            except Exception as e:
+                raise Exception(f"Backup creation failed: {str(e)}")
+        
+        def restore_from_backup(self, backup_filename: str, target_path: str) -> bool:
+            try:
+                backup_path = os.path.join(self.backup_dir, backup_filename)
+                
+                if not os.path.exists(backup_path):
+                    raise FileNotFoundError(f"Backup file not found: {backup_filename}")
+                
+                shutil.copy2(backup_path, target_path)
+                return True
+            except Exception as e:
+                raise Exception(f"Backup restoration failed: {str(e)}")
+        
+        def cleanup_old_backups(self) -> List[str]:
+            try:
+                retention_days = self.backup_config.get('retention_days', 30)
+                cutoff_date = datetime.now() - timedelta(days=retention_days)
+                
+                deleted_files = []
+                for filename in os.listdir(self.backup_dir):
+                    if filename.endswith('.json'):
+                        file_path = os.path.join(self.backup_dir, filename)
+                        file_time = datetime.fromtimestamp(os.path.getctime(file_path))
+                        
+                        if file_time < cutoff_date:
+                            os.remove(file_path)
+                            deleted_files.append(filename)
+                
+                return deleted_files
+            except Exception as e:
+                raise Exception(f"Backup cleanup failed: {str(e)}")
+        
+        def list_backups(self) -> List[Dict]:
+            try:
+                backups = []
+                for filename in os.listdir(self.backup_dir):
+                    if filename.endswith('.json'):
+                        file_path = os.path.join(self.backup_dir, filename)
+                        file_size = os.path.getsize(file_path)
+                        file_time = datetime.fromtimestamp(os.path.getctime(file_path))
+                        
+                        backups.append({
+                            'filename': filename,
+                            'size': file_size,
+                            'created': file_time.isoformat(),
+                            'age_days': (datetime.now() - file_time).days
+                        })
+                
+                return sorted(backups, key=lambda x: x['created'], reverse=True)
+            except Exception as e:
+                raise Exception(f"Backup listing failed: {str(e)}")
+    ```
+13. modulesフォルダ内に「error_handler.py」ファイルを作成し、以下のコードを保存する：
+    ```python
+    import json
+    import logging
+    import traceback
+    from datetime import datetime
+    from typing import Dict, Any, Callable
+    from functools import wraps
+    
+    class ErrorHandler:
+        def __init__(self, config: Dict):
+            self.config = config
+            self.error_config = config.get('error_handling', {})
+            self.max_retries = self.error_config.get('max_retries', 3)
+            self.retry_delay = self.error_config.get('retry_delay', 1)
+            self.fail_on_critical = self.error_config.get('fail_on_critical', True)
+            
+            self.setup_logging()
+        
+        def setup_logging(self):
+            logging_config = self.config.get('logging', {})
+            log_level = getattr(logging, logging_config.get('level', 'INFO'))
+            
+            logging.basicConfig(
+                level=log_level,
+                format='%(asctime)s - %(levelname)s - %(message)s',
+                handlers=[
+                    logging.FileHandler('../logs/system.log', encoding='utf-8'),
+                    logging.StreamHandler()
+                ]
+            )
+            
+            self.logger = logging.getLogger(__name__)
+        
+        def retry_on_failure(self, func: Callable) -> Callable:
+            @wraps(func)
+            def wrapper(*args, **kwargs):
+                last_exception = None
+                
+                for attempt in range(self.max_retries + 1):
+                    try:
+                        return func(*args, **kwargs)
+                    except Exception as e:
+                        last_exception = e
+                        self.logger.warning(f"Attempt {attempt + 1} failed: {str(e)}")
+                        
+                        if attempt < self.max_retries:
+                            import time
+                            time.sleep(self.retry_delay)
+                        else:
+                            self.logger.error(f"All {self.max_retries + 1} attempts failed")
+                            
+                            if self.fail_on_critical:
+                                raise last_exception
+                            else:
+                                return None
+                
+            return wrapper
+        
+        def log_error(self, error: Exception, context: str = "", severity: str = "ERROR"):
+            error_info = {
+                'timestamp': datetime.now().isoformat(),
+                'severity': severity,
+                'context': context,
+                'error_type': type(error).__name__,
+                'error_message': str(error),
+                'traceback': traceback.format_exc()
+            }
+            
+            # ログファイルに記録
+            if severity == "CRITICAL":
+                self.logger.critical(f"{context}: {str(error)}")
+            elif severity == "ERROR":
+                self.logger.error(f"{context}: {str(error)}")
+            elif severity == "WARNING":
+                self.logger.warning(f"{context}: {str(error)}")
+            
+            # エラーレポートファイルに記録
+            error_report_path = '../logs/error_report.json'
+            try:
+                if os.path.exists(error_report_path):
+                    with open(error_report_path, 'r', encoding='utf-8') as f:
+                        errors = json.load(f)
+                else:
+                    errors = []
+                
+                errors.append(error_info)
+                
+                with open(error_report_path, 'w', encoding='utf-8') as f:
+                    json.dump(errors, f, ensure_ascii=False, indent=2)
+                
+            except Exception as log_error:
+                self.logger.critical(f"Failed to log error: {str(log_error)}")
+        
+        def handle_critical_error(self, error: Exception, context: str = ""):
+            self.log_error(error, context, "CRITICAL")
+            
+            if self.fail_on_critical:
+                raise error
+            else:
+                return {"status": "error", "message": str(error), "context": context}
+        
+        def create_error_recovery_plan(self, errors: List[Dict]) -> Dict:
+            recovery_plan = {
+                'timestamp': datetime.now().isoformat(),
+                'total_errors': len(errors),
+                'recovery_actions': [],
+                'estimated_time': 0
+            }
+            
+            for error in errors:
+                if "Missing or empty required field" in error.get('error_message', ''):
+                    recovery_plan['recovery_actions'].append({
+                        'action': 'data_correction',
+                        'description': 'Correct missing required fields',
+                        'priority': 'high',
+                        'estimated_minutes': 15
+                    })
+                
+                if "Invalid" in error.get('error_message', ''):
+                    recovery_plan['recovery_actions'].append({
+                        'action': 'validation_fix',
+                        'description': 'Fix invalid data formats',
+                        'priority': 'medium',
+                        'estimated_minutes': 10
+                    })
+            
+            recovery_plan['estimated_time'] = sum(action.get('estimated_minutes', 0) for action in recovery_plan['recovery_actions'])
+            
+            return recovery_plan
+    ```
+14. modulesフォルダ内に「system_integrator.py」ファイルを作成し、以下のコードを保存する：
+    ```python
+    import json
+    import os
+    from typing import Dict, List, Tuple
+    from data_validator import DataValidator
+    from backup_manager import BackupManager
+    from error_handler import ErrorHandler
+    
+    class SystemIntegrator:
+        def __init__(self, config_path: str):
+            with open(config_path, 'r', encoding='utf-8') as f:
+                self.config = json.load(f)
+            
+            self.validator = DataValidator(self.config)
+            self.backup_manager = BackupManager(self.config)
+            self.error_handler = ErrorHandler(self.config)
+            
+            self.processing_results = {
+                'employees': {'valid': [], 'invalid': [], 'errors': []},
+                'projects': {'valid': [], 'invalid': [], 'errors': []},
+                'backups': [],
+                'recovery_plans': []
+            }
+        
+        @property
+        def retry_on_failure(self):
+            return self.error_handler.retry_on_failure
+        
+        @retry_on_failure
+        def load_and_validate_data(self) -> bool:
+            try:
+                # 従業員データの処理
+                employees_data = self._load_json_file('../data/employees.json')
+                valid_employees, invalid_employees = self.validator.validate_employee_data(
+                    employees_data.get('employees', [])
+                )
+                
+                self.processing_results['employees']['valid'] = valid_employees
+                self.processing_results['employees']['invalid'] = invalid_employees
+                
+                # プロジェクトデータの処理
+                projects_data = self._load_json_file('../data/projects.json')
+                valid_employee_ids = [emp['id'] for emp in valid_employees]
+                valid_projects, invalid_projects = self.validator.validate_project_data(
+                    projects_data.get('projects', []), valid_employee_ids
+                )
+                
+                self.processing_results['projects']['valid'] = valid_projects
+                self.processing_results['projects']['invalid'] = invalid_projects
+                
+                return True
+                
+            except Exception as e:
+                self.error_handler.log_error(e, "Data loading and validation")
+                return False
+        
+        def _load_json_file(self, filepath: str) -> Dict:
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception as e:
+                raise Exception(f"Failed to load {filepath}: {str(e)}")
+        
+        @retry_on_failure
+        def create_system_backups(self) -> bool:
+            try:
+                # 有効なデータのバックアップを作成
+                valid_data = {
+                    'employees': self.processing_results['employees']['valid'],
+                    'projects': self.processing_results['projects']['valid'],
+                    'backup_timestamp': datetime.now().isoformat()
+                }
+                
+                backup_path = self.backup_manager.create_backup(valid_data, 'valid_data')
+                self.processing_results['backups'].append({
+                    'type': 'valid_data',
+                    'path': backup_path,
+                    'timestamp': datetime.now().isoformat()
+                })
+                
+                # 無効なデータのバックアップも作成（分析用）
+                invalid_data = {
+                    'employees': self.processing_results['employees']['invalid'],
+                    'projects': self.processing_results['projects']['invalid'],
+                    'backup_timestamp': datetime.now().isoformat()
+                }
+                
+                backup_path = self.backup_manager.create_backup(invalid_data, 'invalid_data')
+                self.processing_results['backups'].append({
+                    'type': 'invalid_data',
+                    'path': backup_path,
+                    'timestamp': datetime.now().isoformat()
+                })
+                
+                return True
+                
+            except Exception as e:
+                self.error_handler.log_error(e, "Backup creation")
+                return False
+        
+        def generate_error_recovery_plans(self) -> Dict:
+            try:
+                all_errors = []
+                
+                # 従業員データのエラーを収集
+                for emp in self.processing_results['employees']['invalid']:
+                    for error in emp.get('validation_errors', []):
+                        all_errors.append({
+                            'type': 'employee',
+                            'id': emp.get('id'),
+                            'error_message': error
+                        })
+                
+                # プロジェクトデータのエラーを収集
+                for proj in self.processing_results['projects']['invalid']:
+                    for error in proj.get('validation_errors', []):
+                        all_errors.append({
+                            'type': 'project',
+                            'id': proj.get('id'),
+                            'error_message': error
+                        })
+                
+                recovery_plan = self.error_handler.create_error_recovery_plan(all_errors)
+                self.processing_results['recovery_plans'].append(recovery_plan)
+                
+                return recovery_plan
+                
+            except Exception as e:
+                self.error_handler.log_error(e, "Recovery plan generation")
+                return {}
+        
+        def generate_system_report(self) -> Dict:
+            try:
+                validation_summary = self.validator.get_validation_summary()
+                backup_list = self.backup_manager.list_backups()
+                
+                report = {
+                    'system_info': self.config['system'],
+                    'processing_timestamp': datetime.now().isoformat(),
+                    'data_summary': {
+                        'employees': {
+                            'total': len(self.processing_results['employees']['valid']) + len(self.processing_results['employees']['invalid']),
+                            'valid': len(self.processing_results['employees']['valid']),
+                            'invalid': len(self.processing_results['employees']['invalid'])
+                        },
+                        'projects': {
+                            'total': len(self.processing_results['projects']['valid']) + len(self.processing_results['projects']['invalid']),
+                            'valid': len(self.processing_results['projects']['valid']),
+                            'invalid': len(self.processing_results['projects']['invalid'])
+                        }
+                    },
+                    'validation_summary': validation_summary,
+                    'backup_summary': {
+                        'total_backups': len(backup_list),
+                        'recent_backups': len(self.processing_results['backups']),
+                        'backup_details': self.processing_results['backups']
+                    },
+                    'recovery_summary': {
+                        'recovery_plans_generated': len(self.processing_results['recovery_plans']),
+                        'total_recovery_actions': sum(len(plan.get('recovery_actions', [])) for plan in self.processing_results['recovery_plans'])
+                    }
+                }
+                
+                return report
+                
+            except Exception as e:
+                self.error_handler.log_error(e, "System report generation")
+                return {}
+    ```
+15. scriptsフォルダ内に「main_controller.py」ファイルを作成し、以下のメインコントロールコードを保存する：
+    ```python
+    import sys
+    import os
+    sys.path.append('../modules')
+    
+    from system_integrator import SystemIntegrator
+    import json
+    from datetime import datetime
+    
+    def run_integrated_system():
+        try:
+            print("統合業務システムを開始します...")
+            
+            # システム統合器を初期化
+            integrator = SystemIntegrator('../config/system_config.json')
+            
+            # ステップ1: データ読み込みと検証
+            print("ステップ1: データ読み込みと検証中...")
+            if integrator.load_and_validate_data():
+                print("✓ データ検証完了")
+            else:
+                print("✗ データ検証で問題が発生しました")
+            
+            # ステップ2: バックアップ作成
+            print("ステップ2: システムバックアップ作成中...")
+            if integrator.create_system_backups():
+                print("✓ バックアップ作成完了")
+            else:
+                print("✗ バックアップ作成で問題が発生しました")
+            
+            # ステップ3: エラー回復計画生成
+            print("ステップ3: エラー回復計画生成中...")
+            recovery_plan = integrator.generate_error_recovery_plans()
+            if recovery_plan:
+                print(f"✓ 回復計画生成完了 ({len(recovery_plan.get('recovery_actions', []))}個のアクション)")
+            else:
+                print("✗ 回復計画生成で問題が発生しました")
+            
+            # ステップ4: システムレポート生成
+            print("ステップ4: システムレポート生成中...")
+            report = integrator.generate_system_report()
+            if report:
+                print("✓ システムレポート生成完了")
+            else:
+                print("✗ システムレポート生成で問題が発生しました")
+            
+            # 結果保存
+            results_dir = '../reports'
+            
+            # システムレポート保存
+            report_path = os.path.join(results_dir, 'system_integration_report.json')
+            with open(report_path, 'w', encoding='utf-8') as f:
+                json.dump(report, f, ensure_ascii=False, indent=2)
+            
+            # 回復計画保存
+            recovery_path = os.path.join(results_dir, 'error_recovery_plan.json')
+            with open(recovery_path, 'w', encoding='utf-8') as f:
+                json.dump(recovery_plan, f, ensure_ascii=False, indent=2)
+            
+            # 処理結果保存
+            processing_results_path = os.path.join(results_dir, 'processing_results.json')
+            with open(processing_results_path, 'w', encoding='utf-8') as f:
+                json.dump(integrator.processing_results, f, ensure_ascii=False, indent=2)
+            
+            print("\\n=== 処理完了 ===")
+            print(f"有効な従業員データ: {len(integrator.processing_results['employees']['valid'])}件")
+            print(f"無効な従業員データ: {len(integrator.processing_results['employees']['invalid'])}件")
+            print(f"有効なプロジェクトデータ: {len(integrator.processing_results['projects']['valid'])}件")
+            print(f"無効なプロジェクトデータ: {len(integrator.processing_results['projects']['invalid'])}件")
+            print(f"作成されたバックアップ: {len(integrator.processing_results['backups'])}個")
+            
+            return "System integration completed successfully"
+            
+        except Exception as e:
+            print(f"システム統合でエラーが発生しました: {str(e)}")
+            return f"System integration failed: {str(e)}"
+    
+    if __name__ == "__main__":
+        result = run_integrated_system()
+        
+        # 実行ログを保存
+        with open('../logs/main_execution.log', 'w', encoding='utf-8') as f:
+            f.write(f"Main execution result: {result}\\n")
+            f.write(f"Executed at: {datetime.now().isoformat()}\\n")
+    ```
+16. scriptsディレクトリに移動し、main_controller.pyを実行してシステム統合処理を開始する
+17. 実行結果を確認し、エラーハンドリングが正常に動作していることを検証する
+18. logsフォルダ内に生成されたログファイル（system.log、error_report.json）の内容を確認する
+19. backupsフォルダ内に作成されたバックアップファイルの存在を確認する
+20. reportsフォルダ内の「system_integration_report.json」の内容を確認し、処理結果が正確に記録されていることを検証する
+21. 「error_recovery_plan.json」の内容を確認し、適切な回復計画が生成されていることを検証する
+22. modulesフォルダ内に「data_corrector.py」ファイルを作成し、以下の修正機能を保存する：
+    ```python
+    import json
+    import os
+    from datetime import datetime
+    from typing import Dict, List
+    
+    class DataCorrector:
+        def __init__(self):
+            self.corrections_log = []
+        
+        def correct_employee_data(self, invalid_employees: List[Dict]) -> List[Dict]:
+            corrected_employees = []
+            
+            for emp in invalid_employees:
+                corrected_emp = emp.copy()
+                corrections = []
+                
+                # 名前の修正
+                if not corrected_emp.get('name') or corrected_emp.get('name').strip() == '':
+                    corrected_emp['name'] = f"従業員_{corrected_emp.get('id', 'Unknown')}"
+                    corrections.append("Name corrected to default value")
+                
+                # 給与の修正
+                salary = corrected_emp.get('salary')
+                if isinstance(salary, str) and salary == 'invalid_salary':
+                    corrected_emp['salary'] = 400000  # デフォルト給与
+                    corrections.append("Salary corrected to default value (400000)")
+                
+                # 日付の修正
+                hire_date = corrected_emp.get('hire_date')
+                if hire_date == 'invalid_date':
+                    corrected_emp['hire_date'] = '2020-01-01'  # デフォルト日付
+                    corrections.append("Hire date corrected to default value (2020-01-01)")
+                
+                if corrections:
+                    corrected_emp['corrections_applied'] = corrections
+                    self.corrections_log.append({
+                        'id': corrected_emp.get('id'),
+                        'type': 'employee',
+                        'corrections': corrections,
+                        'timestamp': datetime.now().isoformat()
+                    })
+                
+                corrected_employees.append(corrected_emp)
+            
+            return corrected_employees
+        
+        def correct_project_data(self, invalid_projects: List[Dict], valid_employee_ids: List[str]) -> List[Dict]:
+            corrected_projects = []
+            
+            for proj in invalid_projects:
+                corrected_proj = proj.copy()
+                corrections = []
+                
+                # 無効なマネージャーIDの修正
+                manager_id = corrected_proj.get('manager')
+                if manager_id and manager_id not in valid_employee_ids:
+                    if valid_employee_ids:
+                        corrected_proj['manager'] = valid_employee_ids[0]  # 最初の有効な従業員を割り当て
+                        corrections.append(f"Manager ID corrected from {manager_id} to {valid_employee_ids[0]}")
+                    else:
+                        corrected_proj['manager'] = None
+                        corrections.append("Manager ID set to null (no valid employees available)")
+                
+                if corrections:
+                    corrected_proj['corrections_applied'] = corrections
+                    self.corrections_log.append({
+                        'id': corrected_proj.get('id'),
+                        'type': 'project',
+                        'corrections': corrections,
+                        'timestamp': datetime.now().isoformat()
+                    })
+                
+                corrected_projects.append(corrected_proj)
+            
+            return corrected_projects
+        
+        def save_corrected_data(self, corrected_employees: List[Dict], corrected_projects: List[Dict]) -> str:
+            corrected_data = {
+                'employees': corrected_employees,
+                'projects': corrected_projects,
+                'correction_timestamp': datetime.now().isoformat(),
+                'corrections_log': self.corrections_log
+            }
+            
+            output_path = '../data/corrected_data.json'
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(corrected_data, f, ensure_ascii=False, indent=2)
+            
+            return output_path
+        
+        def generate_correction_report(self) -> Dict:
+            return {
+                'total_corrections': len(self.corrections_log),
+                'employee_corrections': len([log for log in self.corrections_log if log['type'] == 'employee']),
+                'project_corrections': len([log for log in self.corrections_log if log['type'] == 'project']),
+                'correction_details': self.corrections_log,
+                'report_generated': datetime.now().isoformat()
+            }
+    ```
+23. data_corrector.pyを使用して無効なデータの修正を実行し、修正済みデータを「../data/corrected_data.json」として保存する
+24. 修正されたデータを使用して再度システム統合処理を実行し、エラーが解消されていることを確認する
+25. modulesフォルダ内に「system_monitor.py」ファイルを作成し、以下の監視機能を保存する：
+    ```python
+    import json
+    import os
+    import psutil
+    from datetime import datetime
+    from typing import Dict
+    
+    class SystemMonitor:
+        def __init__(self):
+            self.monitoring_data = []
+        
+        def collect_system_metrics(self) -> Dict:
+            try:
+                metrics = {
+                    'timestamp': datetime.now().isoformat(),
+                    'cpu_usage': psutil.cpu_percent(interval=1),
+                    'memory_usage': psutil.virtual_memory().percent,
+                    'disk_usage': psutil.disk_usage('.').percent,
+                    'process_count': len(psutil.pids())
+                }
+                
+                self.monitoring_data.append(metrics)
+                return metrics
+                
+            except Exception as e:
+                return {
+                    'timestamp': datetime.now().isoformat(),
+                    'error': str(e),
+                    'cpu_usage': 'N/A',
+                    'memory_usage': 'N/A',
+                    'disk_usage': 'N/A',
+                    'process_count': 'N/A'
+                }
+        
+        def check_file_integrity(self) -> Dict:
+            required_files = [
+                '../data/employees.json',
+                '../data/projects.json',
+                '../config/system_config.json'
+            ]
+            
+            integrity_report = {
+                'timestamp': datetime.now().isoformat(),
+                'files_checked': len(required_files),
+                'files_missing': [],
+                'files_ok': [],
+                'total_size_mb': 0
+            }
+            
+            for file_path in required_files:
+                if os.path.exists(file_path):
+                    file_size = os.path.getsize(file_path)
+                    integrity_report['files_ok'].append({
+                        'path': file_path,
+                        'size_bytes': file_size
+                    })
+                    integrity_report['total_size_mb'] += file_size / (1024 * 1024)
+                else:
+                    integrity_report['files_missing'].append(file_path)
+            
+            integrity_report['total_size_mb'] = round(integrity_report['total_size_mb'], 2)
+            integrity_report['integrity_status'] = 'OK' if not integrity_report['files_missing'] else 'ERROR'
+            
+            return integrity_report
+        
+        def save_monitoring_report(self) -> str:
+            report = {
+                'monitoring_session': {
+                    'start_time': self.monitoring_data[0]['timestamp'] if self.monitoring_data else datetime.now().isoformat(),
+                    'end_time': datetime.now().isoformat(),
+                    'data_points': len(self.monitoring_data)
+                },
+                'system_metrics': self.monitoring_data,
+                'file_integrity': self.check_file_integrity()
+            }
+            
+            report_path = '../reports/system_monitoring_report.json'
+            with open(report_path, 'w', encoding='utf-8') as f:
+                json.dump(report, f, ensure_ascii=False, indent=2)
+            
+            return report_path
+    ```
+26. system_monitor.pyを実行してシステム監視レポートを生成し、「../reports/system_monitoring_report.json」として保存する
+27. すべてのログファイルを確認し、エラーハンドリングとリトライ機能が正常に動作したことを検証する
+28. バックアップファイルを使用した復旧テストを実行し、「../logs/recovery_test.log」にテスト結果を記録する
+29. reportsフォルダ内のすべてのJSONファイルの整合性を検証し、「../reports/final_validation_report.txt」ファイルに結果を記録する
+30. integrated_systemのルートディレクトリに「system_summary.txt」ファイルを作成し、以下の内容を記録する：
+    「統合業務システム実行サマリー\n\nシステム構成:\n- データ検証モジュール: 従業員・プロジェクトデータの整合性チェック\n- バックアップ管理: 自動バックアップ作成・復旧機能\n- エラーハンドリング: リトライ機能付きエラー処理\n- データ修正: 無効データの自動修正機能\n- システム監視: リソース使用量・ファイル整合性チェック\n\n処理結果:\n- 従業員データ処理: [有効件数]/[総件数]\n- プロジェクトデータ処理: [有効件数]/[総件数]\n- バックアップ作成: [作成数]個\n- エラー回復計画: [アクション数]個の修正アクション\n- システム統合: 正常完了\n\nエラー処理実績:\n- 検出されたエラー: [エラー数]件\n- 自動修正: [修正数]件\n- リトライ実行: [リトライ数]回\n- 全システム正常動作確認済み」
+31. 全モジュールの統合テストを実行し、すべての依存関係が正しく解決されていることを確認する
+32. システム全体のパフォーマンス測定を行い、「../reports/performance_metrics.json」ファイルに結果を保存する
+33. エラー注入テストを実行し、システムの耐障害性を検証する（故意にファイルを削除・破損させて回復機能をテスト）
+34. 最終的なシステム状態レポートを生成し、「../reports/final_system_state.json」として保存する
+35. 全ファイルの作成完了と統合システムの正常動作を最終検証し、エラー処理・回復機能を含む統合システムが完全に機能することを確認する

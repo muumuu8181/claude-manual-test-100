@@ -1,0 +1,276 @@
+タスク: 売上データ分析パイプラインの構築
+
+以下の手順を順番通りに実行してください。各手順は前段階の結果を使用し、複雑な依存関係を持つデータ処理を行います。
+
+1. 作業用ディレクトリ「sales_analytics」を作成する
+2. sales_analytics内に「raw_data」フォルダを作成する
+3. sales_analytics内に「processed」フォルダを作成する
+4. sales_analytics内に「reports」フォルダを作成する
+5. sales_analytics内に「scripts」フォルダを作成する
+6. sales_analytics内に「config」フォルダを作成する
+7. raw_dataフォルダ内に「sales_2023.csv」ファイルを作成し、以下のデータを保存する：
+   「Date,ProductID,ProductName,Category,Quantity,UnitPrice,CustomerType,Region\n2023-01-15,P001,Laptop,Electronics,2,80000,Corporate,East\n2023-01-20,P002,Mouse,Accessories,5,3000,Individual,West\n2023-02-10,P001,Laptop,Electronics,1,80000,Individual,North\n2023-02-15,P003,Monitor,Electronics,3,45000,Corporate,East\n2023-03-05,P002,Mouse,Accessories,8,3000,Corporate,South\n2023-03-12,P004,Keyboard,Accessories,4,8000,Individual,West\n2023-04-18,P001,Laptop,Electronics,3,80000,Corporate,North\n2023-04-25,P005,Tablet,Electronics,2,60000,Individual,East\n2023-05-08,P003,Monitor,Electronics,1,45000,Individual,South\n2023-05-20,P002,Mouse,Accessories,12,3000,Corporate,West」
+8. raw_dataフォルダ内に「customers.csv」ファイルを作成し、以下のデータを保存する：
+   「CustomerID,CompanyName,ContactPerson,Region,CustomerType,CreditLimit\nC001,Tech Corp,Tanaka,East,Corporate,5000000\nC002,個人顧客A,Suzuki,West,Individual,100000\nC003,Business Solutions,Yamada,North,Corporate,3000000\nC004,個人顧客B,Sato,East,Individual,50000\nC005,Global Systems,Kimura,South,Corporate,8000000」
+9. raw_dataフォルダ内に「products.csv」ファイルを作成し、以下のデータを保存する：
+   「ProductID,ProductName,Category,CostPrice,MarginRate,Supplier\nP001,Laptop,Electronics,60000,0.33,Supplier_A\nP002,Mouse,Accessories,2000,0.50,Supplier_B\nP003,Monitor,Electronics,30000,0.50,Supplier_A\nP004,Keyboard,Accessories,5000,0.60,Supplier_B\nP005,Tablet,Electronics,45000,0.33,Supplier_A」
+10. configフォルダ内に「analysis_config.json」ファイルを作成し、以下の設定を保存する：
+    ```json
+    {
+      "analysis_period": {
+        "start_date": "2023-01-01",
+        "end_date": "2023-12-31"
+      },
+      "kpi_thresholds": {
+        "high_value_order": 100000,
+        "bulk_quantity": 10,
+        "profit_margin_target": 0.40
+      },
+      "regional_weights": {
+        "East": 1.0,
+        "West": 0.9,
+        "North": 1.1,
+        "South": 0.95
+      },
+      "output_formats": ["csv", "json", "summary"]
+    }
+    ```
+11. scriptsフォルダ内に「data_loader.py」ファイルを作成し、以下のコードを保存する：
+    ```python
+    import pandas as pd
+    import json
+    from datetime import datetime
+    
+    class DataLoader:
+        def __init__(self, config_path):
+            with open(config_path, 'r', encoding='utf-8') as f:
+                self.config = json.load(f)
+        
+        def load_sales_data(self, filepath):
+            try:
+                df = pd.read_csv(filepath)
+                df['Date'] = pd.to_datetime(df['Date'])
+                df['TotalAmount'] = df['Quantity'] * df['UnitPrice']
+                return df
+            except Exception as e:
+                print(f"Error loading sales data: {e}")
+                return None
+        
+        def load_customer_data(self, filepath):
+            try:
+                return pd.read_csv(filepath)
+            except Exception as e:
+                print(f"Error loading customer data: {e}")
+                return None
+        
+        def load_product_data(self, filepath):
+            try:
+                df = pd.read_csv(filepath)
+                df['SellingPrice'] = df['CostPrice'] * (1 + df['MarginRate'])
+                return df
+            except Exception as e:
+                print(f"Error loading product data: {e}")
+                return None
+    
+        def get_date_range(self):
+            start = datetime.strptime(self.config['analysis_period']['start_date'], '%Y-%m-%d')
+            end = datetime.strptime(self.config['analysis_period']['end_date'], '%Y-%m-%d')
+            return start, end
+    ```
+12. scriptsフォルダ内に「data_processor.py」ファイルを作成し、以下のコードを保存する：
+    ```python
+    import pandas as pd
+    import numpy as np
+    
+    class DataProcessor:
+        def __init__(self, config):
+            self.config = config
+        
+        def calculate_profit_margins(self, sales_df, products_df):
+            merged = sales_df.merge(products_df, on='ProductID', how='left')
+            merged['ProfitPerUnit'] = merged['UnitPrice'] - merged['CostPrice']
+            merged['TotalProfit'] = merged['ProfitPerUnit'] * merged['Quantity']
+            merged['ProfitMargin'] = merged['ProfitPerUnit'] / merged['UnitPrice']
+            return merged
+        
+        def categorize_orders(self, df):
+            high_value_threshold = self.config['kpi_thresholds']['high_value_order']
+            bulk_threshold = self.config['kpi_thresholds']['bulk_quantity']
+            
+            df['OrderCategory'] = 'Standard'
+            df.loc[df['TotalAmount'] >= high_value_threshold, 'OrderCategory'] = 'HighValue'
+            df.loc[df['Quantity'] >= bulk_threshold, 'OrderCategory'] = 'Bulk'
+            df.loc[(df['TotalAmount'] >= high_value_threshold) & 
+                   (df['Quantity'] >= bulk_threshold), 'OrderCategory'] = 'Premium'
+            return df
+        
+        def apply_regional_weights(self, df):
+            weights = self.config['regional_weights']
+            df['WeightedAmount'] = df.apply(
+                lambda row: row['TotalAmount'] * weights.get(row['Region'], 1.0), axis=1
+            )
+            return df
+        
+        def generate_monthly_summary(self, df):
+            df['YearMonth'] = df['Date'].dt.strftime('%Y-%m')
+            monthly = df.groupby('YearMonth').agg({
+                'TotalAmount': 'sum',
+                'WeightedAmount': 'sum',
+                'TotalProfit': 'sum',
+                'Quantity': 'sum'
+            }).round(2)
+            return monthly
+        
+        def generate_category_analysis(self, df):
+            category_stats = df.groupby('Category').agg({
+                'TotalAmount': ['sum', 'mean'],
+                'TotalProfit': 'sum',
+                'ProfitMargin': 'mean',
+                'Quantity': 'sum'
+            }).round(2)
+            category_stats.columns = ['TotalSales', 'AvgOrderValue', 'TotalProfit', 'AvgMargin', 'TotalQuantity']
+            return category_stats
+        
+        def identify_top_performers(self, df, metric='TotalAmount', top_n=3):
+            if metric == 'Products':
+                return df.groupby('ProductName')[['TotalAmount', 'TotalProfit']].sum().nlargest(top_n, 'TotalAmount')
+            elif metric == 'Regions':
+                return df.groupby('Region')[['TotalAmount', 'TotalProfit']].sum().nlargest(top_n, 'TotalAmount')
+            else:
+                return df.nlargest(top_n, metric)[['Date', 'ProductName', 'TotalAmount', 'TotalProfit']]
+    ```
+13. scriptsフォルダ内に「report_generator.py」ファイルを作成し、以下のコードを保存する：
+    ```python
+    import json
+    import pandas as pd
+    from datetime import datetime
+    
+    class ReportGenerator:
+        def __init__(self, config):
+            self.config = config
+        
+        def generate_executive_summary(self, processed_data):
+            summary = {
+                'report_date': datetime.now().isoformat(),
+                'analysis_period': self.config['analysis_period'],
+                'total_sales': float(processed_data['TotalAmount'].sum()),
+                'total_profit': float(processed_data['TotalProfit'].sum()),
+                'total_orders': len(processed_data),
+                'average_order_value': float(processed_data['TotalAmount'].mean()),
+                'overall_profit_margin': float(processed_data['ProfitMargin'].mean())
+            }
+            return summary
+        
+        def generate_kpi_analysis(self, processed_data):
+            thresholds = self.config['kpi_thresholds']
+            
+            kpi_analysis = {
+                'high_value_orders': len(processed_data[processed_data['TotalAmount'] >= thresholds['high_value_order']]),
+                'bulk_orders': len(processed_data[processed_data['Quantity'] >= thresholds['bulk_quantity']]),
+                'high_margin_products': len(processed_data[processed_data['ProfitMargin'] >= thresholds['profit_margin_target']]),
+                'order_categories': processed_data['OrderCategory'].value_counts().to_dict()
+            }
+            return kpi_analysis
+        
+        def save_csv_report(self, data, filename, output_dir):
+            filepath = f"{output_dir}/{filename}.csv"
+            if isinstance(data, pd.DataFrame):
+                data.to_csv(filepath)
+            else:
+                pd.DataFrame([data]).to_csv(filepath, index=False)
+            return filepath
+        
+        def save_json_report(self, data, filename, output_dir):
+            filepath = f"{output_dir}/{filename}.json"
+            if isinstance(data, pd.DataFrame):
+                data.to_json(filepath, orient='records', indent=2)
+            else:
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, ensure_ascii=False, indent=2)
+            return filepath
+        
+        def save_summary_report(self, summary_data, filename, output_dir):
+            filepath = f"{output_dir}/{filename}.txt"
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write("=== SALES ANALYTICS SUMMARY REPORT ===\\n\\n")
+                for key, value in summary_data.items():
+                    f.write(f"{key.replace('_', ' ').title()}: {value}\\n")
+            return filepath
+    ```
+14. scriptsディレクトリに移動し、data_loader.pyを使用してすべての生データを読み込む処理を実行する
+15. 読み込んだ売上データにdata_processor.pyを適用し、利益率の計算を実行する
+16. 処理されたデータに注文カテゴリー分類を適用する
+17. 地域重み付けを適用した売上金額を計算する
+18. 月次サマリーレポートを生成し、「../processed/monthly_summary.csv」として保存する
+19. カテゴリー別分析レポートを生成し、「../processed/category_analysis.csv」として保存する
+20. 売上上位3商品を特定し、「../processed/top_products.csv」として保存する
+21. 売上上位3地域を特定し、「../processed/top_regions.csv」として保存する
+22. report_generator.pyを使用してエグゼクティブサマリーを生成し、「../reports/executive_summary.json」として保存する
+23. KPI分析レポートを生成し、「../reports/kpi_analysis.json」として保存する
+24. 詳細な売上レポート（全処理済みデータ）を「../reports/detailed_sales_report.csv」として保存する
+25. サマリーレポートをテキスト形式で「../reports/summary_report.txt」として保存する
+26. scriptsフォルダ内に「pipeline_orchestrator.py」ファイルを作成し、以下の統合コードを保存する：
+    ```python
+    import sys
+    import os
+    from data_loader import DataLoader
+    from data_processor import DataProcessor
+    from report_generator import ReportGenerator
+    
+    def run_full_pipeline():
+        try:
+            # 設定読み込み
+            config_path = '../config/analysis_config.json'
+            loader = DataLoader(config_path)
+            
+            # データ読み込み
+            sales_df = loader.load_sales_data('../raw_data/sales_2023.csv')
+            customers_df = loader.load_customer_data('../raw_data/customers.csv')
+            products_df = loader.load_product_data('../raw_data/products.csv')
+            
+            if sales_df is None or customers_df is None or products_df is None:
+                raise Exception("Failed to load required data files")
+            
+            # データ処理
+            processor = DataProcessor(loader.config)
+            processed_data = processor.calculate_profit_margins(sales_df, products_df)
+            processed_data = processor.categorize_orders(processed_data)
+            processed_data = processor.apply_regional_weights(processed_data)
+            
+            # 分析実行
+            monthly_summary = processor.generate_monthly_summary(processed_data)
+            category_analysis = processor.generate_category_analysis(processed_data)
+            
+            # レポート生成
+            report_gen = ReportGenerator(loader.config)
+            exec_summary = report_gen.generate_executive_summary(processed_data)
+            kpi_analysis = report_gen.generate_kpi_analysis(processed_data)
+            
+            # 結果保存
+            report_gen.save_csv_report(monthly_summary, 'pipeline_monthly_summary', '../processed')
+            report_gen.save_csv_report(category_analysis, 'pipeline_category_analysis', '../processed')
+            report_gen.save_json_report(exec_summary, 'pipeline_executive_summary', '../reports')
+            report_gen.save_json_report(kpi_analysis, 'pipeline_kpi_analysis', '../reports')
+            report_gen.save_summary_report(exec_summary, 'pipeline_summary', '../reports')
+            
+            return "Pipeline completed successfully"
+            
+        except Exception as e:
+            return f"Pipeline failed: {str(e)}"
+    
+    if __name__ == "__main__":
+        result = run_full_pipeline()
+        print(result)
+        
+        # 実行ログを保存
+        with open('../reports/pipeline_log.txt', 'w', encoding='utf-8') as f:
+            f.write(f"Pipeline execution result: {result}\\n")
+            f.write(f"Executed at: {datetime.now().isoformat()}\\n")
+    ```
+27. pipeline_orchestrator.pyを実行し、全データ処理パイプラインの統合実行を行う
+28. 各処理段階で生成されたファイルが正しく作成されているかを確認する
+29. processedフォルダ内の全CSVファイルの行数とカラム数を確認し、「../reports/data_validation.txt」ファイルに記録する
+30. reportsフォルダ内の全JSONファイルの内容を検証し、必須キーが存在することを確認する
+31. sales_analyticsのルートディレクトリに「pipeline_documentation.txt」ファイルを作成し、以下の内容を記録する：
+    「Sales Analytics Pipeline Documentation\n\nPipeline Stages:\n1. Data Loading - Raw CSV files processed\n2. Data Processing - Profit calculations, categorization, regional weighting\n3. Analysis Generation - Monthly summaries, category analysis, top performers\n4. Report Generation - Executive summaries, KPI analysis, detailed reports\n\nKey Dependencies:\n- sales_2023.csv → profit calculations depend on products.csv\n- Regional weights applied from config to sales amounts\n- Order categorization based on config thresholds\n- All reports depend on processed data from previous stages\n\nOutput Files:\n- Processed data: monthly summaries, category analysis, top performers\n- Reports: executive summary, KPI analysis, detailed reports\n- Validation: data validation reports, pipeline logs」
+32. 全処理が正常に完了し、依存関係が正しく解決されていることを最終検証し、データ分析パイプラインの動作を確認する

@@ -1,0 +1,25 @@
+Test 4: Mixed Operations with Specific Naming
+
+Execute the following steps individually:
+
+Step 1: Create a folder named "project_alpha" in the current working directory.
+
+Step 2: Create a folder named "project_beta" in the current working directory.
+
+Step 3: Create a file named "readme_v1.md" and write the text "# Alpha Project" into it.
+
+Step 4: Create a file named "readme_v2.md" and write the text "# Beta Project" into it.
+
+Step 5: Create a file named "config_prod.json" in the current working directory.
+
+Step 6: Move the file "readme_v1.md" into the "project_alpha" folder.
+
+Step 7: Move the file "readme_v2.md" into the "project_beta" folder.
+
+Step 8: Rename the file "config_prod.json" to "settings_final.json".
+
+Step 9: Create a file named "log_data.txt" and write the text "System startup complete" into it.
+
+Step 10: Create a folder named "output_results" in the current working directory.
+
+Note: Each step should be completed individually without using loops or batch operations.

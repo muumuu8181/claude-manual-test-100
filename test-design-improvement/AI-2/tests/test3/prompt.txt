@@ -1,0 +1,11 @@
+以下の手順を順番通りに実行してください。各手順は個別に実行し、まとめて処理しないでください。
+
+1) documentsフォルダを作成してください
+2) imagesフォルダを作成してください
+3) documentsの中にnote1.txtを作成してください
+4) note1.txtに「First」と書き込んでください
+5) documentsの中にnote2.txtを作成してください
+6) note2.txtに「Second」と書き込んでください
+7) documentsの中にnote3.txtを作成してください
+8) note3.txtに「Third」と書き込んでください
+9) note2.txtをimagesフォルダに移動してください

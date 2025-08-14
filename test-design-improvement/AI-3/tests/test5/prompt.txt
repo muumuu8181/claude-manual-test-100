@@ -1,0 +1,22 @@
+Test 5: File Organization with Dependencies
+
+Complete the following steps in order:
+
+1. Create a folder named "workspace"
+2. Create a file named "master_list.txt" in workspace
+3. Write "File inventory:" to master_list.txt
+4. Create a folder named "archived" inside workspace
+5. Create a file named "old_data.txt" in archived
+6. Write "Legacy information" to old_data.txt
+7. Append "old_data.txt" to master_list.txt
+8. Create a folder named "current" inside workspace
+9. Create a file named "active_data.txt" in current
+10. Write "Current working data" to active_data.txt
+11. Append "active_data.txt" to master_list.txt
+12. Create a file named "index.txt" in workspace
+13. Write "Directories: archived, current" to index.txt
+14. Copy the content from master_list.txt to a new file named "backup_inventory.txt" in workspace
+15. Rename old_data.txt to "legacy_backup.txt"
+16. Update master_list.txt by appending "legacy_backup.txt (renamed from old_data.txt)"
+17. Create a file named "status.txt" in workspace
+18. Write "Organization complete" to status.txt

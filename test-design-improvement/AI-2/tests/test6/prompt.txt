@@ -1,0 +1,28 @@
+タスク: 学生成績管理データの処理
+
+以下の手順を順番通りに実行してください。各手順は前の結果を使用して次の処理を行います。
+
+1. 作業用ディレクトリ「grade_management」を作成する
+2. grade_management内に「raw_data」フォルダを作成する
+3. grade_management内に「processed_data」フォルダを作成する
+4. raw_dataフォルダ内に「students_math.csv」ファイルを作成し、以下の内容を書き込む：
+   「Name,Score\nAlice,85\nBob,92\nCharlie,78\nDiana,96\nEve,89」
+5. raw_dataフォルダ内に「students_english.csv」ファイルを作成し、以下の内容を書き込む：
+   「Name,Score\nAlice,88\nBob,76\nCharlie,94\nDiana,82\nEve,91」
+6. raw_dataフォルダ内に「students_science.csv」ファイルを作成し、以下の内容を書き込む：
+   「Name,Score\nAlice,90\nBob,84\nCharlie,87\nDiana,93\nEve,86」
+7. students_math.csvから最高点の学生名を取得し、「math_top_student.txt」ファイルに「Top Math Student: [学生名]」形式で保存する
+8. students_english.csvから最低点の学生名を取得し、「english_lowest_student.txt」ファイルに「Lowest English Student: [学生名]」形式で保存する
+9. 各科目の平均点を計算し、「subject_averages.txt」ファイルに以下の形式で保存する：
+   「Math Average: [平均点]\nEnglish Average: [平均点]\nScience Average: [平均点]」
+10. processed_dataフォルダ内に「student_totals.csv」ファイルを作成し、各学生の3科目合計点を以下の形式で保存する：
+    「Name,Total\n[学生名],[合計点]」（全学生分）
+11. student_totals.csvから最高合計点の学生を取得し、「overall_top_student.txt」ファイルに「Overall Top Student: [学生名] - Total: [合計点]」形式で保存する
+12. 合計点が250点以上の学生の名前を「high_performers.txt」ファイルに1行ずつ保存する
+13. 合計点が240点未満の学生の名前を「need_improvement.txt」ファイルに1行ずつ保存する
+14. processed_dataフォルダ内に「grade_summary.json」ファイルを作成し、以下の形式で保存する：
+    {\"total_students\": [学生数], \"subjects\": [\"Math\", \"English\", \"Science\"], \"highest_total\": [最高点], \"lowest_total\": [最低点]}
+15. grade_managementフォルダ内に「analysis_report.txt」ファイルを作成し、以下の情報をまとめて保存する：
+    「Grade Analysis Report\nTotal Students: [数]\nSubjects Analyzed: 3\nHighest Individual Score: [点数] ([科目])\nLowest Individual Score: [点数] ([科目])」
+16. raw_dataフォルダ内の全CSVファイルのファイル名と行数（ヘッダー除く）を「data_inventory.txt」ファイルに保存する
+17. 作成した全ファイルの一覧を確認し、データ処理が完了したことを検証する

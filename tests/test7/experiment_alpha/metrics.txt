@@ -1,0 +1,5 @@
+Final Result: 78592.76829
+Execution Time: 0.0 ms
+Total Iterations: 100
+Intermediate Points Recorded: 10
+Average Time per Iteration: 0.000000 ms

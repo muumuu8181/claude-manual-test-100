@@ -1,0 +1,163 @@
+【作業指示】
+1) 11個のフォルダを階層的に作成してください。
+   メインフォルダ:
+   - distributed_system/
+   - distributed_system/orchestrator/
+   - distributed_system/workers/
+   - distributed_system/queue/
+   - distributed_system/storage/
+   
+   処理ノード:
+   - node_alpha/, node_beta/, node_gamma/, node_delta/
+   
+   監視・分析:
+   - monitoring/, analytics/
+
+2) 各nodeフォルダには以下の8つのファイルを作成：
+   - configuration.yaml（設定、YAML形式、3階層以上のネスト）
+   - input_stream.jsonl（ストリーミングデータ、JSONL形式、50行以上）
+   - processor.py（処理エンジン、非同期処理実装）
+   - transformer.py（データ変換、パイプライン処理）
+   - output_stream.jsonl（出力ストリーム、JSONL形式）
+   - metrics.prometheus（Prometheus形式メトリクス）
+   - health_check.json（ヘルスチェック結果）
+   - performance_log.csv（パフォーマンスログ、1000行以上）
+
+3) 以下の高度な計算を各nodeで実施：
+   基本パラメータ: α=1024, β=512, γ=256, δ=128, ε=64, ζ=32, η=16
+   
+   node_alpha:
+   - 計算: 3次元フーリエ変換 FFT(x,y,z) for 32x32x32グリッド
+   - 各点の値: f(i,j,k) = α*sin(i*π/32) * β*cos(j*π/16) * γ*exp(-k/8)
+   - 逆変換も実施し、誤差を10^-12以下に
+   - GPU並列化シミュレーション（実行時間比較）
+   
+   node_beta:
+   - 計算: 機械学習 - ランダムフォレスト（100木）とXGBoost比較
+   - データセット: 10000サンプル x 50特徴量（自動生成）
+   - 交差検証（5-fold）実施
+   - ハイパーパラメータチューニング（グリッドサーチ）
+   - ROC曲線、PR曲線、混同行列を生成
+   
+   node_gamma:
+   - 計算: グラフアルゴリズム - 100ノードのネットワーク分析
+   - PageRank、中心性指標（次数、固有ベクトル、媒介）計算
+   - コミュニティ検出（Louvain法）
+   - 最小全域木（Kruskal、Prim両方）
+   - ネットワーク可視化データ生成
+   
+   node_delta:
+   - 計算: 時系列予測 - ARIMA、LSTM、Prophet比較
+   - 1000点の時系列データ生成（季節性・トレンド含む）
+   - 予測精度比較（RMSE、MAE、MAPE）
+   - 異常検知アルゴリズム実装
+   - バックテスト結果の統計分析
+
+4) distributed_system/orchestrator/に以下を作成：
+   - scheduler.py（タスクスケジューラー、優先度キュー実装）
+   - load_balancer.py（負荷分散アルゴリズム、3種類以上）
+   - fault_tolerance.py（障害回復メカニズム）
+   - consensus.py（分散合意アルゴリズム、Raftプロトコル）
+   - monitoring_agent.py（リアルタイム監視）
+
+5) distributed_system/workers/に以下を作成：
+   - worker_pool.py（ワーカープール管理）
+   - task_executor.py（タスク実行エンジン）
+   - message_broker.py（メッセージブローカー）
+   - cache_manager.py（分散キャッシュ管理）
+
+6) distributed_system/queue/に以下を作成：
+   - priority_queue.py（優先度付きキュー実装）
+   - dead_letter_queue.py（デッドレターキュー）
+   - retry_mechanism.py（リトライメカニズム）
+   - queue_metrics.json（キューメトリクス）
+
+7) distributed_system/storage/に以下を作成：
+   - distributed_storage.py（分散ストレージ実装）
+   - replication_manager.py（レプリケーション管理）
+   - consistency_checker.py（一貫性チェック）
+   - storage_metrics.csv（ストレージメトリクス）
+
+8) monitoring/フォルダに以下を作成：
+   - system_dashboard.html（システムダッシュボード、インタラクティブ）
+   - alert_rules.yaml（アラートルール定義、50ルール以上）
+   - metrics_aggregator.py（メトリクス集約）
+   - log_analyzer.py（ログ分析、異常パターン検出）
+   - performance_report.pdf（パフォーマンスレポート※HTMLで代用可）
+
+9) analytics/フォルダに以下を作成：
+   - data_pipeline.py（ETLパイプライン実装）
+   - statistical_analysis.py（統計分析、20種類以上の検定）
+   - ml_pipeline.py（機械学習パイプライン）
+   - visualization_engine.py（可視化エンジン）
+   - insights_report.json（インサイトレポート）
+
+10) 「system_integration_test.py」という統合テストを作成：
+    - 全100ファイル以上の存在確認
+    - 各nodeの計算結果検証（誤差10^-10以内）
+    - 分散システムコンポーネントの動作確認
+    - ストレステスト（1000並行リクエスト）
+    - カオステスト（ランダム障害注入）
+    - パフォーマンステスト（レイテンシ、スループット）
+    - セキュリティテスト（インジェクション、認証）
+    - 結果を3形式で出力：
+      * integration_report.html（詳細レポート）
+      * test_metrics.json（メトリクス）
+      * test_summary.md（サマリー）
+
+11) 「benchmark_suite.py」というベンチマークスイートを作成：
+    - 各アルゴリズムの実行時間測定（1000回）
+    - メモリ使用量プロファイリング
+    - CPU/GPU使用率測定
+    - I/Oパフォーマンス測定
+    - ネットワークレイテンシ測定
+    - スケーラビリティテスト（1,10,100,1000倍のデータ）
+    - 結果の統計分析と可視化
+
+12) 「deployment_script.py」というデプロイメントスクリプトを作成：
+    - 環境チェック（依存関係、リソース）
+    - 設定ファイル検証
+    - データベース初期化
+    - サービス起動順序制御
+    - ヘルスチェック実施
+    - ロールバック機能
+
+13) 「work_history.log」に詳細な作業記録（最低50行）
+    形式: [作業者名] YYYYMMDD HH:MM:SS 作業内容
+    ※各フェーズ（設計、実装、テスト、検証、最適化）を明確に記録
+
+14) 「reflection.txt」に包括的な振り返り（最低200行）：
+    【発生したエラー】
+    - 全エラーの詳細リスト
+    - エラーパターン分析
+    - 解決方法と予防策
+    
+    【パフォーマンス分析】
+    - 処理時間の詳細分析
+    - ボトルネック特定
+    - 最適化実施内容
+    - ベンチマーク結果
+    
+    【アーキテクチャ設計】
+    - 設計判断の根拠
+    - トレードオフ分析
+    - スケーラビリティ考察
+    
+    【セキュリティ考察】
+    - 脅威モデリング
+    - 実装したセキュリティ対策
+    - 残存リスク評価
+    
+    【運用考察】
+    - モニタリング戦略
+    - 障害対応プロセス
+    - キャパシティプランニング
+
+注意事項：
+- 全Pythonコードは型ヒント付きで実装
+- 非同期処理はasyncio使用
+- エラーハンドリングは包括的に
+- ログは構造化ログ形式（JSON）
+- ドキュメント文字列は全関数に
+- テストカバレッジ80%以上目標
+- パフォーマンス最適化を考慮

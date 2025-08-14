@@ -1,0 +1,67 @@
+Test 14: Multi-Environment DevOps Pipeline with Configuration Management
+
+Complete the following steps in order:
+
+1. Create a folder named "devops_pipeline"
+2. Create a folder named "environments" inside devops_pipeline
+3. Create a folder named "development" inside environments
+4. Create a folder named "staging" inside environments
+5. Create a folder named "production" inside environments
+6. Create a folder named "configs" inside development
+7. Create a folder named "configs" inside staging
+8. Create a folder named "configs" inside production
+9. Create a folder named "deployments" inside devops_pipeline
+10. Create a folder named "monitoring" inside devops_pipeline
+11. Create a file named "app_config.yml" in development/configs
+12. Write "app_name: myapp-dev" to app_config.yml
+13. Append "database_url: dev.db.example.com" to development/configs/app_config.yml
+14. Append "debug_mode: true" to development/configs/app_config.yml
+15. Append "log_level: DEBUG" to development/configs/app_config.yml
+16. Create a file named "secrets.env" in development/configs
+17. Write "API_KEY=dev_api_key_12345" to secrets.env
+18. Append "DB_PASSWORD=dev_password" to development/configs/secrets.env
+19. Create a file named "app_config.yml" in staging/configs
+20. Copy all content from development/configs/app_config.yml to staging/configs/app_config.yml
+21. Edit staging/configs/app_config.yml by appending "# Modified for staging"
+22. Create a new file replacing content: write "app_name: myapp-staging" to staging/configs/app_config.yml
+23. Append "database_url: staging.db.example.com" to staging/configs/app_config.yml
+24. Append "debug_mode: false" to staging/configs/app_config.yml
+25. Append "log_level: INFO" to staging/configs/app_config.yml
+26. Create a file named "secrets.env" in staging/configs
+27. Write "API_KEY=staging_api_key_67890" to staging/configs/secrets.env
+28. Append "DB_PASSWORD=staging_secure_password" to staging/configs/secrets.env
+29. Create a file named "app_config.yml" in production/configs
+30. Write "app_name: myapp-prod" to production/configs/app_config.yml
+31. Append "database_url: prod.db.example.com" to production/configs/app_config.yml
+32. Append "debug_mode: false" to production/configs/app_config.yml
+33. Append "log_level: ERROR" to production/configs/app_config.yml
+34. Create a file named "secrets.env" in production/configs
+35. Write "API_KEY=prod_api_key_secure" to production/configs/secrets.env
+36. Append "DB_PASSWORD=prod_ultra_secure_password" to production/configs/secrets.env
+37. Create a file named "deployment_history.txt" in deployments
+38. Write "Deployment History Log:" to deployment_history.txt
+39. Append "2024-01-15: Development deployment v1.0" to deployment_history.txt
+40. Append "2024-01-16: Staging deployment v1.0" to deployment_history.txt
+41. Append "2024-01-18: Production deployment v1.0" to deployment_history.txt
+42. Create a file named "environment_status.txt" in monitoring
+43. Write "Environment Status Monitor:" to environment_status.txt
+44. Append "Development: ACTIVE (last deployed: 2024-01-15)" to environment_status.txt
+45. Append "Staging: ACTIVE (last deployed: 2024-01-16)" to environment_status.txt
+46. Append "Production: ACTIVE (last deployed: 2024-01-18)" to environment_status.txt
+47. Create a file named "config_validation.txt" in devops_pipeline
+48. Write "Configuration Validation Report:" to config_validation.txt
+49. Append "Development config: VALID (debug enabled)" to config_validation.txt
+50. Append "Staging config: VALID (debug disabled, info logging)" to config_validation.txt
+51. Append "Production config: VALID (debug disabled, error logging only)" to config_validation.txt
+52. Create a file named "security_audit.txt" in devops_pipeline
+53. Write "Security Audit Report:" to security_audit.txt
+54. Append "Development secrets: LOW security (dev environment)" to security_audit.txt
+55. Append "Staging secrets: MEDIUM security" to security_audit.txt
+56. Append "Production secrets: HIGH security" to security_audit.txt
+57. Create a file named "pipeline_summary.txt" in devops_pipeline
+58. Write "DevOps Pipeline Summary:" to pipeline_summary.txt
+59. Append "Environments configured: 3 (dev, staging, prod)" to pipeline_summary.txt
+60. Append "Configurations per environment: 2 (app_config, secrets)" to pipeline_summary.txt
+61. Append "Security progression: LOW -> MEDIUM -> HIGH" to pipeline_summary.txt
+62. Append "Debug mode progression: ON -> OFF -> OFF" to pipeline_summary.txt
+63. Append "Log level progression: DEBUG -> INFO -> ERROR" to pipeline_summary.txt

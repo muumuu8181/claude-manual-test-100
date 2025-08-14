@@ -1,0 +1,17 @@
+以下の手順を順番通りに実行してください。各手順は個別に実行し、まとめて処理しないでください。
+
+1) library_systemフォルダを作成してください
+2) library_systemの中にbooksフォルダを作成してください
+3) library_systemの中にusersフォルダを作成してください
+4) library_systemの中にlogsフォルダを作成してください
+5) booksの中にcatalog.csvを作成してください
+6) catalog.csvに「ID,Title,Author」というヘッダーを書き込んでください
+7) catalog.csvに「001,Python入門,田中太郎」を追記してください
+8) usersの中にmembers.jsonを作成してください
+9) members.jsonに{"members": []}と書き込んでください
+10) logsの中にaccess_log.txtを作成してください
+11) access_log.txtに「=== Access Log ===」と書き込んでください
+12) booksをbook_inventoryにリネームしてください
+13) catalog.csvに「002,JavaScript基礎,佐藤花子」を追記してください
+14) library_systemの中にconfig.iniを作成してください
+15) config.iniに「[Settings]\nlibrary_name=中央図書館」と書き込んでください

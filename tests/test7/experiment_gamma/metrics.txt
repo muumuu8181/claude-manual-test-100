@@ -1,0 +1,8 @@
+F(50): 12586269025
+F(60): 1548008755920
+F(50) Execution Time: 0.0 ms
+F(60) Execution Time: 0.0 ms
+Modified F(20): 7227210360893046684273237215155890989747727870558336
+Modified Sequence Time: 0.0 ms
+Total Execution Time: 0.0 ms
+Modified Fibonacci Parameters: a=512, b=256, c=128

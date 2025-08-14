@@ -1,0 +1,21 @@
+Test 4: Directory Organization and File Categorization
+
+Instructions:
+Organize files by performing each step individually:
+
+1. Create three directories: "documents", "images", and "data"
+2. Create a file "readme.txt" in documents with content: "Document storage area"
+3. Create a file "photo1.jpg" in images with content: "Image file 1"
+4. Create a file "dataset.csv" in data with content: "name,age,city"
+5. Create a file "temp.log" in the main directory with content: "Temporary log file"
+6. Move temp.log to the documents directory and rename it to "system.log"
+7. Create a copy of readme.txt in the main directory named "info.txt"
+8. Create a summary file "inventory.txt" listing all files and their locations
+9. Create subdirectories "archived" in each of the three main directories
+10. Create a final report "organization_complete.txt" confirming the directory structure
+
+Requirements:
+- Create each directory and file individually
+- Perform file operations one at a time
+- Verify the location and content of each file after creation
+- Do not use batch operations or scripts

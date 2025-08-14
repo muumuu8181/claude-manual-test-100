@@ -1,0 +1,127 @@
+タスク: 顧客データベース管理システムの構築（エラー処理含む）
+
+以下の手順を順番通りに実行してください。各手順は前の結果を使用し、エラーが発生した場合の処理も含みます。
+
+1. 作業用ディレクトリ「customer_database」を作成する
+2. customer_database内に「data」フォルダを作成する
+3. customer_database内に「backup」フォルダを作成する
+4. customer_database内に「logs」フォルダを作成する
+5. customer_database内に「scripts」フォルダを作成する
+6. customer_database内に「validation」フォルダを作成する
+7. dataフォルダ内に「customers.csv」ファイルを作成し、以下のデータを保存する（故意に不正データを含む）：
+   「ID,Name,Email,Age,City\n001,Tanaka Taro,tanaka@email.com,25,Tokyo\n002,Suzuki Hanako,invalid-email,30,Osaka\n003,Sato Ichiro,sato@email.com,-5,Kyoto\n004,,yamada@email.com,35,Nagoya\n005,Kimura Jiro,kimura@email.com,40,Fukuoka」
+8. scriptsフォルダ内に「data_validator.py」ファイルを作成し、以下のコードを保存する：
+   ```python
+   import csv
+   import re
+   
+   def validate_email(email):
+       pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+       return re.match(pattern, email) is not None
+   
+   def validate_age(age_str):
+       try:
+           age = int(age_str)
+           return 0 <= age <= 150
+       except:
+           return False
+   
+   def validate_name(name):
+       return name.strip() != ""
+   
+   def validate_customer_data(csv_file_path):
+       valid_records = []
+       invalid_records = []
+       error_log = []
+       
+       with open(csv_file_path, 'r', encoding='utf-8') as f:
+           reader = csv.DictReader(f)
+           for row_num, row in enumerate(reader, start=2):
+               errors = []
+               if not validate_name(row['Name']):
+                   errors.append(f"Invalid name in row {row_num}")
+               if not validate_email(row['Email']):
+                   errors.append(f"Invalid email in row {row_num}")
+               if not validate_age(row['Age']):
+                   errors.append(f"Invalid age in row {row_num}")
+               
+               if errors:
+                   invalid_records.append(row)
+                   error_log.extend(errors)
+               else:
+                   valid_records.append(row)
+       
+       return valid_records, invalid_records, error_log
+   ```
+9. scriptsフォルダ内に「backup_manager.py」ファイルを作成し、以下のコードを保存する：
+   ```python
+   import shutil
+   import datetime
+   import os
+   
+   def create_backup(source_file, backup_dir):
+       timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+       filename = os.path.basename(source_file)
+       backup_filename = f"{timestamp}_{filename}"
+       backup_path = os.path.join(backup_dir, backup_filename)
+       
+       try:
+           shutil.copy2(source_file, backup_path)
+           return backup_path
+       except Exception as e:
+           return f"Backup failed: {str(e)}"
+   
+   def restore_from_backup(backup_file, target_path):
+       try:
+           shutil.copy2(backup_file, target_path)
+           return f"Restored successfully to {target_path}"
+       except Exception as e:
+           return f"Restore failed: {str(e)}"
+   ```
+10. scriptsディレクトリに移動し、data_validator.pyを実行してcustomers.csvを検証する
+11. 検証結果から有効なレコードのみを「../validation/valid_customers.csv」ファイルに保存する
+12. 無効なレコードを「../validation/invalid_customers.csv」ファイルに保存する
+13. エラーログを「../logs/validation_errors.txt」ファイルに保存する
+14. backup_manager.pyを使用して元のcustomers.csvのバックアップを作成し、backupフォルダに保存する
+15. 有効なレコード数を計算し、「../logs/validation_summary.txt」ファイルに以下の形式で保存する：
+    「Validation Summary\nTotal Records: [総数]\nValid Records: [有効数]\nInvalid Records: [無効数]\nValidation Date: [実行日時]」
+16. validationフォルダ内に「data_quality_report.txt」ファイルを作成し、各検証項目の詳細結果を保存する
+17. scriptsフォルダ内に「recovery_test.py」ファイルを作成し、以下のコードを保存する：
+    ```python
+    import os
+    from backup_manager import create_backup, restore_from_backup
+    
+    def test_recovery_process():
+        # テスト用の一時ファイルを作成
+        test_file = "../data/test_recovery.txt"
+        with open(test_file, 'w') as f:
+            f.write("Test data for recovery")
+        
+        # バックアップ作成
+        backup_path = create_backup(test_file, "../backup")
+        print(f"Backup created: {backup_path}")
+        
+        # 元ファイルを変更
+        with open(test_file, 'w') as f:
+            f.write("Modified data")
+        
+        # リストア実行
+        restore_result = restore_from_backup(backup_path, test_file)
+        print(f"Restore result: {restore_result}")
+        
+        return "Recovery test completed"
+    
+    if __name__ == "__main__":
+        result = test_recovery_process()
+        with open("../logs/recovery_test_log.txt", 'w') as f:
+            f.write(result)
+    ```
+18. recovery_test.pyを実行し、バックアップ・リストア機能をテストする
+19. 全ての処理が正常に完了したかを確認し、「../logs/system_status.txt」ファイルに以下の形式で状態を記録する：
+    「System Status Report\nData Validation: [Complete/Failed]\nBackup Creation: [Complete/Failed]\nRecovery Test: [Complete/Failed]\nOverall Status: [Success/Failure]」
+20. logsフォルダ内の全ログファイルを確認し、エラーハンドリングが正しく動作したことを検証する
+21. validationフォルダ内の有効データファイルから平均年齢を計算し、「../validation/statistics.txt」ファイルに保存する
+22. 作成された全てのバックアップファイルの一覧を「../logs/backup_inventory.txt」ファイルに保存する
+23. customer_databaseのルートに「system_documentation.txt」ファイルを作成し、システムの構成要素と実行結果をまとめる
+24. 不正データの修正版「customers_corrected.csv」をdataフォルダに作成し、手動で修正したデータを保存する（ID002のメールアドレスを正しく修正、ID003の年齢を30に修正、ID004の名前を\"Yamada Saburo\"に修正）
+25. 全ファイルの存在確認と処理結果の最終検証を実行し、エラー処理を含むシステムが正常に動作したことを確認する

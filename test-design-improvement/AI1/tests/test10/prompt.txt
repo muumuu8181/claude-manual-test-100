@@ -1,0 +1,37 @@
+Test 10: Complex Inventory Management and Cross-Analysis
+
+Instructions:
+Complete this inventory management workflow through individual processing steps:
+
+1. Create "products.txt" with: Laptop|500|25, Mouse|35|150, Keyboard|75|80, Monitor|250|40, Printer|180|30
+2. Create "suppliers.txt" with: TechSupply|Laptop,Monitor, OfficeWorld|Mouse,Keyboard,Printer, GlobalTech|Laptop,Printer
+3. Create "orders.txt" with: Order001|Laptop|5|2024-01-15, Order002|Mouse|20|2024-01-16, Order003|Monitor|3|2024-01-17
+4. Extract each product individually: create "laptop.txt", "mouse.txt", "keyboard.txt", "monitor.txt", "printer.txt"
+5. Calculate inventory value for each product (price × quantity): save to individual "value_*" files
+6. Find which supplier supplies each product: create "supplier_laptop.txt", "supplier_mouse.txt", etc.
+7. Process each order individually: calculate order totals and save to "order001_total.txt", "order002_total.txt", "order003_total.txt"
+8. Update inventory quantities after processing orders: create "updated_laptop.txt", "updated_mouse.txt", "updated_monitor.txt"
+9. Calculate new inventory values after orders: create "new_value_laptop.txt", "new_value_mouse.txt", "new_value_monitor.txt"
+10. Find products with inventory below 50 units: save list to "low_stock.txt"
+11. Find products with inventory above 100 units: save list to "high_stock.txt"
+12. Calculate total inventory value before orders: save to "total_value_before.txt"
+13. Calculate total inventory value after orders: save to "total_value_after.txt"
+14. Identify which suppliers have products in low stock: save to "suppliers_low_stock.txt"
+15. Create reorder recommendations for low stock items: save to "reorder_recommendations.txt"
+16. Calculate total value of all processed orders: save to "total_orders_value.txt"
+17. Analyze which products were not ordered: save to "products_not_ordered.txt"
+18. Find the highest value product in inventory: save to "highest_value_product.txt"
+19. Find the lowest value product in inventory: save to "lowest_value_product.txt"
+20. Create "inventory_analysis_report.txt" with comprehensive analysis
+21. Create "supplier_analysis.txt" analyzing supplier relationships
+22. Create "order_fulfillment_report.txt" showing order processing results
+23. Generate "stock_level_warnings.txt" for management attention
+24. Create "inventory_optimization.txt" with suggestions for improvement
+25. Produce final "executive_summary.txt" with key findings and recommendations
+
+Requirements:
+- Process each product, supplier, and order individually
+- Calculate all values manually without automation
+- Cross-reference data by reading files individually
+- Create each analysis file separately
+- Verify all calculations and cross-references manually

@@ -1,0 +1,3 @@
+このフォルダの文書読んで、テストのレベル用意できそうかな？　C:\Users\user\Desktop\work\90_cc\20
+  250812\claude-manual-test
+    -100\test-design-improvement　君はAI-x

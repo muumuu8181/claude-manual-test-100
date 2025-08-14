@@ -1,0 +1,77 @@
+{
+  "final_result": 78592.76829,
+  "intermediate_values": [
+    {
+      "iteration": 10,
+      "numerator": 53888.0,
+      "denominator": 384.0,
+      "term_value": 140.333333333333,
+      "cumulative_sum": 723.366955266955
+    },
+    {
+      "iteration": 20,
+      "numerator": 210048.0,
+      "denominator": 704.0,
+      "term_value": 298.363636363636,
+      "cumulative_sum": 2993.9222890113
+    },
+    {
+      "iteration": 30,
+      "numerator": 468608.0,
+      "denominator": 1024.0,
+      "term_value": 457.625,
+      "cumulative_sum": 6853.04175016271
+    },
+    {
+      "iteration": 40,
+      "numerator": 829568.0,
+      "denominator": 1344.0,
+      "term_value": 617.238095238095,
+      "cumulative_sum": 12306.9906259457
+    },
+    {
+      "iteration": 50,
+      "numerator": 1292928.0,
+      "denominator": 1664.0,
+      "term_value": 777.0,
+      "cumulative_sum": 19357.9782854362
+    },
+    {
+      "iteration": 60,
+      "numerator": 1858688.0,
+      "denominator": 1984.0,
+      "term_value": 936.838709677419,
+      "cumulative_sum": 28007.0444301674
+    },
+    {
+      "iteration": 70,
+      "numerator": 2526848.0,
+      "denominator": 2304.0,
+      "term_value": 1096.72222222222,
+      "cumulative_sum": 38254.7621279857
+    },
+    {
+      "iteration": 80,
+      "numerator": 3297408.0,
+      "denominator": 2624.0,
+      "term_value": 1256.63414634146,
+      "cumulative_sum": 50101.4810441553
+    },
+    {
+      "iteration": 90,
+      "numerator": 4170368.0,
+      "denominator": 2944.0,
+      "term_value": 1416.5652173913,
+      "cumulative_sum": 63547.4303173108
+    },
+    {
+      "iteration": 100,
+      "numerator": 5145728.0,
+      "denominator": 3264.0,
+      "term_value": 1576.50980392157,
+      "cumulative_sum": 78592.768286324
+    }
+  ],
+  "execution_time_ms": 0.0,
+  "total_iterations": 100
+}

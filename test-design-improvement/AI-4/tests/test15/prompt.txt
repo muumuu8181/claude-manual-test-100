@@ -1,0 +1,136 @@
+Test 15: Version Control Simulation with Branching
+
+You are tasked with implementing a comprehensive version control simulation system that manages complex branching strategies, merge conflict resolution, advanced commit tracking, rollback mechanisms, and sophisticated repository state management. This test evaluates your ability to handle intricate version control workflows with feature branches, hotfix procedures, tag management, and collaborative development patterns.
+
+**CRITICAL REQUIREMENTS:**
+1. Execute steps in exact sequential order (1 through 70)
+2. Maintain accurate branch state tracking and commit history
+3. Implement proper merge conflict detection and resolution mechanisms
+4. Handle complex multi-branch workflows with feature development and releases
+5. Use exact names, paths, and content as specified
+6. Do not optimize or combine steps with loops
+7. Pay careful attention to repository state management and branch synchronization
+
+**STEP-BY-STEP INSTRUCTIONS:**
+
+Step 1: Create a directory named "version_control_system"
+Step 2: Create a directory named "repositories" inside version_control_system
+Step 3: Create a directory named "main_repo" inside repositories
+Step 4: Create a directory named "branches" inside main_repo
+Step 5: Create a directory named "commits" inside main_repo
+Step 6: Create a directory named "tags" inside main_repo
+Step 7: Create a file named "repo_config.json" in main_repo with content: {"repo_name": "project_alpha", "default_branch": "main", "current_branch": "main", "total_commits": 0, "active_branches": ["main"], "merge_conflicts": [], "repository_state": "clean"}
+Step 8: Create a directory named "main" inside branches
+Step 9: Create a file named "README.md" in main with content: "# Project Alpha\nVersion Control Test Repository\n\nThis is the main branch of the project.\n\n## Features\n- Basic functionality\n- Core modules"
+Step 10: Create a file named "app.py" in main with content: "#!/usr/bin/env python3\n# Project Alpha - Main Application\n\nclass Application:\n    def __init__(self):\n        self.version = \"1.0.0\"\n        self.status = \"stable\"\n    \n    def run(self):\n        print(f\"Running Project Alpha v{self.version}\")"
+Step 11: Create a file named "config.yaml" in main with content: "# Project Alpha Configuration\nversion: 1.0.0\nenvironment: production\ndatabase:\n  host: localhost\n  port: 5432\nfeatures:\n  - core_module\n  - basic_auth"
+Step 12: Create a directory named "commit_001" inside commits
+Step 13: Create a file named "commit_metadata.json" in commit_001 with content: "{\n  \"commit_id\": \"abc123\",\n  \"timestamp\": \"step_13\",\n  \"branch\": \"main\",\n  \"message\": \"Initial commit - project setup\",\n  \"author\": \"developer_1\",\n  \"files_changed\": [\"README.md\", \"app.py\", \"config.yaml\"],\n  \"parent_commit\": null\n}"
+Step 14: Create a file named "diff_summary.txt" in commit_001 with content: "COMMIT: abc123 - Initial commit\n\nFiles Added:\n+ README.md (15 lines)\n+ app.py (10 lines)\n+ config.yaml (8 lines)\n\nTotal Changes: +33 lines, -0 lines"
+Step 15: Update repo_config.json: increment total_commits to 1 and set repository_state to "committed"
+Step 16: Create a directory named "feature_user_auth" inside branches
+Step 17: Create a file named "branch_metadata.json" in feature_user_auth with content: "{\n  \"branch_name\": \"feature/user-auth\",\n  \"created_from\": \"main\",\n  \"created_at\": \"step_17\",\n  \"author\": \"developer_2\",\n  \"status\": \"active\",\n  \"commits\": [],\n  \"merge_target\": \"main\"\n}"
+Step 18: Copy README.md from main to feature_user_auth
+Step 19: Copy app.py from main to feature_user_auth
+Step 20: Copy config.yaml from main to feature_user_auth
+Step 21: Update repo_config.json: add "feature/user-auth" to active_branches and set current_branch to "feature/user-auth"
+Step 22: Edit app.py in feature_user_auth: append "\n\n    def authenticate(self, username, password):\n        # User authentication logic\n        return username == \"admin\" and password == \"secret\""
+Step 23: Edit config.yaml in feature_user_auth: append "\n  - user_authentication" to the features list
+Step 24: Create a directory named "commit_002" inside commits
+Step 25: Create a file named "commit_metadata.json" in commit_002 with content: "{\n  \"commit_id\": \"def456\",\n  \"timestamp\": \"step_25\",\n  \"branch\": \"feature/user-auth\",\n  \"message\": \"Add user authentication feature\",\n  \"author\": \"developer_2\",\n  \"files_changed\": [\"app.py\", \"config.yaml\"],\n  \"parent_commit\": \"abc123\"\n}"
+Step 26: Create a file named "diff_summary.txt" in commit_002 with content: "COMMIT: def456 - Add user authentication\n\nFiles Modified:\n~ app.py (+3 lines)\n~ config.yaml (+1 line)\n\nTotal Changes: +4 lines, -0 lines"
+Step 27: Update branch_metadata.json in feature_user_auth: add "def456" to commits array
+Step 28: Update repo_config.json: increment total_commits to 2
+Step 29: Create a directory named "hotfix_security" inside branches
+Step 30: Create a file named "branch_metadata.json" in hotfix_security with content: "{\n  \"branch_name\": \"hotfix/security-patch\",\n  \"created_from\": \"main\",\n  \"created_at\": \"step_30\",\n  \"author\": \"developer_1\",\n  \"status\": \"active\",\n  \"commits\": [],\n  \"merge_target\": \"main\",\n  \"priority\": \"critical\"\n}"
+Step 31: Copy README.md from main to hotfix_security
+Step 32: Copy app.py from main to hotfix_security
+Step 33: Copy config.yaml from main to hotfix_security
+Step 34: Edit app.py in hotfix_security: insert "import hashlib\n" at the beginning and append "\n\n    def secure_hash(self, data):\n        # Security enhancement\n        return hashlib.sha256(data.encode()).hexdigest()"
+Step 35: Update repo_config.json: add "hotfix/security-patch" to active_branches
+Step 36: Create a directory named "commit_003" inside commits
+Step 37: Create a file named "commit_metadata.json" in commit_003 with content: "{\n  \"commit_id\": \"ghi789\",\n  \"timestamp\": \"step_37\",\n  \"branch\": \"hotfix/security-patch\",\n  \"message\": \"Critical security patch - add data hashing\",\n  \"author\": \"developer_1\",\n  \"files_changed\": [\"app.py\"],\n  \"parent_commit\": \"abc123\"\n}"
+Step 38: Create a file named "diff_summary.txt" in commit_003 with content: "COMMIT: ghi789 - Security patch\n\nFiles Modified:\n~ app.py (+1 import, +3 lines method)\n\nTotal Changes: +4 lines, -0 lines"
+Step 39: Update branch_metadata.json in hotfix_security: add "ghi789" to commits array
+Step 40: Update repo_config.json: increment total_commits to 3 and set current_branch to "hotfix/security-patch"
+Step 41: Create a directory named "merge_operations" inside version_control_system
+Step 42: Create a file named "merge_plan.json" in merge_operations with content: "{\n  \"merge_sequence\": [\n    {\"priority\": 1, \"source\": \"hotfix/security-patch\", \"target\": \"main\", \"type\": \"fast_forward\"},\n    {\"priority\": 2, \"source\": \"feature/user-auth\", \"target\": \"main\", \"type\": \"three_way_merge\"}\n  ],\n  \"conflict_detection\": true\n}"
+Step 43: Create a directory named "merge_hotfix_to_main" inside merge_operations
+Step 44: Create a file named "merge_analysis.json" in merge_hotfix_to_main with content: "{\n  \"source_branch\": \"hotfix/security-patch\",\n  \"target_branch\": \"main\",\n  \"merge_base\": \"abc123\",\n  \"conflicts_detected\": false,\n  \"merge_type\": \"fast_forward\",\n  \"files_to_merge\": [\"app.py\"]\n}"
+Step 45: Copy app.py from hotfix_security to main (overwriting the original)
+Step 46: Create a file named "merge_commit.json" in merge_hotfix_to_main with content: "{\n  \"merge_commit_id\": \"jkl012\",\n  \"timestamp\": \"step_46\",\n  \"source_commit\": \"ghi789\",\n  \"target_branch\": \"main\",\n  \"merge_strategy\": \"fast_forward\",\n  \"status\": \"completed\"\n}"
+Step 47: Update repo_config.json: increment total_commits to 4 and set current_branch to "main"
+Step 48: Create a directory named "merge_feature_to_main" inside merge_operations
+Step 49: Create a file named "merge_analysis.json" in merge_feature_to_main with content: "{\n  \"source_branch\": \"feature/user-auth\",\n  \"target_branch\": \"main\",\n  \"merge_base\": \"abc123\",\n  \"conflicts_detected\": true,\n  \"merge_type\": \"three_way_merge\",\n  \"conflicted_files\": [\"app.py\"],\n  \"conflict_markers\": true\n}"
+Step 50: Create a directory named "conflict_resolution" inside merge_feature_to_main
+Step 51: Create a file named "app.py.conflict" in conflict_resolution with content: "#!/usr/bin/env python3\n# Project Alpha - Main Application\nimport hashlib\n\nclass Application:\n    def __init__(self):\n        self.version = \"1.0.0\"\n        self.status = \"stable\"\n    \n    def run(self):\n        print(f\"Running Project Alpha v{self.version}\")\n\n<<<<<<< HEAD (main)\n    def secure_hash(self, data):\n        # Security enhancement\n        return hashlib.sha256(data.encode()).hexdigest()\n=======\n    def authenticate(self, username, password):\n        # User authentication logic\n        return username == \"admin\" and password == \"secret\"\n>>>>>>> feature/user-auth"
+Step 52: Create a file named "app.py.resolved" in conflict_resolution with content: "#!/usr/bin/env python3\n# Project Alpha - Main Application\nimport hashlib\n\nclass Application:\n    def __init__(self):\n        self.version = \"1.0.0\"\n        self.status = \"stable\"\n    \n    def run(self):\n        print(f\"Running Project Alpha v{self.version}\")\n\n    def secure_hash(self, data):\n        # Security enhancement\n        return hashlib.sha256(data.encode()).hexdigest()\n\n    def authenticate(self, username, password):\n        # User authentication logic\n        return username == \"admin\" and password == \"secret\""
+Step 53: Copy app.py.resolved to main as app.py (overwriting)
+Step 54: Copy config.yaml from feature_user_auth to main (overwriting to include user_authentication feature)
+Step 55: Create a file named "conflict_resolution.log" in conflict_resolution with content: "MERGE CONFLICT RESOLUTION\nFile: app.py\nConflict Type: Method addition conflict\nResolution Strategy: Manual merge - keep both methods\nResolved By: developer_1\nTimestamp: step_55"
+Step 56: Create a directory named "commit_004" inside commits
+Step 57: Create a file named "commit_metadata.json" in commit_004 with content: "{\n  \"commit_id\": \"mno345\",\n  \"timestamp\": \"step_57\",\n  \"branch\": \"main\",\n  \"message\": \"Merge feature/user-auth into main - resolve conflicts\",\n  \"author\": \"developer_1\",\n  \"files_changed\": [\"app.py\", \"config.yaml\"],\n  \"parent_commits\": [\"jkl012\", \"def456\"],\n  \"merge_commit\": true\n}"
+Step 58: Create a file named "diff_summary.txt" in commit_004 with content: "MERGE COMMIT: mno345 - Feature merge with conflict resolution\n\nFiles Modified:\n~ app.py (+3 lines authenticate method)\n~ config.yaml (+1 line feature)\n\nConflicts Resolved: 1 (app.py method conflict)\nTotal Changes: +4 lines, -0 lines"
+Step 59: Update repo_config.json: increment total_commits to 5 and add conflict resolution to merge_conflicts with details
+Step 60: Create a directory named "v1.1.0" inside tags
+Step 61: Create a file named "tag_metadata.json" in v1.1.0 with content: "{\n  \"tag_name\": \"v1.1.0\",\n  \"commit_id\": \"mno345\",\n  \"timestamp\": \"step_61\",\n  \"tagger\": \"developer_1\",\n  \"message\": \"Release v1.1.0 - User authentication and security patches\",\n  \"tag_type\": \"annotated\"\n}"
+Step 62: Copy README.md from main to v1.1.0
+Step 63: Copy app.py from main to v1.1.0
+Step 64: Copy config.yaml from main to v1.1.0
+Step 65: Edit README.md in v1.1.0: update version to "Version 1.1.0" and add "- User authentication\n- Security enhancements" to features
+Step 66: Update repo_config.json: add "v1.1.0" to a new array field called "tags" and set repository_state to "tagged"
+Step 67: Create a directory named "rollback_simulation" inside version_control_system
+Step 68: Create a file named "rollback_plan.json" in rollback_simulation with content: "{\n  \"rollback_target\": \"abc123\",\n  \"rollback_reason\": \"Critical bug discovered in authentication\",\n  \"affected_branches\": [\"main\"],\n  \"backup_current_state\": true,\n  \"rollback_strategy\": \"hard_reset\"\n}"
+Step 69: Create a directory named "repository_backup" inside rollback_simulation
+Step 70: Create a file named "version_control_summary.txt" in version_control_system with content: "VERSION CONTROL SYSTEM SIMULATION COMPLETE\n\nRepository: project_alpha\nTotal Commits: 5\nActive Branches: 3 (main, feature/user-auth, hotfix/security-patch)\nMerge Operations: 2 (1 fast-forward, 1 three-way with conflicts)\nConflicts Resolved: 1\nTags Created: 1 (v1.1.0)\nCurrent State: main branch at commit mno345\nRepository Status: Clean and tagged\n\nFeatures Implemented:\n- Initial project setup\n- User authentication system\n- Security enhancements\n- Conflict resolution workflow\n- Release tagging\n\nFinal Status: SUCCESS"
+
+**EXPECTED FINAL STRUCTURE:**
+```
+├── version_control_system/
+│   ├── version_control_summary.txt
+│   ├── repositories/
+│   │   └── main_repo/
+│   │       ├── repo_config.json (final state)
+│   │       ├── branches/
+│   │       │   ├── main/
+│   │       │   │   ├── README.md (final merged state)
+│   │       │   │   ├── app.py (with both security and auth methods)
+│   │       │   │   └── config.yaml (with user_authentication feature)
+│   │       │   ├── feature_user_auth/
+│   │       │   │   ├── branch_metadata.json
+│   │       │   │   ├── README.md
+│   │       │   │   ├── app.py (with auth method)
+│   │       │   │   └── config.yaml (with auth feature)
+│   │       │   └── hotfix_security/
+│   │       │       ├── branch_metadata.json
+│   │       │       ├── README.md
+│   │       │       ├── app.py (with security method)
+│   │       │       └── config.yaml
+│   │       ├── commits/
+│   │       │   ├── commit_001/ (initial)
+│   │       │   ├── commit_002/ (auth feature)
+│   │       │   ├── commit_003/ (security patch)
+│   │       │   └── commit_004/ (merge commit)
+│   │       └── tags/
+│   │           └── v1.1.0/
+│   │               ├── tag_metadata.json
+│   │               ├── README.md (v1.1.0)
+│   │               ├── app.py (final merged)
+│   │               └── config.yaml (final merged)
+│   ├── merge_operations/
+│   │   ├── merge_plan.json
+│   │   ├── merge_hotfix_to_main/
+│   │   │   ├── merge_analysis.json
+│   │   │   └── merge_commit.json
+│   │   └── merge_feature_to_main/
+│   │       ├── merge_analysis.json
+│   │       └── conflict_resolution/
+│   │           ├── app.py.conflict
+│   │           ├── app.py.resolved
+│   │           └── conflict_resolution.log
+│   └── rollback_simulation/
+│       ├── rollback_plan.json
+│       └── repository_backup/
+```
+
+Complete all 70 steps, maintaining accurate branch state tracking, implementing proper merge conflict detection and resolution, handling complex multi-branch workflows, and ensuring all version control operations are properly logged and tracked.

@@ -1,0 +1,37 @@
+Test 11: Financial Data Processing and Audit Trail
+
+Instructions:
+Complete this financial processing workflow with detailed audit requirements:
+
+1. Create "transactions.txt" with: T001|Income|Sales|5000|2024-01-15, T002|Expense|Rent|2000|2024-01-16, T003|Income|Services|3200|2024-01-17, T004|Expense|Utilities|800|2024-01-18, T005|Income|Products|4100|2024-01-19, T006|Expense|Supplies|1200|2024-01-20
+2. Create "accounts.txt" with: Sales|Revenue|Active, Services|Revenue|Active, Products|Revenue|Active, Rent|Expense|Active, Utilities|Expense|Active, Supplies|Expense|Active
+3. Extract each transaction individually: create "t001.txt" through "t006.txt" with full transaction details
+4. Categorize transactions: create "income_transactions.txt" and "expense_transactions.txt"
+5. Calculate total for each account: create "sales_total.txt", "services_total.txt", "products_total.txt", "rent_total.txt", "utilities_total.txt", "supplies_total.txt"
+6. Process each income transaction: create detailed analysis files "income_analysis_001.txt", "income_analysis_003.txt", "income_analysis_005.txt"
+7. Process each expense transaction: create detailed analysis files "expense_analysis_002.txt", "expense_analysis_004.txt", "expense_analysis_006.txt"
+8. Calculate daily balances: create "balance_2024-01-15.txt" through "balance_2024-01-20.txt"
+9. Generate account summaries: create "revenue_summary.txt" and "expense_summary.txt"
+10. Calculate net income by date: create "net_2024-01-15.txt" through "net_2024-01-20.txt"
+11. Identify highest income transaction: save to "highest_income.txt"
+12. Identify highest expense transaction: save to "highest_expense.txt"
+13. Calculate total revenue across all income accounts: save to "total_revenue.txt"
+14. Calculate total expenses across all expense accounts: save to "total_expenses.txt"
+15. Calculate overall net income: save to "net_income.txt"
+16. Create monthly cash flow analysis: save to "cash_flow_analysis.txt"
+17. Generate variance analysis comparing budgeted vs actual (assume budget: Revenue 12000, Expenses 4500): save to "variance_report.txt"
+18. Create account reconciliation for each account: save to individual "reconciliation_*" files
+19. Generate audit trail showing all transaction processing steps: save to "audit_trail.txt"
+20. Create financial ratios analysis: save to "financial_ratios.txt"
+21. Identify any unusual transactions (>3000 or specific patterns): save to "unusual_transactions.txt"
+22. Create period-end closing entries recommendations: save to "closing_entries.txt"
+23. Generate management dashboard data: save to "dashboard_data.txt"
+24. Create compliance check report: save to "compliance_report.txt"
+25. Produce comprehensive financial statement: save to "financial_statement.txt"
+
+Requirements:
+- Process each transaction individually with full audit trail
+- Calculate all financial metrics manually
+- Cross-reference accounts and transactions individually
+- Create detailed analysis for each financial component
+- Maintain complete documentation of all processing steps

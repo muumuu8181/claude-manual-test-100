@@ -1,0 +1,20 @@
+Test 2: Data Processing and Calculation
+
+Instructions:
+Perform these calculations and file operations individually:
+
+1. Create a file named "numbers.txt" containing the values: 15, 23, 7, 89, 34 (one per line)
+2. Read the first number (15) and multiply it by 3, save result to "calc1.txt"
+3. Read the second number (23) and add 17 to it, save result to "calc2.txt"
+4. Read the third number (7) and calculate 7^2, save result to "calc3.txt"
+5. Read the fourth number (89) and subtract 25 from it, save result to "calc4.txt"
+6. Read the fifth number (34) and divide it by 2, save result to "calc5.txt"
+7. Create a file "summary.txt" that contains the text "Calculations completed for 5 numbers"
+8. Read all calc files and manually sum their results, save the total to "total.txt"
+9. Create a verification file "check.txt" containing the original numbers and their corresponding results
+
+Requirements:
+- Perform each calculation individually (no loops or scripts)
+- Read each number separately from the source file
+- Save each calculation result to its own file
+- Manually verify calculations before saving

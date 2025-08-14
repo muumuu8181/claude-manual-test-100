@@ -1,0 +1,25 @@
+Test 8: Document Archive with Cross-References
+
+Complete the following steps in order:
+
+1. Create a folder named "document_archive"
+2. Create a folder named "2023" inside document_archive
+3. Create a folder named "2024" inside document_archive
+4. Create a file named "report_jan.txt" in the 2023 folder
+5. Write "January 2023 Report: Sales data" to report_jan.txt
+6. Create a file named "report_feb.txt" in the 2023 folder
+7. Write "February 2023 Report: Marketing data" to report_feb.txt
+8. Create a file named "report_jan.txt" in the 2024 folder
+9. Write "January 2024 Report: Updated sales methodology" to this report_jan.txt
+10. Create a file named "index_2023.txt" in the 2023 folder
+11. Write "Archive index for 2023:" to index_2023.txt
+12. Append "report_jan.txt - January sales" to index_2023.txt
+13. Append "report_feb.txt - February marketing" to index_2023.txt
+14. Create a file named "index_2024.txt" in the 2024 folder
+15. Write "Archive index for 2024:" to index_2024.txt
+16. Append "report_jan.txt - Updated methodology" to index_2024.txt
+17. Create a file named "master_index.txt" in document_archive
+18. Write "Master document index:" to master_index.txt
+19. Append "2023: 2 reports" to master_index.txt
+20. Append "2024: 1 report" to master_index.txt
+21. Append "Cross-reference: Compare Jan reports between years" to master_index.txt

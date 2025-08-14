@@ -1,0 +1,51 @@
+You are tasked with performing rename operations that affect later file placement and referencing. This test focuses on how renaming operations create dependencies for subsequent steps.
+
+**CRITICAL REQUIREMENTS:**
+1. Execute steps in exact sequential order (1 through 18)
+2. Track renamed items carefully as later steps reference them by their new names
+3. Use exact names as specified after each rename
+4. Do not optimize or combine steps with loops
+5. Pay attention to which name to use in later references
+
+**STEP-BY-STEP INSTRUCTIONS:**
+
+Step 1: Create a file named "original_file.txt"
+Step 2: Create a file named "temp_data.txt"
+Step 3: Create a file named "backup_file.txt"
+Step 4: Rename "original_file.txt" to "renamed_file.txt"
+Step 5: Create a directory named "storage"
+Step 6: Move "renamed_file.txt" into the "storage" directory
+Step 7: Create a file named "config.txt" inside the "storage" directory
+Step 8: Rename "temp_data.txt" to "processed_data.txt"
+Step 9: Create a directory named "archive"
+Step 10: Move "backup_file.txt" into the "archive" directory
+Step 11: Rename the file in "archive" directory from "backup_file.txt" to "old_backup.txt"
+Step 12: Create a file named "index.txt" inside the "archive" directory
+Step 13: Move "processed_data.txt" into the "storage" directory
+Step 14: Rename "processed_data.txt" in the "storage" directory to "final_data.txt"
+Step 15: Create a file named "log.txt" inside the "storage" directory
+Step 16: Create a directory named "completed" inside the "storage" directory
+Step 17: Move "final_data.txt" from "storage" to "storage/completed"
+Step 18: Rename "final_data.txt" in "storage/completed" to "archived_data.txt"
+
+**NAMING TRACKING NOTES:**
+- After Step 4: "original_file.txt" is now called "renamed_file.txt"
+- After Step 8: "temp_data.txt" is now called "processed_data.txt"
+- After Step 11: "backup_file.txt" in archive is now called "old_backup.txt"
+- After Step 14: "processed_data.txt" in storage is now called "final_data.txt"
+- After Step 18: "final_data.txt" in storage/completed is now called "archived_data.txt"
+
+**EXPECTED FINAL STRUCTURE:**
+```
+├── storage/
+│   ├── renamed_file.txt
+│   ├── config.txt
+│   ├── log.txt
+│   └── completed/
+│       └── archived_data.txt
+└── archive/
+    ├── old_backup.txt
+    └── index.txt
+```
+
+Complete all 18 steps, paying careful attention to use current (renamed) names when referencing files in later operations.

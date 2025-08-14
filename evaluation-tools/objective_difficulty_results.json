@@ -1,0 +1,137 @@
+[
+  {
+    "test_folder": "test1",
+    "difficulty_score": 15.75,
+    "factors": {
+      "file_count_requested": 0,
+      "folder_count_requested": 2,
+      "file_types_score": 1,
+      "math_complexity_score": 0,
+      "system_complexity_score": 0,
+      "precision_requirements_score": 0,
+      "text_length": 269,
+      "instruction_count": 4
+    },
+    "calculated_at": "2025-08-13T17:33:13.732464"
+  },
+  {
+    "test_folder": "test2",
+    "difficulty_score": 48.3,
+    "factors": {
+      "file_count_requested": 0,
+      "folder_count_requested": 2,
+      "file_types_score": 12,
+      "math_complexity_score": 0,
+      "system_complexity_score": 0,
+      "precision_requirements_score": 8,
+      "text_length": 579,
+      "instruction_count": 5
+    },
+    "calculated_at": "2025-08-13T17:33:13.735017"
+  },
+  {
+    "test_folder": "test2-v2",
+    "difficulty_score": 48.3,
+    "factors": {
+      "file_count_requested": 0,
+      "folder_count_requested": 2,
+      "file_types_score": 12,
+      "math_complexity_score": 0,
+      "system_complexity_score": 0,
+      "precision_requirements_score": 8,
+      "text_length": 579,
+      "instruction_count": 5
+    },
+    "calculated_at": "2025-08-13T17:33:13.735017"
+  },
+  {
+    "test_folder": "test2-v3",
+    "difficulty_score": 48.3,
+    "factors": {
+      "file_count_requested": 0,
+      "folder_count_requested": 2,
+      "file_types_score": 12,
+      "math_complexity_score": 0,
+      "system_complexity_score": 0,
+      "precision_requirements_score": 8,
+      "text_length": 579,
+      "instruction_count": 5
+    },
+    "calculated_at": "2025-08-13T17:33:13.737646"
+  },
+  {
+    "test_folder": "test3",
+    "difficulty_score": 125.77,
+    "factors": {
+      "file_count_requested": 0,
+      "folder_count_requested": 3,
+      "file_types_score": 14,
+      "math_complexity_score": 17,
+      "system_complexity_score": 0,
+      "precision_requirements_score": 28,
+      "text_length": 1174,
+      "instruction_count": 7
+    },
+    "calculated_at": "2025-08-13T17:33:13.739293"
+  },
+  {
+    "test_folder": "test4",
+    "difficulty_score": 197.53,
+    "factors": {
+      "file_count_requested": 0,
+      "folder_count_requested": 9,
+      "file_types_score": 17,
+      "math_complexity_score": 35,
+      "system_complexity_score": 0,
+      "precision_requirements_score": 36,
+      "text_length": 1887,
+      "instruction_count": 9
+    },
+    "calculated_at": "2025-08-13T17:33:13.742658"
+  },
+  {
+    "test_folder": "test5",
+    "difficulty_score": 420.87,
+    "factors": {
+      "file_count_requested": 5,
+      "folder_count_requested": 23,
+      "file_types_score": 34,
+      "math_complexity_score": 89,
+      "system_complexity_score": 18,
+      "precision_requirements_score": 56,
+      "text_length": 3054,
+      "instruction_count": 11
+    },
+    "calculated_at": "2025-08-13T17:33:13.747674"
+  },
+  {
+    "test_folder": "test6",
+    "difficulty_score": 857.81,
+    "factors": {
+      "file_count_requested": 76,
+      "folder_count_requested": 31,
+      "file_types_score": 30,
+      "math_complexity_score": 104,
+      "system_complexity_score": 123,
+      "precision_requirements_score": 106.0,
+      "text_length": 4883,
+      "instruction_count": 13
+    },
+    "calculated_at": "2025-08-13T17:33:13.753214"
+  },
+  {
+    "test_folder": "test7",
+    "difficulty_score": 259.12,
+    "factors": {
+      "file_count_requested": 7,
+      "folder_count_requested": 21,
+      "file_types_score": 21,
+      "math_complexity_score": 66,
+      "system_complexity_score": 0,
+      "precision_requirements_score": 10,
+      "text_length": 2563,
+      "instruction_count": 12
+    },
+    "calculated_at": "2025-08-13T17:33:13.757325"
+  }
+]

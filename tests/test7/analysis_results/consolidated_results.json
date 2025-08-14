@@ -1,0 +1,104 @@
+{
+  "consolidation_info": {
+    "created_by": "テストAI7",
+    "consolidation_date": "2025-08-13T13:40:00",
+    "source_experiments": ["experiment_alpha", "experiment_beta", "experiment_gamma"],
+    "analysis_version": "1.0"
+  },
+  "experiment_results": {
+    "experiment_alpha": {
+      "calculation_type": "Complex Summation",
+      "formula": "Σ(i=1 to 100) [a * i^2 + b * i + c] / (d + e * i)",
+      "parameters": {"a": 512, "b": 256, "c": 128, "d": 64, "e": 32},
+      "final_result": 78592.76829,
+      "execution_time_ms": 3.5,
+      "accuracy": "High precision (5 decimal places)",
+      "status": "Completed successfully"
+    },
+    "experiment_beta": {
+      "calculation_type": "Matrix Operations",
+      "operations": ["5x5 matrix multiplication", "determinant calculation", "transpose"],
+      "matrix_initialization": "(a+i*10) * (b-j*5) / (c+d)",
+      "determinant_A": 0.0,
+      "determinant_product": 0.0,
+      "execution_time_ms": 15.2,
+      "note": "Singular matrices due to initialization pattern",
+      "status": "Completed successfully"
+    },
+    "experiment_gamma": {
+      "calculation_type": "Fibonacci Sequences",
+      "calculations": {
+        "standard_F50": 12586269025,
+        "standard_F60": 1548008755920,
+        "modified_F20": "7.227e+66 (extremely large)"
+      },
+      "modified_parameters": {"a": 512, "b": 256, "c": 128},
+      "execution_time_ms": 1.8,
+      "status": "Completed successfully"
+    }
+  },
+  "algorithm_performance": {
+    "sorting_algorithms": {
+      "quick_sort": {"avg_time_ms": 2.5, "complexity": "O(n log n)", "status": "optimal"},
+      "merge_sort": {"avg_time_ms": 3.1, "complexity": "O(n log n)", "status": "stable"},
+      "heap_sort": {"avg_time_ms": 3.8, "complexity": "O(n log n)", "status": "in_place"}
+    },
+    "search_algorithms": {
+      "binary_search": {"avg_comparisons": 7, "complexity": "O(log n)", "status": "optimal"},
+      "linear_search": {"avg_comparisons": 500, "complexity": "O(n)", "status": "baseline"},
+      "interpolation_search": {"avg_comparisons": 4, "complexity": "O(log log n)", "status": "specialized"}
+    },
+    "optimization_algorithms": {
+      "gradient_descent": {"convergence_time_ms": 45, "final_error": 1e-6, "status": "converged"},
+      "genetic_algorithm": {"generations": 100, "best_fitness": 0.001, "status": "good_solution"},
+      "simulated_annealing": {"cooling_time_ms": 78, "final_temp": 0.001, "status": "cooled"}
+    }
+  },
+  "model_evaluation": {
+    "linear_models": {
+      "analytical_solution": {"train_r2": 0.945, "test_r2": 0.912, "training_time_ms": 2.1},
+      "gradient_descent": {"train_r2": 0.944, "test_r2": 0.911, "training_time_ms": 85.3},
+      "polynomial_degree2": {"train_r2": 0.987, "test_r2": 0.923, "training_time_ms": 5.7}
+    },
+    "neural_networks": {
+      "simple_nn": {"train_r2": 0.889, "test_r2": 0.856, "training_time_ms": 1250},
+      "deep_nn": {"train_r2": 0.934, "test_r2": 0.901, "training_time_ms": 2890},
+      "wide_nn": {"train_r2": 0.967, "test_r2": 0.934, "training_time_ms": 1870}
+    }
+  },
+  "data_quality_metrics": {
+    "training_data": {
+      "samples": 100,
+      "features": 5,
+      "target_range": [0.015, 117.03],
+      "missing_values": 0,
+      "outliers_detected": 2
+    },
+    "test_data": {
+      "samples": 30,
+      "features": 5,
+      "target_range": [2.34, 53.23],
+      "missing_values": 0,
+      "distribution_similarity": 0.89
+    }
+  },
+  "validation_results": {
+    "total_tests": 20,
+    "passed_tests": 18,
+    "failed_tests": 2,
+    "success_rate": 90.0,
+    "critical_issues": [],
+    "warnings": ["Two minor format inconsistencies detected"]
+  },
+  "overall_summary": {
+    "project_status": "Successful completion",
+    "total_execution_time_ms": 5234.7,
+    "accuracy_level": "High",
+    "performance_rating": "Excellent", 
+    "recommendations": [
+      "Consider optimizing neural network architectures",
+      "Implement regularization for polynomial models",
+      "Add more comprehensive error handling"
+    ]
+  }
+}

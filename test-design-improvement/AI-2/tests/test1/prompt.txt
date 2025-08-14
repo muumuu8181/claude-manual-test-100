@@ -1,0 +1,7 @@
+以下の手順を順番通りに実行してください。各手順は個別に実行し、まとめて処理しないでください。
+
+1) work_folderという名前のフォルダを作成してください
+2) work_folderの中にdata.txtというファイルを作成してください
+3) data.txtに「Hello World」と書き込んでください（引用符は含めない）
+4) work_folderをproject_folderにリネームしてください
+5) project_folderの中にinfo.txtというファイルを作成してください

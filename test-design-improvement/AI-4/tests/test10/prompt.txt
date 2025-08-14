@@ -1,0 +1,76 @@
+Test 10: Data Processing with CSV and JSON Operations
+
+You are tasked with performing comprehensive data processing operations involving CSV and JSON files. This test evaluates your ability to handle data transformations, content manipulations, and format conversions with complex dependencies.
+
+**CRITICAL REQUIREMENTS:**
+1. Execute steps in exact sequential order (1 through 30)
+2. Handle data format conversions accurately
+3. Maintain data integrity across transformations
+4. Use exact names, paths, and content as specified
+5. Do not optimize or combine steps with loops
+6. Pay attention to content-dependent operations
+
+**STEP-BY-STEP INSTRUCTIONS:**
+
+Step 1: Create a directory named "data_workspace"
+Step 2: Create a file named "employees.csv" in data_workspace with content: "id,name,department,salary\n1,John Smith,Engineering,75000\n2,Jane Doe,Marketing,65000\n3,Bob Johnson,Sales,55000"
+Step 3: Create a file named "departments.json" in data_workspace with content: {"Engineering": {"budget": 500000, "head": "Alice"}, "Marketing": {"budget": 300000, "head": "Charlie"}, "Sales": {"budget": 250000, "head": "Diana"}}
+Step 4: Create a directory named "processed" inside data_workspace
+Step 5: Create a directory named "backup" inside data_workspace
+Step 6: Copy "employees.csv" to the backup directory
+Step 7: Read employees.csv and create a file named "employee_count.txt" in processed directory with content showing the number of employees (count the data rows, not header)
+Step 8: Create a file named "high_salary.csv" in processed directory with header "id,name,salary" and only employees with salary >= 65000
+Step 9: Create a directory named "json_output" inside processed
+Step 10: Read departments.json and create a file named "department_list.txt" in json_output with content listing each department name on a new line
+Step 11: Create a file named "total_budget.txt" in json_output showing the sum of all department budgets
+Step 12: Create a file named "department_heads.csv" in json_output with content: "department,head\nEngineering,Alice\nMarketing,Charlie\nSales,Diana"
+Step 13: Create a directory named "reports" inside data_workspace
+Step 14: Read high_salary.csv and create a file named "high_earners.txt" in reports with content listing names of high earners (one per line)
+Step 15: Create a file named "engineering_data.json" in reports with content: {"department": "Engineering", "employees": 1, "avg_salary": 75000}
+Step 16: Create a directory named "temp" inside data_workspace
+Step 17: Move "employee_count.txt" from processed to temp directory
+Step 18: Create a file named "summary.csv" in temp with content: "metric,value\ntotal_employees,3\nhigh_earners,2\ndepartments,3"
+Step 19: Read summary.csv and create a file named "metrics.json" in temp with JSON format: {"total_employees": 3, "high_earners": 2, "departments": 3}
+Step 20: Create a directory named "final" inside data_workspace
+Step 21: Copy "departments.json" to final directory and rename it to "original_departments.json"
+Step 22: Read original_departments.json in final directory and create "budget_report.txt" with content listing each department and its budget (format: "Department: Budget")
+Step 23: Create a file named "employee_summary.json" in final with content: {"total": 3, "by_department": {"Engineering": 1, "Marketing": 1, "Sales": 1}}
+Step 24: Move "high_salary.csv" from processed to final directory
+Step 25: Rename "high_salary.csv" in final to "top_performers.csv"
+Step 26: Create a directory named "archive" inside final
+Step 27: Move "summary.csv" from temp to final/archive
+Step 28: Create a file named "processing_log.txt" in final with content: "Data processing completed successfully\nFiles processed: employees.csv, departments.json\nOutput files: 15"
+Step 29: Read processing_log.txt and create "completion_status.json" in final with content: {"status": "completed", "files_processed": 2, "outputs_created": 15}
+Step 30: Create a file named "final_report.txt" in data_workspace with content: "All data processing operations completed successfully"
+
+**EXPECTED FINAL STRUCTURE:**
+```
+├── data_workspace/
+│   ├── final_report.txt (content: "All data processing operations completed successfully")
+│   ├── employees.csv (original data)
+│   ├── departments.json (original data)
+│   ├── backup/
+│   │   └── employees.csv (copy of original)
+│   ├── processed/
+│   │   └── json_output/
+│   │       ├── department_list.txt
+│   │       ├── total_budget.txt
+│   │       └── department_heads.csv
+│   ├── reports/
+│   │   ├── high_earners.txt
+│   │   └── engineering_data.json
+│   ├── temp/
+│   │   ├── employee_count.txt
+│   │   └── metrics.json
+│   └── final/
+│       ├── original_departments.json
+│       ├── budget_report.txt
+│       ├── employee_summary.json
+│       ├── top_performers.csv
+│       ├── processing_log.txt
+│       ├── completion_status.json
+│       └── archive/
+│           └── summary.csv
+```
+
+Complete all 30 steps, handling all data transformations and format conversions as specified.

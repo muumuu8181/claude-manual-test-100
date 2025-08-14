@@ -1,0 +1,104 @@
+【作業指示】
+1) 9個のフォルダを作成してください。
+   - research_project/
+   - research_project/algorithms/
+   - research_project/datasets/
+   - research_project/models/
+   - experiment_alpha/
+   - experiment_beta/
+   - experiment_gamma/
+   - analysis_results/
+   - validation_suite/
+
+2) 各experimentフォルダには以下の7つのファイルを作成：
+   - config.json（設定ファイル、JSON形式）
+   - input_data.csv（入力データ、CSV形式、最低10行）
+   - processing_script.py（処理スクリプト、実行可能なPythonコード）
+   - output_results.json（出力結果、JSON形式）
+   - metrics.txt（評価指標、テキスト形式）
+   - error_log.txt（エラーログ）
+   - summary.md（要約、Markdown形式）
+
+3) 以下の計算を各experimentで実施してください。
+   基本パラメータ: a=512, b=256, c=128, d=64, e=32
+   
+   experiment_alpha:
+   - 計算: Σ(i=1 to 100) [a * i^2 + b * i + c] / (d + e * i)
+   - 結果を小数点第5位まで記録
+   - 計算過程の中間値も10点ごとに記録
+   
+   experiment_beta:
+   - 計算: 行列演算 A[5x5] * B[5x5]の積と、その行列式
+   - 各要素は (a+i*10) * (b-j*5) / (c+d) で初期化
+   - 転置行列も計算して保存
+   
+   experiment_gamma:
+   - 計算: フィボナッチ数列のF(50)とF(60)を計算
+   - さらに F(n) = a*F(n-1) + b*F(n-2) + c の変形版でn=20まで計算
+   - 実行時間をミリ秒単位で測定
+
+4) research_project/algorithms/フォルダに以下のファイルを作成：
+   - sorting_algorithms.py（3種類のソートアルゴリズム実装）
+   - search_algorithms.py（2種類の探索アルゴリズム実装）
+   - optimization.py（最適化アルゴリズム）
+
+5) research_project/datasets/フォルダに以下のファイルを作成：
+   - training_data.csv（トレーニングデータ、100行以上）
+   - test_data.csv（テストデータ、30行以上）
+   - metadata.json（データセットのメタ情報）
+
+6) research_project/models/フォルダに以下のファイルを作成：
+   - linear_model.py（線形モデル実装）
+   - neural_network.py（簡単なニューラルネットワーク）
+   - evaluation.py（モデル評価スクリプト）
+
+7) analysis_results/フォルダに以下の統合ファイルを作成：
+   - consolidated_results.json（全experiment結果の統合）
+   - performance_comparison.csv（パフォーマンス比較表）
+   - visualization_data.json（可視化用データ）
+   - final_report.md（最終レポート、Markdown形式）
+
+8) validation_suite/フォルダに以下のファイルを作成：
+   - test_cases.json（テストケース定義、最低20個）
+   - unit_tests.py（ユニットテスト実装）
+   - integration_tests.py（統合テスト実装）
+   - test_results.csv（テスト結果）
+
+9) 「master_validation.py」という検証スクリプトを作成し、以下を実装：
+   - 全フォルダとファイルの存在確認
+   - 各計算結果の正確性検証
+   - ファイルフォーマットの検証
+   - 実行時間の測定
+   - エラーチェック
+   - 結果をvalidation_report.jsonとvalidation_summary.txtに出力
+
+10) 「data_generator.py」というデータ生成スクリプトを作成：
+    - CSVファイル用のダミーデータ生成
+    - JSONファイル用の構造化データ生成
+    - ランダムシードを使用して再現可能にする
+
+11) 「work_history.log」に作業記録を残してください。
+    形式: [作業者名] YYYYMMDD HH:MM:SS 作業内容
+    ※時刻は必ずdateコマンドで取得してください
+
+12) 「reflection.txt」に振り返りを記載：
+    【発生したエラー】
+    - エラーの有無と詳細（エラーがない場合は「エラーなし」と明記）
+    
+    【指示について】
+    - 不明確だった点
+    
+    【困難だった作業】
+    - 技術的に難しかった部分
+    
+    【工夫した点】
+    - 効率化や品質向上の工夫
+    
+    【改善案】
+    - プロセスやシステムの改善提案
+
+注意事項：
+- 全ての計算は正確に行うこと
+- ファイル形式を厳密に守ること
+- Pythonスクリプトは実行可能なコードにすること
+- エラーハンドリングを適切に実装すること
