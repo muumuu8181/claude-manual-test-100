@@ -1,0 +1,54 @@
+【作業指示】以下の作業を順番通りに実行してください。
+
+■ 初期設定
+1) work_history.logファイルを作成してください。
+2) dateコマンドを実行し、work_history.logに「テストAI YYYYMMDD HH:MM:SS 作業開始」と記録してください。
+   （例：テストAI 20250114 15:30:45 作業開始）
+
+■ フォルダ作成（5個）
+3) 「project」という名前のフォルダを作成してください。
+4) 「project/data」という名前のフォルダを作成してください。
+5) 「project/output」という名前のフォルダを作成してください。
+6) 「experiment_1」という名前のフォルダを作成してください。
+7) 「experiment_2」という名前のフォルダを作成してください。
+
+■ ファイル作成とリネーム
+8) 「temp.txt」というファイルを作成してください。
+9) temp.txtを「readme.txt」にリネームしてください。
+10) readme.txtに「テスト3実施中」と記入してください。
+
+11) project内に「config.txt」を作成してください。
+12) project/config.txtを「settings.ini」にリネームしてください。
+
+■ データファイル作成
+与えられた数値：x=20, y=35
+
+13) experiment_1内に「input.txt」を作成してください。
+14) experiment_1/input.txtに「x=20, y=35」と記入してください。
+15) experiment_1内に「output.txt」を作成してください。
+16) x+yを計算し（20+35=55）、experiment_1/output.txtに「55」と記入してください。
+
+17) experiment_2内に「input.txt」を作成してください。
+18) experiment_2/input.txtに「x=20, y=35」と記入してください。
+19) experiment_2内に「output.txt」を作成してください。
+20) y-xを計算し（35-20=15）、experiment_2/output.txtに「15」と記入してください。
+
+■ 結果集約
+21) project/output内に「results.csv」を作成してください。
+22) project/output/results.csvの1行目に「experiment,result」と記入してください。
+23) project/output/results.csvの2行目に「1,55」と記入してください。
+24) project/output/results.csvの3行目に「2,15」と記入してください。
+
+■ 作業記録
+25) work_history.logに「テストAI YYYYMMDD HH:MM:SS フォルダ作成完了」と追記してください。
+26) work_history.logに「テストAI YYYYMMDD HH:MM:SS データ処理完了」と追記してください。
+
+■ 振り返り
+27) 「reflection.txt」を作成してください。
+28) reflection.txtに「【エラー】エラーなし」と記入してください。
+29) reflection.txtに「【完了項目数】29/30」を追記してください。
+
+■ 最終記録
+30) dateコマンドを実行し、work_history.logに「テストAI YYYYMMDD HH:MM:SS 作業終了」と記録してください。
+
+【評価チェックポイント】全30項目

@@ -1,0 +1,39 @@
+【作業指示】以下の作業を順番通りに実行してください。
+**各作業完了時は、dateコマンドで時刻を取得し、work_history.logに「YYYYMMDD HH:MM:SS 項目名」を記録すること**
+
+■ 準備
+1) 【フォルダ作成】executionsフォルダ内の既存AI_XXXフォルダを確認し、最大番号+1のAI番号フォルダ（例:最大がAI_015なら、AI_016）を作成し、../templateフォルダの中身を全てコピーする
+2) 【作業開始】work_history.logに作業開始を記録する
+
+■ フォルダ作成
+3) 【folder_A作成】folder_Aという名前のフォルダを作成する
+4) 【folder_B作成】folder_Bという名前のフォルダを作成する
+5) 【folder_C作成】folder_Cという名前のフォルダを作成する
+
+■ ファイル作成と計算
+6) 【file_A.txt作成】folder_A内にfile_A.txtを作成する
+7) 【file_B.txt作成】folder_B内にfile_B.txtを作成する
+8) 【file_C.txt作成】folder_C内にfile_C.txtを作成する
+
+与えられた数値：x=37, y=96
+9) 【計算結果133記載】x+yを計算し、結果をfolder_A/file_A.txtに記入する
+10) 【作業終了】work_history.logに作業終了を記録する
+
+【評価チェックポイント】全13項目
+
+■ 作業完了チェック（10項目）
+1. AI番号フォルダ作成とテンプレートコピー完了
+2. 作業開始記録の実行
+3. folder_A作成完了
+4. folder_B作成完了  
+5. folder_C作成完了
+6. folder_A/file_A.txt作成完了
+7. folder_B/file_B.txt作成完了
+8. folder_C/file_C.txt作成完了
+9. file_A.txtに正確な計算結果（133）記載完了
+10. 作業終了記録の実行
+
+■ work_history.log記録チェック（3項目）
+11. 10行の時刻付き記録が存在するか
+12. 各記録が指定された項目名で正確に記載されているか
+13. README2.mdルール遵守（逐次記録、まとめ記録ではない）

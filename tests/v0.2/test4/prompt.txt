@@ -1,0 +1,81 @@
+【作業指示】以下の作業を順番通りに実行してください。
+
+■ 準備作業
+1) dateコマンドを実行して現在時刻を取得してください。
+2) work_history.logファイルを作成し、以下の形式で記録してください：
+   テストAI YYYYMMDD HH:MM:SS 作業開始
+   （例：テストAI 20250114 15:30:45 作業開始）
+
+■ フォルダ作成作業
+3) 「data_1」という名前のフォルダを作成してください。
+4) 「data_2」という名前のフォルダを作成してください。
+5) 「data_3」という名前のフォルダを作成してください。
+6) 「data_4」という名前のフォルダを作成してください。
+7) 「data_5」という名前のフォルダを作成してください。
+
+■ ファイル作成作業（各フォルダに2ファイルずつ）
+8) data_1フォルダ内に「input.txt」を作成してください。
+9) data_1フォルダ内に「output.txt」を作成してください。
+10) data_2フォルダ内に「input.txt」を作成してください。
+11) data_2フォルダ内に「output.txt」を作成してください。
+12) data_3フォルダ内に「input.txt」を作成してください。
+13) data_3フォルダ内に「output.txt」を作成してください。
+14) data_4フォルダ内に「input.txt」を作成してください。
+15) data_4フォルダ内に「output.txt」を作成してください。
+16) data_5フォルダ内に「input.txt」を作成してください。
+17) data_5フォルダ内に「output.txt」を作成してください。
+
+■ 計算とファイル記入作業
+与えられた数値：a=25, b=48
+
+18) data_1/input.txtに「a=25, b=48」と記入してください。
+19) a+bを計算し、data_1/output.txtに結果の数値のみ記入してください。
+
+20) data_2/input.txtに「a=25, b=48」と記入してください。
+21) b-aを計算し、data_2/output.txtに結果の数値のみ記入してください。
+
+22) data_3/input.txtに「a=25, b=48」と記入してください。
+23) a*2を計算し、data_3/output.txtに結果の数値のみ記入してください。
+
+24) data_4/input.txtに「a=25, b=48」と記入してください。
+25) b*2を計算し、data_4/output.txtに結果の数値のみ記入してください。
+
+26) data_5/input.txtに「a=25, b=48」と記入してください。
+27) a+b+10を計算し、data_5/output.txtに結果の数値のみ記入してください。
+
+■ 結果集約作業
+28) 「summary.csv」というファイルを作成してください。
+29) summary.csvの1行目に「folder,calculation,result」と記入してください。
+30) summary.csvの2行目に「data_1,a+b,73」と記入してください。
+31) summary.csvの3行目に「data_2,b-a,23」と記入してください。
+32) summary.csvの4行目に「data_3,a*2,50」と記入してください。
+33) summary.csvの5行目に「data_4,b*2,96」と記入してください。
+34) summary.csvの6行目に「data_5,a+b+10,83」と記入してください。
+
+■ 記録作業
+35) work_history.logに「data_1からdata_5のフォルダ作成完了」と追記してください。
+   形式：テストAI YYYYMMDD HH:MM:SS data_1からdata_5のフォルダ作成完了
+
+36) work_history.logに「全ファイルへの記入完了」と追記してください。
+   形式：テストAI YYYYMMDD HH:MM:SS 全ファイルへの記入完了
+
+37) work_history.logに「summary.csv作成完了」と追記してください。
+   形式：テストAI YYYYMMDD HH:MM:SS summary.csv作成完了
+
+■ 振り返り作業
+38) 「reflection.txt」というファイルを作成してください。
+39) reflection.txtに以下の項目を記載してください：
+    【発生したエラー】
+    エラーがあった場合は詳細を、なかった場合は「エラーなし」と記載
+
+    【作業の正確性】
+    全ての指示を完了できたか記載
+
+    【所要時間】
+    おおよその作業時間を記載
+
+■ 最終記録
+40) dateコマンドを実行し、work_history.logに作業終了を記録してください。
+    形式：テストAI YYYYMMDD HH:MM:SS 作業終了
+
+【評価チェックポイント】全40項目

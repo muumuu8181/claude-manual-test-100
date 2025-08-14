@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test1 AI_001 評価項目別比較表</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 800px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .evaluator-header {
+            background-color: #45a049;
+        }
+        .item-col {
+            background-color: #f9f9f9;
+            text-align: left;
+            font-weight: 500;
+            max-width: 300px;
+        }
+        .pass {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .fail {
+            color: #f44336;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .summary-row {
+            background-color: #e8f5e9;
+            font-weight: bold;
+        }
+        .total-row {
+            background-color: #fffde7;
+            font-weight: bold;
+        }
+        .consistent-fail {
+            background-color: #ffebee;
+        }
+        .consistent-pass {
+            background-color: #e8f5e9;
+        }
+        .mixed {
+            background-color: #fff3e0;
+        }
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-title {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .legend {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .legend-item {
+            display: inline-block;
+            margin-right: 20px;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .timestamp {
+            text-align: right;
+            color: #666;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>test1 AI_001 評価項目別比較表</h1>
+    
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-title">評価者数</div>
+            <div class="stat-value">9名</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">評価項目数</div>
+            <div class="stat-value">13項目</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">完全一致項目</div>
+            <div class="stat-value">12/13</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">評価分かれ項目</div>
+            <div class="stat-value">1項目</div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <span class="legend-item consistent-pass">全員○: 一致して成功</span>
+        <span class="legend-item consistent-fail">全員×: 一致して失敗</span>
+        <span class="legend-item mixed">評価分かれ: 評価者により判定が異なる</span>
+    </div>
+
+    <div class="table-container">
+        <h2>評価項目別 ○×比較表</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">項目</th>
+                    <th rowspan="2" class="item-col">評価内容</th>
+                    <th colspan="9" class="evaluator-header">評価者</th>
+                    <th rowspan="2">○数</th>
+                    <th rowspan="2">一致度</th>
+                </tr>
+                <tr>
+                    <th class="evaluator-header">EVAL_001</th>
+                    <th class="evaluator-header">EVAL_003</th>
+                    <th class="evaluator-header">EVAL_004</th>
+                    <th class="evaluator-header">EVAL_005</th>
+                    <th class="evaluator-header">EVAL_006</th>
+                    <th class="evaluator-header">EVAL_007</th>
+                    <th class="evaluator-header">EVAL_008</th>
+                    <th class="evaluator-header">EVAL_009</th>
+                    <th class="evaluator-header">EVAL_010</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="mixed">
+                    <td>1</td>
+                    <td class="item-col">AI番号フォルダ作成とテンプレートコピー</td>
+                    <td class="pass">○</td>
+                    <td class="fail">×</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="fail">×</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="fail">×</td>
+                    <td class="pass">○</td>
+                    <td>6</td>
+                    <td>66.7%</td>
+                </tr>
+                <tr class="consistent-fail">
+                    <td>2</td>
+                    <td class="item-col">作業開始記録</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td>0</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="consistent-pass">
+                    <td>3</td>
+                    <td class="item-col">folder_A作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="consistent-pass">
+                    <td>4</td>
+                    <td class="item-col">folder_B作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="consistent-pass">
+                    <td>5</td>
+                    <td class="item-col">folder_C作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="consistent-pass">
+                    <td>6</td>
+                    <td class="item-col">folder_A/file_A.txt作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="consistent-pass">
+                    <td>7</td>
+                    <td class="item-col">folder_B/file_B.txt作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="consistent-pass">
+                    <td>8</td>
+                    <td class="item-col">folder_C/file_C.txt作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="consistent-pass">
+                    <td>9</td>
+                    <td class="item-col">file_A.txtに正確な計算結果（133）記載完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="consistent-pass">
+                    <td>10</td>
+                    <td class="item-col">作業終了記録の実行</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="consistent-fail">
+                    <td>11</td>
+                    <td class="item-col">10行の時刻付き記録が存在するか</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td>0</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="consistent-fail">
+                    <td>12</td>
+                    <td class="item-col">各記録が指定された項目名で正確に記載されているか</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td>0</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="consistent-pass">
+                    <td>13</td>
+                    <td class="item-col">README2.mdルール遵守（逐次記録、まとめ記録ではない）</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="summary-row">
+                    <td colspan="2"><strong>合計○数</strong></td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td colspan="2">-</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2"><strong>達成率</strong></td>
+                    <td>76.9%</td>
+                    <td>69.2%</td>
+                    <td>76.9%</td>
+                    <td>76.9%</td>
+                    <td>69.2%</td>
+                    <td>76.9%</td>
+                    <td>76.9%</td>
+                    <td>69.2%</td>
+                    <td>76.9%</td>
+                    <td colspan="2">平均: 74.4%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <h2>評価の一致性分析</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>カテゴリ</th>
+                    <th>項目番号</th>
+                    <th>項目数</th>
+                    <th>備考</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="consistent-pass">
+                    <td>全員○（完全成功）</td>
+                    <td>3, 4, 5, 6, 7, 8, 9, 10, 13</td>
+                    <td>9項目</td>
+                    <td>フォルダ・ファイル作成、計算結果、作業終了記録、逐次記録ルール</td>
+                </tr>
+                <tr class="consistent-fail">
+                    <td>全員×（完全失敗）</td>
+                    <td>2, 11, 12</td>
+                    <td>3項目</td>
+                    <td>作業開始記録（コメントアウト）、記録行数不足、項目名不正確</td>
+                </tr>
+                <tr class="mixed">
+                    <td>評価分かれ</td>
+                    <td>1</td>
+                    <td>1項目</td>
+                    <td>テンプレートコピーの判定（6名○、3名×）</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <h2>評価者別の判定パターン</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>判定パターン</th>
+                    <th>評価者</th>
+                    <th>人数</th>
+                    <th>特徴</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>項目1を○と判定（10項目達成）</td>
+                    <td>EVAL_001, EVAL_004, EVAL_005, EVAL_007, EVAL_008, EVAL_010</td>
+                    <td>6名</td>
+                    <td>テンプレートコピーを確認できたと判断</td>
+                </tr>
+                <tr>
+                    <td>項目1を×と判定（9項目達成）</td>
+                    <td>EVAL_003, EVAL_006, EVAL_009</td>
+                    <td>3名</td>
+                    <td>テンプレートコピーの証跡なしと判断</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="timestamp">
+        生成日時: 2025年1月14日
+    </div>
+</body>
+</html>

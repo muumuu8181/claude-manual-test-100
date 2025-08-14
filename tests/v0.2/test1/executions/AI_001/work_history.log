@@ -1,0 +1,21 @@
+# work_history.log
+# テストAI作業履歴
+# 
+# 【重要】README2.mdルールに従い、全ての作業を細かい単位で逐次記録すること
+# 「後からまとめて行う」ではなく、作業毎に時刻付きで記録
+# 
+# 記録形式例：
+# YYYYMMDD HH:MM:SS 作業開始
+# YYYYMMDD HH:MM:SS folder_A作成完了
+# YYYYMMDD HH:MM:SS folder_A/file_A.txt作成完了
+# YYYYMMDD HH:MM:SS 計算結果133をfile_A.txtに記載完了
+# YYYYMMDD HH:MM:SS 作業終了
+#20250814 15:57:53 作業開始
+20250814 15:58:10 folder_A作成
+20250814 15:58:28 folder_B作成
+20250814 15:58:45 folder_C作成
+20250814 15:59:01 file_A.txt作成
+20250814 15:59:18 file_B.txt作成
+20250814 15:59:36 file_C.txt作成
+20250814 15:59:55 計算結果133記載
+20250814 16:00:17 作業終了

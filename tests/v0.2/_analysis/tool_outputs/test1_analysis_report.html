@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test1 評価結果集計レポート（実際の○×カウント）</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #2196F3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .warning-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 800px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #2196F3;
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+        }
+        .evaluator-header {
+            background-color: #1976D2;
+        }
+        .item-col {
+            text-align: left;
+            background-color: #f9f9f9;
+            font-weight: 500;
+        }
+        .pass {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .fail {
+            color: #f44336;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .summary-row {
+            background-color: #e3f2fd;
+            font-weight: bold;
+        }
+        .discrepancy {
+            background-color: #ffebee;
+            color: #c62828;
+            font-weight: bold;
+        }
+        .correct {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .timestamp {
+            text-align: right;
+            color: #666;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>test1 評価結果集計レポート（実際の○×カウント）</h1>
+    
+    <div class="warning-box">
+        <strong>⚠️ 注意:</strong> このレポートは評価レポート内の実際の○×を直接カウントしています。
+        評価者自身が報告した集計値とは異なる場合があります（集計ミスの可能性）。
+    </div>
+
+    <div class="table-container">
+        <h2>評価項目別 ○×比較表（実際のカウント）</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>項目</th>
+                    <th class="item-col">評価内容</th>
+                    <th class="evaluator-header">EVAL_001</th>
+                    <th class="evaluator-header">EVAL_003</th>
+                    <th class="evaluator-header">EVAL_004</th>
+                    <th class="evaluator-header">EVAL_005</th>
+                    <th class="evaluator-header">EVAL_006</th>
+                    <th class="evaluator-header">EVAL_007</th>
+                    <th class="evaluator-header">EVAL_008</th>
+                    <th class="evaluator-header">EVAL_009</th>
+                    <th class="evaluator-header">EVAL_010</th>
+                    <th>○数</th>
+                    <th>一致度</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="item-col">AI番号フォルダ作成とテンプレートコピー</td>
+                    <td class="pass">○</td>
+                    <td class="fail">×</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="fail">×</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="fail">×</td>
+                    <td class="pass">○</td>
+                    <td>6</td>
+                    <td>66.7%</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="item-col">作業開始記録</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td>0</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="item-col">folder_A作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="item-col">folder_B作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="item-col">folder_C作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="item-col">folder_A/file_A.txt作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="item-col">folder_B/file_B.txt作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="item-col">folder_C/file_C.txt作成完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="item-col">file_A.txtに正確な計算結果（133）記載完了</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="item-col">作業終了記録の実行</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td class="item-col">10行の時刻付き記録が存在するか</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td>0</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td class="item-col">各記録が指定された項目名で正確に記載されているか</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td class="fail">×</td>
+                    <td>0</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td class="item-col">README2.mdルール遵守（逐次記録、まとめ記録ではない）</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td class="pass">○</td>
+                    <td>9</td>
+                    <td>100%</td>
+                </tr>
+                <tr class="summary-row">
+                    <td colspan="2"><strong>実際の○数</strong></td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td colspan="2">-</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong>報告された○数</strong></td>
+                    <td class="discrepancy">9 ⚠️</td>
+                    <td class="correct">9 ✓</td>
+                    <td class="discrepancy">9 ⚠️</td>
+                    <td class="discrepancy">9 ⚠️</td>
+                    <td class="correct">9 ✓</td>
+                    <td class="discrepancy">9 ⚠️</td>
+                    <td class="discrepancy">9 ⚠️</td>
+                    <td class="correct">9 ✓</td>
+                    <td class="correct">10 ✓</td>
+                    <td colspan="2">-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <h2>集計ミスの検出</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>評価者</th>
+                    <th>実際の○数</th>
+                    <th>報告された○数</th>
+                    <th>差分</th>
+                    <th>備考</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>EVAL_001</td>
+                    <td class="correct">10</td>
+                    <td class="discrepancy">9</td>
+                    <td>+1</td>
+                    <td>過小報告</td>
+                </tr>
+                <tr>
+                    <td>EVAL_004</td>
+                    <td class="correct">10</td>
+                    <td class="discrepancy">9</td>
+                    <td>+1</td>
+                    <td>過小報告</td>
+                </tr>
+                <tr>
+                    <td>EVAL_005</td>
+                    <td class="correct">10</td>
+                    <td class="discrepancy">9</td>
+                    <td>+1</td>
+                    <td>過小報告</td>
+                </tr>
+                <tr>
+                    <td>EVAL_007</td>
+                    <td class="correct">10</td>
+                    <td class="discrepancy">9</td>
+                    <td>+1</td>
+                    <td>過小報告</td>
+                </tr>
+                <tr>
+                    <td>EVAL_008</td>
+                    <td class="correct">10</td>
+                    <td class="discrepancy">9</td>
+                    <td>+1</td>
+                    <td>過小報告</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="timestamp">
+        生成日時: 2025年08月14日 19:41:02
+    </div>
+</body>
+</html>

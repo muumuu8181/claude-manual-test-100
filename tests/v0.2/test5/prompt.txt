@@ -1,0 +1,96 @@
+【作業指示】以下の作業を必ず順番通りに実行してください。各作業は独立しており、一つずつ確実に完了させてください。
+
+■ 初期設定
+1) dateコマンドを実行して現在時刻を取得してください。
+2) work_history.logファイルを作成してください。
+3) work_history.logに「テストAI YYYYMMDD HH:MM:SS 作業開始」と記録してください。
+   （例：テストAI 20250114 15:30:45 作業開始）
+
+■ 第1段階：基本フォルダ作成（8個）
+4) 「project」という名前のフォルダを作成してください。
+5) 「project/src」という名前のフォルダを作成してください。
+6) 「project/docs」という名前のフォルダを作成してください。
+7) 「project/tests」という名前のフォルダを作成してください。
+8) 「experiment_A」という名前のフォルダを作成してください。
+9) 「experiment_B」という名前のフォルダを作成してください。
+10) 「experiment_C」という名前のフォルダを作成してください。
+11) 「results」という名前のフォルダを作成してください。
+
+■ 第2段階：ファイル作成とリネーム
+12) 「temp_file.txt」というファイルを作成してください。
+13) temp_file.txtを「readme.txt」にリネームしてください。
+14) readme.txtに「プロジェクト開始」と記入してください。
+15) readme.txtを「README.md」にリネームしてください。
+
+16) project/src内に「main.txt」を作成してください。
+17) project/src/main.txtを「main.py」にリネームしてください。
+18) project/docs内に「guide.txt」を作成してください。
+19) project/docs/guide.txtを「user_guide.md」にリネームしてください。
+20) project/tests内に「test.txt」を作成してください。
+21) project/tests/test.txtを「test_main.py」にリネームしてください。
+
+■ 第3段階：実験データの準備
+与えられた数値：x=15, y=32, z=7
+
+22) experiment_A内に「config.txt」を作成してください。
+23) experiment_A/config.txtに「x=15」と記入してください。
+24) experiment_A内に「data.txt」を作成してください。
+25) x+yを計算し（15+32=47）、experiment_A/data.txtに「47」と記入してください。
+
+26) experiment_B内に「config.txt」を作成してください。
+27) experiment_B/config.txtに「y=32」と記入してください。
+28) experiment_B内に「data.txt」を作成してください。
+29) y-zを計算し（32-7=25）、experiment_B/data.txtに「25」と記入してください。
+
+30) experiment_C内に「config.txt」を作成してください。
+31) experiment_C/config.txtに「z=7」と記入してください。
+32) experiment_C内に「data.txt」を作成してください。
+33) z*3を計算し（7*3=21）、experiment_C/data.txtに「21」と記入してください。
+
+■ 第4段階：作業記録の中間更新
+34) work_history.logに「テストAI YYYYMMDD HH:MM:SS フォルダ構造作成完了」と追記してください。
+35) work_history.logに「テストAI YYYYMMDD HH:MM:SS 実験データ準備完了」と追記してください。
+
+■ 第5段階：結果の集約
+36) results内に「all_data.csv」を作成してください。
+37) results/all_data.csvの1行目に「experiment,value」と記入してください。
+38) results/all_data.csvの2行目に「A,47」と記入してください。
+39) results/all_data.csvの3行目に「B,25」と記入してください。
+40) results/all_data.csvの4行目に「C,21」と記入してください。
+
+41) results内に「summary.json」を作成してください。
+42) results/summary.jsonに以下を記入してください（1行で）：
+    {"experiments":3,"total_files":15,"status":"completed"}
+
+■ 第6段階：検証スクリプトの作成
+43) 「check.py」というファイルを作成してください。
+44) check.pyに以下を記入してください（各行を別々に）：
+    # 検証スクリプト
+    print("Checking files...")
+    print("All checks passed")
+
+■ 第7段階：最終確認と記録
+45) 「file_list.txt」を作成してください。
+46) file_list.txtに作成した全てのファイル名を1行ずつ記載してください（最低10個以上）。
+
+47) reflection.txtを作成してください。
+48) reflection.txtに以下の形式で記載してください：
+    【発生したエラー】
+    （エラーの詳細、なければ「エラーなし」）
+    
+    【完了した作業数】
+    （完了できた作業の数を記載）
+    
+    【作業時間】
+    （おおよその所要時間）
+
+■ 最終作業
+49) dateコマンドを実行して現在時刻を取得してください。
+50) work_history.logに「テストAI YYYYMMDD HH:MM:SS 作業終了」と追記してください。
+
+【評価チェックポイント】全50項目
+【注意】
+- 各ステップは独立しています。前のステップが失敗しても次に進んでください。
+- ファイル名、フォルダ名は指示通り正確に作成してください。
+- 計算結果は数値のみを記入してください（単位や説明は不要）。
+- work_history.logへの記録では必ずdateコマンドで時刻を取得してください。
