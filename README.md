@@ -7,11 +7,89 @@ AIテスト受験者の作業を評価するための自動評価システムで
 
 手動でAIの能力を検証するプロジェクト。
 
+## 👥 役割定義（Role Definitions）- ダブルチェック方式
+
+### 🎯 新体制：PM + Checkers
+
+このプロジェクトは**ダブルチェック方式**を採用しています：
+1. **Project Manager (PM)** がタスク全体を実行
+2. **Specialist Checkers** が専門視点でチェック
+
+---
+
+## 第1層：実行役
+
+### Project Manager（プロジェクトマネージャー）
+**複雑なタスクや複数領域にまたがる作業を依頼されたら、あなたはPMです**
+- 責任: タスク全体を引き受けて完遂
+- 特徴: 複数の専門領域をカバー
+- 最後に必ず: 「次は○○ Checkerでチェックしてください」と明記
+
+### Test Taker（テスト受験者）
+**「テストを実施してください」と言われたら、あなたはこの役割です**
+- 作業場所: `tests/v0.2/test*/executions/`
+- 成果物: work_history.log、指定されたフォルダ・ファイル
+
+### Test Evaluator（テスト評価者）
+**「テスト結果を評価してください」と言われたら、あなたはこの役割です**
+- 作業場所: `tests/v0.2/test*/evaluations/`
+- 成果物: evaluation_report_AI_XXX.md
+
+---
+
+## 第2層：チェック役（Specialist Checkers）
+
+### Platform Checker
+**「フォルダ構成をチェックして」と言われたら、この役割です**
+- チェック内容: フォルダ構造、命名規則、配置の妥当性
+- 判定: 構造的に問題ないか
+
+### Document Checker
+**「ドキュメントをチェックして」と言われたら、この役割です**
+- チェック内容: 文書品質、わかりやすさ、既存形式との整合性
+- 判定: 読み手にとって適切か
+
+### Quality Checker
+**「品質をチェックして」と言われたら、この役割です**
+- チェック内容: 既存ルールとの整合性、一貫性
+- 判定: プロジェクト全体として問題ないか
+
+### Test Checker
+**「動作をチェックして」と言われたら、この役割です**
+- チェック内容: 実際に動くか、期待通りの結果か
+- 判定: 機能的に問題ないか
+
+---
+
+## 🔄 運用フロー
+
+1. **ユーザー** → PM: 「○○を作って」
+2. **PM**: 作業実行 → 「完了しました。次は△△ Checkerでチェックしてください」
+3. **ユーザー** → Checker: PMの指示をコピペ
+4. **Checker**: チェック → 「問題あり/なし」
+5. 問題あれば PM が修正
+
+---
+
+## 📝 PMの心得
+
+作業完了時は必ず以下を明記：
+```
+【次のステップ】
+○○ Checkerに以下の指示を出してください：
+「[具体的なチェック指示]」
+```
+
 ## システム構成
 
 ```
 claude-manual-test-100/
 ├── README.md              # このファイル (v0.1)
+├── SUPREME_RULE.md        # 最上位ルール（全AI必読）
+├── COMMON_RULES.md        # 全AI共通ルール
+├── PM_MANUAL.md           # PM専用マニュアル
+├── CHECKER_MANUAL.md      # Checker専用マニュアル
+├── PROJECT_ISSUES.md      # 課題・要望管理リスト
 ├── evaluator-manual/      # 評価者用マニュアル
 │   ├── README.md         # メインマニュアル
 │   ├── evaluation_checklist.md
@@ -28,6 +106,27 @@ claude-manual-test-100/
 ├── evaluation-tools/     # 客観的評価ツール
 │   ├── objective_difficulty_calculator.py # 難易度自動計算ツール
 │   └── objective_difficulty_results.json  # 計算結果
+├── ai-communications/    # AI間連絡記録
+│   ├── active/          # 進行中の連絡
+│   └── completed/       # 完了済み連絡
+├── user-prompt-logs/     # ユーザープロンプト記録
+│   ├── daily/           # 日別記録
+│   └── by-role/         # 役割別記録
+├── pm-workspace/         # PM専用作業エリア
+│   ├── analysis/        # 分析・感想
+│   ├── verification/    # 検証用
+│   ├── rules/           # ルール明確化
+│   ├── contingency/     # 想定外対応
+│   └── work-history/    # PM作業履歴
+├── discussions/          # プロジェクト議論記録
+├── test-design-improvement/ # テスト設計改善プロジェクト
+│   ├── AI-1/           # AI-1による設計案
+│   ├── AI-2/           # AI-2による設計案
+│   ├── AI-3/           # AI-3による設計案
+│   ├── AI-4/           # AI-4による設計案
+│   └── cross_feedback/ # 相互フィードバック
+├── USER_PROMPTS/         # ユーザー用プロンプト集
+│   └── ALL_PROMPTS.md   # 全プロンプト統合版
 └── tests/               # テストケース
     ├── test1/
     ├── test2/
